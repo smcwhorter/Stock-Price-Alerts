@@ -10,6 +10,8 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		980782A816B8C94800933B40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980782A716B8C94800933B40 /* QuartzCore.framework */; };
+		980782B116B8D2A600933B40 /* StockEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 980782AF16B8D2A600933B40 /* StockEditViewController.m */; };
+		980782B216B8D2A600933B40 /* StockEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980782B016B8D2A600933B40 /* StockEditViewController.xib */; };
 		9898887316B7762A004688D2 /* EDSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898887216B7762A004688D2 /* EDSideBar.m */; };
 		9898887716B7763F004688D2 /* BlackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898887616B7763F004688D2 /* BlackCell.m */; };
 		9898887D16B77669004688D2 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887916B77669004688D2 /* blue.png */; };
@@ -38,6 +40,9 @@
 		55B9AC9E11EA384C00416532 /* PXListViewDropHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXListViewDropHighlight.h; path = Classes/PXListViewDropHighlight.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* StockPriceAlerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockPriceAlerts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		980782A716B8C94800933B40 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		980782AE16B8D2A600933B40 /* StockEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockEditViewController.h; sourceTree = "<group>"; };
+		980782AF16B8D2A600933B40 /* StockEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockEditViewController.m; sourceTree = "<group>"; };
+		980782B016B8D2A600933B40 /* StockEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockEditViewController.xib; sourceTree = "<group>"; };
 		9898887116B77629004688D2 /* EDSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSideBar.h; sourceTree = "<group>"; };
 		9898887216B7762A004688D2 /* EDSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSideBar.m; sourceTree = "<group>"; };
 		9898887516B7763F004688D2 /* BlackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackCell.h; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		29B97314FDCFA39411CA2CEA /* PXListView */ = {
 			isa = PBXGroup;
 			children = (
+				980782AD16B8D20D00933B40 /* ViewControllers */,
 				9898888416B77A1C004688D2 /* Custom Controls */,
 				D25DDA7B133F569B0086783B /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Supporting Files */,
@@ -141,14 +147,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9898887816B7764F004688D2 /* Resources */ = {
+		980782AC16B8CB2700933B40 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D26669D011B1B302007597F1 /* MainMenu.xib */,
 				9898887916B77669004688D2 /* blue.png */,
 				9898887A16B77669004688D2 /* icon1-blue.png */,
 				9898887B16B77669004688D2 /* icon1-gray.png */,
 				9898887C16B77669004688D2 /* icon1-white.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		980782AD16B8D20D00933B40 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
+				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9898887816B7764F004688D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				980782AC16B8CB2700933B40 /* images */,
+				D26669D011B1B302007597F1 /* MainMenu.xib */,
+				980782B016B8D2A600933B40 /* StockEditViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -284,6 +308,7 @@
 				9898887E16B77669004688D2 /* icon1-blue.png in Resources */,
 				9898887F16B77669004688D2 /* icon1-gray.png in Resources */,
 				9898888016B77669004688D2 /* icon1-white.png in Resources */,
+				980782B216B8D2A600933B40 /* StockEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +328,7 @@
 				D25DDA7F133F58A20086783B /* PXListView+UserInteraction.m in Sources */,
 				9898887316B7762A004688D2 /* EDSideBar.m in Sources */,
 				9898887716B7763F004688D2 /* BlackCell.m in Sources */,
+				980782B116B8D2A600933B40 /* StockEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

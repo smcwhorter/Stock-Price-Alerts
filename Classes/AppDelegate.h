@@ -10,13 +10,16 @@
 
 #import "PXListView.h"
 #import "EDSideBar.h"
+#import "StockEditViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, PXListViewDelegate, PXListViewDelegate>
 {
+    IBOutlet NSView *mainContainerView;
     IBOutlet NSWindow *window;
 	IBOutlet PXListView	*listView;
 	IBOutlet EDSideBar *sideBarDefault;
 	NSMutableArray *_listItems;
+    StockEditViewController *stockEditViewController;
 }
 
 - (IBAction)reloadTable:(id)sender;

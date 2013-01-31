@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BlackCell.h"
 #import "MyListViewCell.h"
+#import "StockEditViewController.h"
 
 
 #pragma mark Constants
@@ -90,7 +91,7 @@
 	[super dealloc];
 }
 
-#pragma mark -
+
 #pragma mark List View Delegate Methods
 
 - (NSUInteger)numberOfRowsInListView: (PXListView*)aListView
@@ -140,15 +141,31 @@
 	return NSDragOperationCopy;
 }
 
+
 - (IBAction) reloadTable:(id)sender
 {
 	[listView reloadData];
 }
 
+
 -(void)sideBar:(EDSideBar*)tabBar didSelectButton:(NSInteger)button
 {
 	//NSString *str = [NSString stringWithFormat:@"Selected button"];
 	NSLog(@"Button selected: %lu", button );
+    if(button ==1 )
+    {
+        if(stockEditViewController == nil)
+        {
+            stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
+            NSView *view = [stockEditViewController view];
+            
+            
+            [listView addSubview:view];
+        }
+       
+        
+
+    }
 }
 
 @end
