@@ -18,6 +18,8 @@
 		9898887E16B77669004688D2 /* icon1-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887A16B77669004688D2 /* icon1-blue.png */; };
 		9898887F16B77669004688D2 /* icon1-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887B16B77669004688D2 /* icon1-gray.png */; };
 		9898888016B77669004688D2 /* icon1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887C16B77669004688D2 /* icon1-white.png */; };
+		98D7F1EE16BA0C1400116B44 /* StockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F1EC16BA0C1400116B44 /* StockListViewController.m */; };
+		98D7F1EF16BA0C1400116B44 /* StockListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */; };
 		D25DDA7F133F58A20086783B /* PXListView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D25DDA7E133F58A10086783B /* PXListView+UserInteraction.m */; };
 		D26669CB11B1B2F1007597F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D26669CA11B1B2F1007597F1 /* AppDelegate.m */; };
 		D26669D211B1B302007597F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D26669CE11B1B302007597F1 /* InfoPlist.strings */; };
@@ -51,6 +53,9 @@
 		9898887A16B77669004688D2 /* icon1-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-blue.png"; sourceTree = "<group>"; };
 		9898887B16B77669004688D2 /* icon1-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-gray.png"; sourceTree = "<group>"; };
 		9898887C16B77669004688D2 /* icon1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-white.png"; sourceTree = "<group>"; };
+		98D7F1EB16BA0C1400116B44 /* StockListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockListViewController.h; sourceTree = "<group>"; };
+		98D7F1EC16BA0C1400116B44 /* StockListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockListViewController.m; sourceTree = "<group>"; };
+		98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockListViewController.xib; sourceTree = "<group>"; };
 		D25DDA7D133F58A10086783B /* PXListView+UserInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXListView+UserInteraction.h"; path = "Classes/PXListView+UserInteraction.h"; sourceTree = "<group>"; };
 		D25DDA7E133F58A10086783B /* PXListView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PXListView+UserInteraction.m"; path = "Classes/PXListView+UserInteraction.m"; sourceTree = "<group>"; };
 		D26669C911B1B2F1007597F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
@@ -161,6 +166,8 @@
 		980782AD16B8D20D00933B40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
+				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
 				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
 				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
 			);
@@ -172,6 +179,7 @@
 			children = (
 				980782AC16B8CB2700933B40 /* images */,
 				D26669D011B1B302007597F1 /* MainMenu.xib */,
+				98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */,
 				980782B016B8D2A600933B40 /* StockEditViewController.xib */,
 			);
 			name = Resources;
@@ -309,6 +317,7 @@
 				9898887F16B77669004688D2 /* icon1-gray.png in Resources */,
 				9898888016B77669004688D2 /* icon1-white.png in Resources */,
 				980782B216B8D2A600933B40 /* StockEditViewController.xib in Resources */,
+				98D7F1EF16BA0C1400116B44 /* StockListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +338,7 @@
 				9898887316B7762A004688D2 /* EDSideBar.m in Sources */,
 				9898887716B7763F004688D2 /* BlackCell.m in Sources */,
 				980782B116B8D2A600933B40 /* StockEditViewController.m in Sources */,
+				98D7F1EE16BA0C1400116B44 /* StockListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
