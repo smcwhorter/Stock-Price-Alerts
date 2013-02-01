@@ -20,16 +20,21 @@
 		9898888016B77669004688D2 /* icon1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887C16B77669004688D2 /* icon1-white.png */; };
 		98D7F1EE16BA0C1400116B44 /* StockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F1EC16BA0C1400116B44 /* StockListViewController.m */; };
 		98D7F1EF16BA0C1400116B44 /* StockListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */; };
-		D25DDA7F133F58A20086783B /* PXListView+UserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D25DDA7E133F58A10086783B /* PXListView+UserInteraction.m */; };
+		98D7F1F416BA1BEF00116B44 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */; };
+		98D7F1F516BA1BEF00116B44 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F1F316BA1BEF00116B44 /* SettingsViewController.xib */; };
+		98D7F20E16BB44B300116B44 /* JAListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F20416BB44B300116B44 /* JAListView.m */; };
+		98D7F20F16BB44B300116B44 /* JASectionedListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F20716BB44B300116B44 /* JASectionedListView.m */; };
+		98D7F21016BB44B300116B44 /* JAObjectListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F20916BB44B300116B44 /* JAObjectListView.m */; };
+		98D7F21116BB44B300116B44 /* JAListViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F20B16BB44B300116B44 /* JAListViewItem.m */; };
+		98D7F21216BB44B300116B44 /* NSIndexPath+JAListViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F20D16BB44B300116B44 /* NSIndexPath+JAListViewExtensions.m */; };
+		98D7F21916BB44D700116B44 /* DemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F21416BB44D700116B44 /* DemoView.m */; };
+		98D7F21A16BB44D700116B44 /* DemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F21516BB44D700116B44 /* DemoView.xib */; };
+		98D7F21B16BB44D700116B44 /* DemoSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F21716BB44D700116B44 /* DemoSectionView.m */; };
+		98D7F21C16BB44D700116B44 /* DemoSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F21816BB44D700116B44 /* DemoSectionView.xib */; };
+		98D7F21F16BB45BC00116B44 /* JAObjectListViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F21E16BB45BC00116B44 /* JAObjectListViewItem.m */; };
 		D26669CB11B1B2F1007597F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D26669CA11B1B2F1007597F1 /* AppDelegate.m */; };
 		D26669D211B1B302007597F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D26669CE11B1B302007597F1 /* InfoPlist.strings */; };
 		D26669D311B1B302007597F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26669D011B1B302007597F1 /* MainMenu.xib */; };
-		D27858D211B1B5EA00F1CF30 /* PXListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D27858D111B1B5EA00F1CF30 /* PXListView.m */; };
-		D27858D511B1B5FC00F1CF30 /* PXListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D27858D411B1B5FC00F1CF30 /* PXListViewCell.m */; };
-		D278592411B1BA6C00F1CF30 /* PXListDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D278592311B1BA6C00F1CF30 /* PXListDocumentView.m */; };
-		D278597011B1BBE800F1CF30 /* MyListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D278596F11B1BBE800F1CF30 /* MyListViewCell.m */; };
-		D279A64411B4E95600771B2A /* PXListView+Private.h in Resources */ = {isa = PBXBuildFile; fileRef = D279A64311B4E95600771B2A /* PXListView+Private.h */; };
-		D2BED6C01320E08D00E1D0D3 /* MyListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2BED6BF1320E08D00E1D0D3 /* MyListViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +44,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		55B9AC9E11EA384C00416532 /* PXListViewDropHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXListViewDropHighlight.h; path = Classes/PXListViewDropHighlight.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* StockPriceAlerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockPriceAlerts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		980782A716B8C94800933B40 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		980782AE16B8D2A600933B40 /* StockEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockEditViewController.h; sourceTree = "<group>"; };
@@ -56,26 +60,33 @@
 		98D7F1EB16BA0C1400116B44 /* StockListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockListViewController.h; sourceTree = "<group>"; };
 		98D7F1EC16BA0C1400116B44 /* StockListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockListViewController.m; sourceTree = "<group>"; };
 		98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockListViewController.xib; sourceTree = "<group>"; };
-		D25DDA7D133F58A10086783B /* PXListView+UserInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXListView+UserInteraction.h"; path = "Classes/PXListView+UserInteraction.h"; sourceTree = "<group>"; };
-		D25DDA7E133F58A10086783B /* PXListView+UserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PXListView+UserInteraction.m"; path = "Classes/PXListView+UserInteraction.m"; sourceTree = "<group>"; };
+		98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		98D7F1F316BA1BEF00116B44 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		98D7F20316BB44B300116B44 /* JAListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAListView.h; sourceTree = "<group>"; };
+		98D7F20416BB44B300116B44 /* JAListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAListView.m; sourceTree = "<group>"; };
+		98D7F20516BB44B300116B44 /* JAEdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAEdgeInsets.h; sourceTree = "<group>"; };
+		98D7F20616BB44B300116B44 /* JASectionedListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASectionedListView.h; sourceTree = "<group>"; };
+		98D7F20716BB44B300116B44 /* JASectionedListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASectionedListView.m; sourceTree = "<group>"; };
+		98D7F20816BB44B300116B44 /* JAObjectListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAObjectListView.h; sourceTree = "<group>"; };
+		98D7F20916BB44B300116B44 /* JAObjectListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAObjectListView.m; sourceTree = "<group>"; };
+		98D7F20A16BB44B300116B44 /* JAListViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAListViewItem.h; sourceTree = "<group>"; };
+		98D7F20B16BB44B300116B44 /* JAListViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAListViewItem.m; sourceTree = "<group>"; };
+		98D7F20C16BB44B300116B44 /* NSIndexPath+JAListViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+JAListViewExtensions.h"; sourceTree = "<group>"; };
+		98D7F20D16BB44B300116B44 /* NSIndexPath+JAListViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+JAListViewExtensions.m"; sourceTree = "<group>"; };
+		98D7F21316BB44D700116B44 /* DemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoView.h; sourceTree = "<group>"; };
+		98D7F21416BB44D700116B44 /* DemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoView.m; sourceTree = "<group>"; };
+		98D7F21516BB44D700116B44 /* DemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoView.xib; sourceTree = "<group>"; };
+		98D7F21616BB44D700116B44 /* DemoSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSectionView.h; sourceTree = "<group>"; };
+		98D7F21716BB44D700116B44 /* DemoSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSectionView.m; sourceTree = "<group>"; };
+		98D7F21816BB44D700116B44 /* DemoSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoSectionView.xib; sourceTree = "<group>"; };
+		98D7F21D16BB45BC00116B44 /* JAObjectListViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAObjectListViewItem.h; sourceTree = "<group>"; };
+		98D7F21E16BB45BC00116B44 /* JAObjectListViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAObjectListViewItem.m; sourceTree = "<group>"; };
 		D26669C911B1B2F1007597F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		D26669CA11B1B2F1007597F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		D26669CC11B1B2F8007597F1 /* StockPriceAlerts-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "StockPriceAlerts-Info.plist"; path = "Resources/StockPriceAlerts-Info.plist"; sourceTree = "<group>"; };
 		D26669CF11B1B302007597F1 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D26669D111B1B302007597F1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D27858D011B1B5EA00F1CF30 /* PXListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXListView.h; path = Classes/PXListView.h; sourceTree = "<group>"; };
-		D27858D111B1B5EA00F1CF30 /* PXListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXListView.m; path = Classes/PXListView.m; sourceTree = "<group>"; };
-		D27858D311B1B5FC00F1CF30 /* PXListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXListViewCell.h; path = Classes/PXListViewCell.h; sourceTree = "<group>"; };
-		D27858D411B1B5FC00F1CF30 /* PXListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXListViewCell.m; path = Classes/PXListViewCell.m; sourceTree = "<group>"; };
-		D27858D711B1B6D400F1CF30 /* PXListViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXListViewDelegate.h; path = Classes/PXListViewDelegate.h; sourceTree = "<group>"; };
-		D278592211B1BA6C00F1CF30 /* PXListDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXListDocumentView.h; path = Classes/PXListDocumentView.h; sourceTree = "<group>"; };
-		D278592311B1BA6C00F1CF30 /* PXListDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXListDocumentView.m; path = Classes/PXListDocumentView.m; sourceTree = "<group>"; };
-		D278596E11B1BBE800F1CF30 /* MyListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyListViewCell.h; path = Classes/MyListViewCell.h; sourceTree = "<group>"; };
-		D278596F11B1BBE800F1CF30 /* MyListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyListViewCell.m; path = Classes/MyListViewCell.m; sourceTree = "<group>"; };
-		D279A64311B4E95600771B2A /* PXListView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXListView+Private.h"; path = "Classes/PXListView+Private.h"; sourceTree = "<group>"; };
-		D279A65E11B4EB1200771B2A /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; wrapsLines = 1; };
-		D279A6DD11B4EFCD00771B2A /* PXListViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PXListViewCell+Private.h"; path = "Classes/PXListViewCell+Private.h"; sourceTree = "<group>"; };
-		D2BED6BF1320E08D00E1D0D3 /* MyListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyListViewCell.xib; path = Resources/MyListViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +132,8 @@
 		29B97314FDCFA39411CA2CEA /* PXListView */ = {
 			isa = PBXGroup;
 			children = (
-				980782AD16B8D20D00933B40 /* ViewControllers */,
 				9898888416B77A1C004688D2 /* Custom Controls */,
+				980782AD16B8D20D00933B40 /* ViewControllers */,
 				D25DDA7B133F569B0086783B /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Supporting Files */,
 				9898887816B7764F004688D2 /* Resources */,
@@ -170,6 +181,8 @@
 				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
 				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
 				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
+				98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */,
+				98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -181,6 +194,9 @@
 				D26669D011B1B302007597F1 /* MainMenu.xib */,
 				98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */,
 				980782B016B8D2A600933B40 /* StockEditViewController.xib */,
+				98D7F1F316BA1BEF00116B44 /* SettingsViewController.xib */,
+				98D7F21816BB44D700116B44 /* DemoSectionView.xib */,
+				98D7F21516BB44D700116B44 /* DemoView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -199,26 +215,30 @@
 		9898888416B77A1C004688D2 /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
-				D279A65E11B4EB1200771B2A /* README.markdown */,
-				D25DDA7A133F568F0086783B /* PXListView */,
+				98D7F20216BB44A200116B44 /* JAListView */,
 				9898888116B77677004688D2 /* EDSideBar */,
 			);
 			name = "Custom Controls";
 			sourceTree = "<group>";
 		};
-		D25DDA7A133F568F0086783B /* PXListView */ = {
+		98D7F20216BB44A200116B44 /* JAListView */ = {
 			isa = PBXGroup;
 			children = (
-				D27858D011B1B5EA00F1CF30 /* PXListView.h */,
-				D27858D111B1B5EA00F1CF30 /* PXListView.m */,
-				D279A64311B4E95600771B2A /* PXListView+Private.h */,
-				D27858D711B1B6D400F1CF30 /* PXListViewDelegate.h */,
-				D25DDA7D133F58A10086783B /* PXListView+UserInteraction.h */,
-				D25DDA7E133F58A10086783B /* PXListView+UserInteraction.m */,
-				D279A68911B4ECAB00771B2A /* Cells */,
-				D278592911B1BA7900F1CF30 /* Misc */,
+				98D7F20316BB44B300116B44 /* JAListView.h */,
+				98D7F20416BB44B300116B44 /* JAListView.m */,
+				98D7F20516BB44B300116B44 /* JAEdgeInsets.h */,
+				98D7F20616BB44B300116B44 /* JASectionedListView.h */,
+				98D7F20716BB44B300116B44 /* JASectionedListView.m */,
+				98D7F20816BB44B300116B44 /* JAObjectListView.h */,
+				98D7F20916BB44B300116B44 /* JAObjectListView.m */,
+				98D7F21D16BB45BC00116B44 /* JAObjectListViewItem.h */,
+				98D7F21E16BB45BC00116B44 /* JAObjectListViewItem.m */,
+				98D7F20A16BB44B300116B44 /* JAListViewItem.h */,
+				98D7F20B16BB44B300116B44 /* JAListViewItem.m */,
+				98D7F20C16BB44B300116B44 /* NSIndexPath+JAListViewExtensions.h */,
+				98D7F20D16BB44B300116B44 /* NSIndexPath+JAListViewExtensions.m */,
 			);
-			name = PXListView;
+			name = JAListView;
 			sourceTree = "<group>";
 		};
 		D25DDA7B133F569B0086783B /* Classes */ = {
@@ -234,31 +254,12 @@
 		D25DDA7C133F56C10086783B /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D278596E11B1BBE800F1CF30 /* MyListViewCell.h */,
-				D278596F11B1BBE800F1CF30 /* MyListViewCell.m */,
-				D2BED6BF1320E08D00E1D0D3 /* MyListViewCell.xib */,
+				98D7F21316BB44D700116B44 /* DemoView.h */,
+				98D7F21416BB44D700116B44 /* DemoView.m */,
+				98D7F21616BB44D700116B44 /* DemoSectionView.h */,
+				98D7F21716BB44D700116B44 /* DemoSectionView.m */,
 			);
 			name = "Custom Cell";
-			sourceTree = "<group>";
-		};
-		D278592911B1BA7900F1CF30 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				D278592211B1BA6C00F1CF30 /* PXListDocumentView.h */,
-				D278592311B1BA6C00F1CF30 /* PXListDocumentView.m */,
-			);
-			name = Misc;
-			sourceTree = "<group>";
-		};
-		D279A68911B4ECAB00771B2A /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				55B9AC9E11EA384C00416532 /* PXListViewDropHighlight.h */,
-				D27858D311B1B5FC00F1CF30 /* PXListViewCell.h */,
-				D27858D411B1B5FC00F1CF30 /* PXListViewCell.m */,
-				D279A6DD11B4EFCD00771B2A /* PXListViewCell+Private.h */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,14 +311,15 @@
 			files = (
 				D26669D211B1B302007597F1 /* InfoPlist.strings in Resources */,
 				D26669D311B1B302007597F1 /* MainMenu.xib in Resources */,
-				D279A64411B4E95600771B2A /* PXListView+Private.h in Resources */,
-				D2BED6C01320E08D00E1D0D3 /* MyListViewCell.xib in Resources */,
 				9898887D16B77669004688D2 /* blue.png in Resources */,
 				9898887E16B77669004688D2 /* icon1-blue.png in Resources */,
 				9898887F16B77669004688D2 /* icon1-gray.png in Resources */,
 				9898888016B77669004688D2 /* icon1-white.png in Resources */,
 				980782B216B8D2A600933B40 /* StockEditViewController.xib in Resources */,
 				98D7F1EF16BA0C1400116B44 /* StockListViewController.xib in Resources */,
+				98D7F1F516BA1BEF00116B44 /* SettingsViewController.xib in Resources */,
+				98D7F21A16BB44D700116B44 /* DemoView.xib in Resources */,
+				98D7F21C16BB44D700116B44 /* DemoSectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,15 +332,19 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				D26669CB11B1B2F1007597F1 /* AppDelegate.m in Sources */,
-				D27858D211B1B5EA00F1CF30 /* PXListView.m in Sources */,
-				D27858D511B1B5FC00F1CF30 /* PXListViewCell.m in Sources */,
-				D278592411B1BA6C00F1CF30 /* PXListDocumentView.m in Sources */,
-				D278597011B1BBE800F1CF30 /* MyListViewCell.m in Sources */,
-				D25DDA7F133F58A20086783B /* PXListView+UserInteraction.m in Sources */,
 				9898887316B7762A004688D2 /* EDSideBar.m in Sources */,
 				9898887716B7763F004688D2 /* BlackCell.m in Sources */,
 				980782B116B8D2A600933B40 /* StockEditViewController.m in Sources */,
 				98D7F1EE16BA0C1400116B44 /* StockListViewController.m in Sources */,
+				98D7F1F416BA1BEF00116B44 /* SettingsViewController.m in Sources */,
+				98D7F20E16BB44B300116B44 /* JAListView.m in Sources */,
+				98D7F20F16BB44B300116B44 /* JASectionedListView.m in Sources */,
+				98D7F21016BB44B300116B44 /* JAObjectListView.m in Sources */,
+				98D7F21116BB44B300116B44 /* JAListViewItem.m in Sources */,
+				98D7F21216BB44B300116B44 /* NSIndexPath+JAListViewExtensions.m in Sources */,
+				98D7F21916BB44D700116B44 /* DemoView.m in Sources */,
+				98D7F21B16BB44D700116B44 /* DemoSectionView.m in Sources */,
+				98D7F21F16BB45BC00116B44 /* JAObjectListViewItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

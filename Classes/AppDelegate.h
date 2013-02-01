@@ -8,20 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "PXListView.h"
 #import "EDSideBar.h"
 #import "StockEditViewController.h"
+#import "StockListViewController.h"
+#import "SettingsViewController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, PXListViewDelegate, PXListViewDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     IBOutlet NSView *mainContainerView;
     IBOutlet NSWindow *window;
-	IBOutlet PXListView	*listView;
 	IBOutlet EDSideBar *sideBarDefault;
-	NSMutableArray *_listItems;
     StockEditViewController *stockEditViewController;
+    StockListViewController *stockListViewController;
+    SettingsViewController *stockSettingsViewController;
 }
 
-- (IBAction)reloadTable:(id)sender;
 
 @end

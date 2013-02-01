@@ -7,13 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PXListView.h"
 
-@interface StockListViewController : NSViewController <PXListViewDelegate>
+#import "JAListView.h" 
+
+@interface StockListViewController : NSViewController <JAListViewDataSource, JAListViewDelegate>
 {
-    IBOutlet PXListView	*listView;
-    NSMutableArray *_listItems;
+    IBOutlet JAListView *listView;
 }
+@property (assign) IBOutlet JAListView *listView;
 
-- (IBAction)reloadTable:(id)sender;
 @end

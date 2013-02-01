@@ -8,15 +8,8 @@
 
 #import "AppDelegate.h"
 #import "BlackCell.h"
-#import "MyListViewCell.h"
 #import "StockEditViewController.h"
-
-
-#pragma mark Constants
-
-#define LISTVIEW_CELL_IDENTIFIER		@"MyListViewCell"
-#define NUM_EXAMPLE_ITEMS				50
-
+#import "SettingsViewController.h"
 
 @implementation AppDelegate
 
@@ -49,23 +42,7 @@
 
 - (void)awakeFromNib
 {
-	[listView setCellSpacing:2.0f];
-	[listView setAllowsEmptySelection:YES];
-	[listView setAllowsMultipleSelection:YES];
-	[listView registerForDraggedTypes:[NSArray arrayWithObjects: NSStringPboardType, nil]];
-	
-	_listItems = [[NSMutableArray alloc] init];
-
-	//Create a bunch of rows as a test
-	for( NSInteger i = 0; i < NUM_EXAMPLE_ITEMS; i++ )
-	{
-		NSString *title = [[NSString alloc] initWithFormat: @"Item %d", i +1];
-		[_listItems addObject:title];
-		[title release];
-	}
-	
-	[listView reloadData];
-    
+	    
     // Setup sidebar with default cell (EDSideBarCell)
 	// Buttons top-aligned. Selection animated
 	[sideBarDefault setLayoutMode:ECSideBarLayoutTop];
@@ -77,7 +54,7 @@
 	[sideBarDefault addButtonWithTitle:@"Button 1" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Button 2" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Button 3" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
-	[sideBarDefault selectButtonAtRow:2];
+	[sideBarDefault selectButtonAtRow:0];
 	// Add a bit of noise texture
     sideBarDefault.noiseAlpha=0.04;
     
@@ -86,85 +63,56 @@
 
 - (void)dealloc
 {
-	[_listItems release], _listItems=nil;
+	//[_listItems release], _listItems=nil;
     
 	[super dealloc];
 }
-
-
-#pragma mark List View Delegate Methods
-
-- (NSUInteger)numberOfRowsInListView: (PXListView*)aListView
-{
-#pragma unused(aListView)
-	return [_listItems count];
-}
-
-- (PXListViewCell*)listView:(PXListView*)aListView cellForRow:(NSUInteger)row
-{
-	MyListViewCell *cell = (MyListViewCell*)[aListView dequeueCellWithReusableIdentifier:LISTVIEW_CELL_IDENTIFIER];
-	
-	if(!cell) {
-		cell = [MyListViewCell cellLoadedFromNibNamed:@"MyListViewCell" reusableIdentifier:LISTVIEW_CELL_IDENTIFIER];
-	}
-	
-	// Set up the new cell:
-	[[cell titleLabel] setStringValue:[_listItems objectAtIndex:row]];
-	
-	return cell;
-}
-
-- (CGFloat)listView:(PXListView*)aListView heightOfRow:(NSUInteger)row
-{
-	return 50;
-}
-
-- (void)listViewSelectionDidChange:(NSNotification*)aNotification
-{
-    NSLog(@"Selection changed");
-}
-
-
-// The following are only needed for drag'n drop:
-- (BOOL)listView:(PXListView*)aListView writeRowsWithIndexes:(NSIndexSet*)rowIndexes toPasteboard:(NSPasteboard*)dragPasteboard
-{
-	// +++ Actually drag the items, not just dummy data.
-	[dragPasteboard declareTypes: [NSArray arrayWithObjects: NSStringPboardType, nil] owner: self];
-	[dragPasteboard setString: @"Just Testing" forType: NSStringPboardType];
-	
-	return YES;
-}
-
-- (NSDragOperation)listView:(PXListView*)aListView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSUInteger)row
-							proposedDropHighlight:(PXListViewDropHighlight)dropHighlight;
-{
-	return NSDragOperationCopy;
-}
-
-
-- (IBAction) reloadTable:(id)sender
-{
-	[listView reloadData];
-}
-
 
 -(void)sideBar:(EDSideBar*)tabBar didSelectButton:(NSInteger)button
 {
 	//NSString *str = [NSString stringWithFormat:@"Selected button"];
 	NSLog(@"Button selected: %lu", button );
+    
+    if(stockEditViewController != nil){
+        [[stockEditViewController view] removeFromSuperview];
+    }
+    if(stockSettingsViewController != nil){
+        [[stockSettingsViewController view] removeFromSuperview];
+    }
+    if(stockListViewController != nil){
+        [[stockListViewController view] removeFromSuperview];
+    }
+    
+    if(button == 0)
+    {
+        
+        if(stockSettingsViewController == nil)
+        {
+            stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+        }
+        
+        NSView *view = [stockSettingsViewController view];
+        [mainContainerView addSubview:view];
+    }
     if(button ==1 )
     {
         if(stockEditViewController == nil)
         {
             stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
-            NSView *view = [stockEditViewController view];
-            
-            
-            [listView addSubview:view];
         }
-       
         
-
+        NSView *view = [stockEditViewController view];
+        [mainContainerView addSubview:view];
+    }
+    if(button == 2)
+    {
+        if(stockListViewController == nil)
+        {
+            stockListViewController = [[StockListViewController alloc] initWithNibName:@"StockListViewController" bundle:nil];
+        }
+        
+        NSView *view = [stockListViewController view];
+        [mainContainerView addSubview:view];
     }
 }
 

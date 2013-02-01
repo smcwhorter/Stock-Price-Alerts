@@ -7,99 +7,65 @@
 //
 
 #import "StockListViewController.h"
-#import "MyListViewCell.h"
+#import "DemoView.h"
 
-#pragma mark Constants
 
-#define LISTVIEW_CELL_IDENTIFIER		@"MyListViewCell"
-#define NUM_EXAMPLE_ITEMS				50
 
 @interface StockListViewController ()
 
 @end
 
 @implementation StockListViewController
+@synthesize listView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
+        self.listView.canCallDataSourceInParallel = YES;
+        [self.listView reloadData];
     }
-    [listView setCellSpacing:2.0f];
-	[listView setAllowsEmptySelection:YES];
-	[listView setAllowsMultipleSelection:YES];
-	[listView registerForDraggedTypes:[NSArray arrayWithObjects: NSStringPboardType, nil]];
-	
-	_listItems = [[NSMutableArray alloc] init];
-    
-	//Create a bunch of rows as a test
-	for( NSInteger i = 0; i < NUM_EXAMPLE_ITEMS; i++ )
-	{
-		NSString *title = [[NSString alloc] initWithFormat: @"Item %d", i +1];
-		[_listItems addObject:title];
-		[title release];
-	}
-	
-	[listView reloadData];
+   
 
     return self;
 }
 
+#pragma mark JAListViewDelegate
 
-#pragma mark List View Delegate Methods
-
-- (NSUInteger)numberOfRowsInListView: (PXListView*)aListView
-{
-#pragma unused(aListView)
-	return [_listItems count];
+- (void)listView:(JAListView *)list willSelectView:(JAListViewItem *)view {
+    if(list == self.listView) {
+        DemoView *demoView = (DemoView *) view;
+        demoView.selected = YES;
+    }
 }
 
-- (PXListViewCell*)listView:(PXListView*)aListView cellForRow:(NSUInteger)row
-{
-	MyListViewCell *cell = (MyListViewCell*)[aListView dequeueCellWithReusableIdentifier:LISTVIEW_CELL_IDENTIFIER];
-	
-	if(!cell) {
-		cell = [MyListViewCell cellLoadedFromNibNamed:@"MyListViewCell" reusableIdentifier:LISTVIEW_CELL_IDENTIFIER];
-	}
-	
-	// Set up the new cell:
-	[[cell titleLabel] setStringValue:[_listItems objectAtIndex:row]];
-	
-	return cell;
+- (void)listView:(JAListView *)list didSelectView:(JAListViewItem *)view {
+    if(list == self.listView) {
+        DemoView *demoView = (DemoView *) view;
+        demoView.selected = NO;
+    }
 }
 
-- (CGFloat)listView:(PXListView*)aListView heightOfRow:(NSUInteger)row
-{
-	return 50;
-}
-
-- (void)listViewSelectionDidChange:(NSNotification*)aNotification
-{
-    NSLog(@"Selection changed");
+- (void)listView:(JAListView *)list didUnSelectView:(JAListViewItem *)view {
+    if(list == self.listView) {
+        DemoView *demoView = (DemoView *) view;
+        demoView.selected = NO;
+    }
 }
 
 
-// The following are only needed for drag'n drop:
-- (BOOL)listView:(PXListView*)aListView writeRowsWithIndexes:(NSIndexSet*)rowIndexes toPasteboard:(NSPasteboard*)dragPasteboard
-{
-	// +++ Actually drag the items, not just dummy data.
-	[dragPasteboard declareTypes: [NSArray arrayWithObjects: NSStringPboardType, nil] owner: self];
-	[dragPasteboard setString: @"Just Testing" forType: NSStringPboardType];
-	
-	return YES;
+#pragma mark JAListViewDataSource
+
+- (NSUInteger)numberOfItemsInListView:(JAListView *)listView {
+    return 100;
 }
 
-- (NSDragOperation)listView:(PXListView*)aListView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSUInteger)row
-      proposedDropHighlight:(PXListViewDropHighlight)dropHighlight;
-{
-	return NSDragOperationCopy;
+- (JAListViewItem *)listView:(JAListView *)listView viewAtIndex:(NSUInteger)index {
+    DemoView *view = [DemoView demoView];
+    view.text = [NSString stringWithFormat:@"Row %d", (int)index + 1];
+    return view;
 }
 
-
-- (IBAction) reloadTable:(id)sender
-{
-	[listView reloadData];
-}
 
 @end
