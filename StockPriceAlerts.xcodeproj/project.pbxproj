@@ -12,6 +12,11 @@
 		980782A816B8C94800933B40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980782A716B8C94800933B40 /* QuartzCore.framework */; };
 		980782B116B8D2A600933B40 /* StockEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 980782AF16B8D2A600933B40 /* StockEditViewController.m */; };
 		980782B216B8D2A600933B40 /* StockEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980782B016B8D2A600933B40 /* StockEditViewController.xib */; };
+		9895CA7516BF31050004EE6E /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* MyView.m */; };
+		9895CA7816BF310E0004EE6E /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7716BF310E0004EE6E /* FooterView.m */; };
+		9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */; };
+		9895CA7E16BF32860004EE6E /* SPAFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */; };
+		9895CA8216BF41080004EE6E /* BasicBackGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA8116BF41080004EE6E /* BasicBackGroundView.m */; };
 		9898887316B7762A004688D2 /* EDSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898887216B7762A004688D2 /* EDSideBar.m */; };
 		9898887716B7763F004688D2 /* BlackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9898887616B7763F004688D2 /* BlackCell.m */; };
 		9898887D16B77669004688D2 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887916B77669004688D2 /* blue.png */; };
@@ -49,6 +54,16 @@
 		980782AE16B8D2A600933B40 /* StockEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockEditViewController.h; sourceTree = "<group>"; };
 		980782AF16B8D2A600933B40 /* StockEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockEditViewController.m; sourceTree = "<group>"; };
 		980782B016B8D2A600933B40 /* StockEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockEditViewController.xib; sourceTree = "<group>"; };
+		9895CA7316BF31050004EE6E /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
+		9895CA7416BF31050004EE6E /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
+		9895CA7616BF310E0004EE6E /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		9895CA7716BF310E0004EE6E /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
+		9895CA7916BF32860004EE6E /* SPAHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAHeaderViewController.h; sourceTree = "<group>"; };
+		9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAHeaderViewController.m; sourceTree = "<group>"; };
+		9895CA7B16BF32860004EE6E /* SPAFooterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAFooterViewController.h; sourceTree = "<group>"; };
+		9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAFooterViewController.m; sourceTree = "<group>"; };
+		9895CA8016BF41080004EE6E /* BasicBackGroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicBackGroundView.h; sourceTree = "<group>"; };
+		9895CA8116BF41080004EE6E /* BasicBackGroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicBackGroundView.m; sourceTree = "<group>"; };
 		9898887116B77629004688D2 /* EDSideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDSideBar.h; sourceTree = "<group>"; };
 		9898887216B7762A004688D2 /* EDSideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDSideBar.m; sourceTree = "<group>"; };
 		9898887516B7763F004688D2 /* BlackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackCell.h; sourceTree = "<group>"; };
@@ -183,8 +198,39 @@
 				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
 				98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */,
 				98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */,
+				9895CA7916BF32860004EE6E /* SPAHeaderViewController.h */,
+				9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */,
+				9895CA7B16BF32860004EE6E /* SPAFooterViewController.h */,
+				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9895CA7016BF30E80004EE6E /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9895CA7316BF31050004EE6E /* MyView.h */,
+				9895CA7416BF31050004EE6E /* MyView.m */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		9895CA7216BF30EF0004EE6E /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				9895CA7616BF310E0004EE6E /* FooterView.h */,
+				9895CA7716BF310E0004EE6E /* FooterView.m */,
+			);
+			name = Footer;
+			sourceTree = "<group>";
+		};
+		9895CA7F16BF32DE0004EE6E /* BasicBackground */ = {
+			isa = PBXGroup;
+			children = (
+				9895CA8016BF41080004EE6E /* BasicBackGroundView.h */,
+				9895CA8116BF41080004EE6E /* BasicBackGroundView.m */,
+			);
+			name = BasicBackground;
 			sourceTree = "<group>";
 		};
 		9898887816B7764F004688D2 /* Resources */ = {
@@ -215,6 +261,9 @@
 		9898888416B77A1C004688D2 /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
+				9895CA7F16BF32DE0004EE6E /* BasicBackground */,
+				9895CA7216BF30EF0004EE6E /* Footer */,
+				9895CA7016BF30E80004EE6E /* Header */,
 				98D7F20216BB44A200116B44 /* JAListView */,
 				9898888116B77677004688D2 /* EDSideBar */,
 			);
@@ -345,6 +394,11 @@
 				98D7F21916BB44D700116B44 /* DemoView.m in Sources */,
 				98D7F21B16BB44D700116B44 /* DemoSectionView.m in Sources */,
 				98D7F21F16BB45BC00116B44 /* JAObjectListViewItem.m in Sources */,
+				9895CA7516BF31050004EE6E /* MyView.m in Sources */,
+				9895CA7816BF310E0004EE6E /* FooterView.m in Sources */,
+				9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */,
+				9895CA7E16BF32860004EE6E /* SPAFooterViewController.m in Sources */,
+				9895CA8216BF41080004EE6E /* BasicBackGroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

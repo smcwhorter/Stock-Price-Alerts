@@ -48,9 +48,9 @@
 	[sideBarDefault setLayoutMode:ECSideBarLayoutTop];
 	sideBarDefault.animateSelection =YES;
 	sideBarDefault.sidebarDelegate=self;
-    NSImage *selImage =[self buildSelectionImage];
-	[sideBarDefault setSelectionImage:selImage];
-	[selImage release];
+    //NSImage *selImage =[self buildSelectionImage];
+	//[sideBarDefault setSelectionImage:selImage];
+	//[selImage release];
 	[sideBarDefault addButtonWithTitle:@"Button 1" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Button 2" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Button 3" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
@@ -59,6 +59,24 @@
     sideBarDefault.noiseAlpha=0.04;
     
     [sideBarDefault setTarget:self withSelector:@selector(logThis:) atIndex:0];
+    
+   
+    if(stockSettingsViewController == nil)
+    {
+        stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    }
+    NSRect sideBarFrame = sideBarDefault.bounds;
+    NSRect footerFrame = footerView.bounds;
+    NSRect mainContainerFrame = [mainContainerView frame];
+    
+    NSRect newRect = NSMakeRect(0, footerFrame.origin.y, mainContainerFrame.size.width, mainContainerFrame.size.height -3);
+
+    NSInteger frameInOutStatus = 1;
+    incommingView = [stockSettingsViewController view];
+    [incommingView setFrame:newRect];
+    //Add the incomming view as the main container's subview
+    [mainContainerView addSubview:incommingView];
+    incommingView = nil;
 }
 
 - (void)dealloc
@@ -72,18 +90,31 @@
 {
 	//NSString *str = [NSString stringWithFormat:@"Selected button"];
 	NSLog(@"Button selected: %lu", button );
-    
-    if(stockEditViewController != nil){
-        [[stockEditViewController view] removeFromSuperview];
-    }
-    if(stockSettingsViewController != nil){
-        [[stockSettingsViewController view] removeFromSuperview];
-    }
-    if(stockListViewController != nil){
-        [[stockListViewController view] removeFromSuperview];
+    if(button != selectedSideBarButton){
+        [self setMainView:button];
+        selectedSideBarButton = button;
     }
     
-    if(button == 0)
+}
+
+
+-(void) setMainView:(NSInteger)selectedView {
+    
+    //Get the frame for each view on the window
+    NSRect windowFrame = window.frame;
+    
+    NSRect footerFrame = footerView.bounds;
+    NSRect mainContainerFrame = [mainContainerView frame];
+    NSRect outGoingViewRect;
+    NSRect initIncommingViewRect;
+  
+    
+    initIncommingViewRect = NSMakeRect(-windowFrame.size.width, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
+    NSRect inViewRect = NSMakeRect(0, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
+    outGoingViewRect= NSMakeRect(windowFrame.size.width,0, mainContainerFrame.size.width, mainContainerFrame.size.height);
+
+  
+    if(selectedView == 0)
     {
         
         if(stockSettingsViewController == nil)
@@ -91,29 +122,93 @@
             stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
         }
         
-        NSView *view = [stockSettingsViewController view];
-        [mainContainerView addSubview:view];
+        incommingView = [stockSettingsViewController view];
+            
     }
-    if(button ==1 )
+    if(selectedView ==1 )
     {
         if(stockEditViewController == nil)
         {
             stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
         }
         
-        NSView *view = [stockEditViewController view];
-        [mainContainerView addSubview:view];
+        incommingView = [stockEditViewController view];
+                
     }
-    if(button == 2)
+    if(selectedView == 2)
     {
         if(stockListViewController == nil)
         {
             stockListViewController = [[StockListViewController alloc] initWithNibName:@"StockListViewController" bundle:nil];
         }
         
-        NSView *view = [stockListViewController view];
-        [mainContainerView addSubview:view];
+        incommingView = [stockListViewController view];
+        
     }
+    
+    //**This works
+    if([mainContainerView.subviews count] > 0){
+        NSArray *aviableSubViews = [mainContainerView subviews];
+        NSLog(@"1 Number of sub views in mainContainerView: %d", (int)[aviableSubViews count]);
+        NSView *viewToRemove = mainContainerView.subviews[0];
+        
+        [NSAnimationContext beginGrouping];
+        
+        [[NSAnimationContext currentContext] setCompletionHandler:^{
+            NSLog(@"Remove Animation Complete");
+            
+            [incommingView setFrame:initIncommingViewRect];
+            [mainContainerView addSubview:incommingView];
+            
+            
+            [NSAnimationContext beginGrouping];
+            
+            [[NSAnimationContext currentContext] setCompletionHandler:^{
+                NSLog(@"Add Animation Complete");
+                //NSArray *aviableSubViews = [mainContainerView subviews];
+                //NSLog(@"2 Number of sub views in mainContainerView: %d", (int)[aviableSubViews count]);
+                //Remove the view that is not visable
+                [viewToRemove removeFromSuperview];
+               
+                
+            }];
+            [[NSAnimationContext currentContext] setDuration:.3];
+             //Set this view's frame into the main window's view
+            [[incommingView animator] setFrame:inViewRect];
+            [incommingView setNeedsDisplay:YES];
+            
+            [NSAnimationContext endGrouping];
+
+        }];
+        
+        [[NSAnimationContext currentContext] setDuration:0.1];
+        //Set this view's frame out of the main window's view
+        [[viewToRemove animator] setFrame:outGoingViewRect];
+        [viewToRemove setNeedsDisplay:YES];
+        
+        [NSAnimationContext endGrouping];;
+        
+    }
+        
+    
+    //if([mainContainerView.subviews count] > 0){
+    //    NSView *viewToRemove = mainContainerView.subviews[0];
+    //    [viewToRemove removeFromSuperview];
+    //}
+    
+    //[incommingView setFrame:initIncommingViewRect];
+    //[mainContainerView addSubview:incommingView];
+    //NSRect rectWithTwoViews = NSMakeRect(windowFrame.origin.x, windowFrame.origin.y, 1000, 600);
+    //[mainContainerView setFrame:rectWithTwoViews];
+    
+    //[NSAnimationContext beginGrouping];
+   // [[NSAnimationContext currentContext] setDuration:1.0];
+   //
+   // [[incommingView animator] setFrame:inViewRect];
+   // [incommingView setNeedsDisplay:YES];
+    
+    //[NSAnimationContext endGrouping];
+    
 }
 
 @end

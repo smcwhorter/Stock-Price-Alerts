@@ -18,10 +18,15 @@
     IBOutlet NSView *mainContainerView;
     IBOutlet NSWindow *window;
 	IBOutlet EDSideBar *sideBarDefault;
+    IBOutlet NSView *footerView;
+    NSView *incommingView;
+    
     StockEditViewController *stockEditViewController;
     StockListViewController *stockListViewController;
     SettingsViewController *stockSettingsViewController;
+    NSInteger selectedSideBarButton;
 }
 
+-(void) setMainView:(NSInteger)selectedView;
 
 @end
