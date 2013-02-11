@@ -9,18 +9,21 @@
 #import <Cocoa/Cocoa.h>
 
 #import "EDSideBar.h"
+#import "SPAHeaderViewController.h"
 #import "StockEditViewController.h"
 #import "StockListViewController.h"
 #import "SettingsViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
+    IBOutlet NSView *headerView;
     IBOutlet NSView *mainContainerView;
     IBOutlet NSWindow *window;
 	IBOutlet EDSideBar *sideBarDefault;
     IBOutlet NSView *footerView;
     NSView *incommingView;
     
+    SPAHeaderViewController *headerViewController;
     StockEditViewController *stockEditViewController;
     StockListViewController *stockListViewController;
     SettingsViewController *stockSettingsViewController;

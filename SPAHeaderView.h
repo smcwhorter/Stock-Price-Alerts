@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MyView : NSView
+@interface SPAHeaderView : NSView
 {
     float frameWidth;
     float frameHeigth;

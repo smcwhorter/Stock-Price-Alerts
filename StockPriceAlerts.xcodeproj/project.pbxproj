@@ -12,7 +12,10 @@
 		980782A816B8C94800933B40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980782A716B8C94800933B40 /* QuartzCore.framework */; };
 		980782B116B8D2A600933B40 /* StockEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 980782AF16B8D2A600933B40 /* StockEditViewController.m */; };
 		980782B216B8D2A600933B40 /* StockEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980782B016B8D2A600933B40 /* StockEditViewController.xib */; };
-		9895CA7516BF31050004EE6E /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* MyView.m */; };
+		980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */ = {isa = PBXBuildFile; fileRef = 980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */; };
+		980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */; };
+		980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA716C8988E0073CBC3 /* ic_addstock.png */; };
+		9895CA7516BF31050004EE6E /* SPAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* SPAHeaderView.m */; };
 		9895CA7816BF310E0004EE6E /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7716BF310E0004EE6E /* FooterView.m */; };
 		9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */; };
 		9895CA7E16BF32860004EE6E /* SPAFooterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */; };
@@ -54,8 +57,12 @@
 		980782AE16B8D2A600933B40 /* StockEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockEditViewController.h; sourceTree = "<group>"; };
 		980782AF16B8D2A600933B40 /* StockEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockEditViewController.m; sourceTree = "<group>"; };
 		980782B016B8D2A600933B40 /* StockEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockEditViewController.xib; sourceTree = "<group>"; };
-		9895CA7316BF31050004EE6E /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
-		9895CA7416BF31050004EE6E /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
+		980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAAppUtilies.h; sourceTree = "<group>"; };
+		980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAAppUtilies.m; sourceTree = "<group>"; };
+		980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPAHeaderView.xib; sourceTree = "<group>"; };
+		980B5DA716C8988E0073CBC3 /* ic_addstock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_addstock.png; sourceTree = "<group>"; };
+		9895CA7316BF31050004EE6E /* SPAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAHeaderView.h; sourceTree = "<group>"; };
+		9895CA7416BF31050004EE6E /* SPAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAHeaderView.m; sourceTree = "<group>"; };
 		9895CA7616BF310E0004EE6E /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
 		9895CA7716BF310E0004EE6E /* FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		9895CA7916BF32860004EE6E /* SPAHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAHeaderViewController.h; sourceTree = "<group>"; };
@@ -181,6 +188,7 @@
 		980782AC16B8CB2700933B40 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				980B5DA716C8988E0073CBC3 /* ic_addstock.png */,
 				9898887916B77669004688D2 /* blue.png */,
 				9898887A16B77669004688D2 /* icon1-blue.png */,
 				9898887B16B77669004688D2 /* icon1-gray.png */,
@@ -209,8 +217,8 @@
 		9895CA7016BF30E80004EE6E /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				9895CA7316BF31050004EE6E /* MyView.h */,
-				9895CA7416BF31050004EE6E /* MyView.m */,
+				9895CA7316BF31050004EE6E /* SPAHeaderView.h */,
+				9895CA7416BF31050004EE6E /* SPAHeaderView.m */,
 			);
 			name = Header;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			children = (
 				980782AC16B8CB2700933B40 /* images */,
 				D26669D011B1B302007597F1 /* MainMenu.xib */,
+				980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */,
 				98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */,
 				980782B016B8D2A600933B40 /* StockEditViewController.xib */,
 				98D7F1F316BA1BEF00116B44 /* SettingsViewController.xib */,
@@ -295,6 +304,8 @@
 			children = (
 				D26669C911B1B2F1007597F1 /* AppDelegate.h */,
 				D26669CA11B1B2F1007597F1 /* AppDelegate.m */,
+				980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */,
+				980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */,
 				D25DDA7C133F56C10086783B /* Custom Cell */,
 			);
 			name = Classes;
@@ -369,6 +380,8 @@
 				98D7F1F516BA1BEF00116B44 /* SettingsViewController.xib in Resources */,
 				98D7F21A16BB44D700116B44 /* DemoView.xib in Resources */,
 				98D7F21C16BB44D700116B44 /* DemoSectionView.xib in Resources */,
+				980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */,
+				980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,11 +407,12 @@
 				98D7F21916BB44D700116B44 /* DemoView.m in Sources */,
 				98D7F21B16BB44D700116B44 /* DemoSectionView.m in Sources */,
 				98D7F21F16BB45BC00116B44 /* JAObjectListViewItem.m in Sources */,
-				9895CA7516BF31050004EE6E /* MyView.m in Sources */,
+				9895CA7516BF31050004EE6E /* SPAHeaderView.m in Sources */,
 				9895CA7816BF310E0004EE6E /* FooterView.m in Sources */,
 				9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */,
 				9895CA7E16BF32860004EE6E /* SPAFooterViewController.m in Sources */,
 				9895CA8216BF41080004EE6E /* BasicBackGroundView.m in Sources */,
+				980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

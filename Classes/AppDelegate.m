@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BlackCell.h"
+#import "SPAHeaderViewController.h"
 #import "StockEditViewController.h"
 #import "SettingsViewController.h"
 
@@ -51,9 +52,9 @@
     //NSImage *selImage =[self buildSelectionImage];
 	//[sideBarDefault setSelectionImage:selImage];
 	//[selImage release];
-	[sideBarDefault addButtonWithTitle:@"Button 1" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
-	[sideBarDefault addButtonWithTitle:@"Button 2" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
-	[sideBarDefault addButtonWithTitle:@"Button 3" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
+	[sideBarDefault addButtonWithTitle:@"Stock List" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
+	[sideBarDefault addButtonWithTitle:@"Add Stock" image:[NSImage imageNamed:@"ic_addstock.png"] alternateImage:[NSImage imageNamed:@"ic_addstock.png"]];
+	[sideBarDefault addButtonWithTitle:@"Settings" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault selectButtonAtRow:0];
 	// Add a bit of noise texture
     sideBarDefault.noiseAlpha=0.04;
@@ -77,6 +78,22 @@
     //Add the incomming view as the main container's subview
     [mainContainerView addSubview:incommingView];
     incommingView = nil;
+    
+    if(headerViewController == nil)
+    {
+         headerViewController = [[SPAHeaderViewController alloc] initWithNibName:@"SPAHeaderView" bundle:nil];
+    }
+    
+    [headerViewController.headerTitle settextValue:"test"];
+    NSView *d = [headerViewController view];
+    //[d setFrame:window.frame];
+    [d setAutoresizingMask:(NSViewWidthSizable)];
+ 
+    [headerView addSubview:d];
+    // set its autoresizing mask
+    
+   
+    
 }
 
 - (void)dealloc

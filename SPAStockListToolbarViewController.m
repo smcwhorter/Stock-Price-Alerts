@@ -1,19 +1,18 @@
 //
-//  SPAHeaderViewController.m
-//  EDSidebar
+//  SPAStockListToolbarViewController.m
+//  StockPriceAlerts
 //
-//  Created by Steven McWhorter on 2/2/13.
+//  Created by Steven McWhorter on 2/10/13.
 //
 //
 
-#import "SPAHeaderViewController.h"
+#import "SPAStockListToolbarViewController.h"
 
-@interface SPAHeaderViewController ()
+@interface SPAStockListToolbarViewController ()
 
 @end
 
-@implementation SPAHeaderViewController
-@synthesize headerTitle;
+@implementation SPAStockListToolbarViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

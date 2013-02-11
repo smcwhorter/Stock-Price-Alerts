@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SPAHeaderViewController : NSViewController
+@interface SPAHeaderViewController : NSViewController {
+    NSTextField *headerTitle;
+}
+
+@property (assign) IBOutlet NSTextField *headerTitle;
 
 @end
