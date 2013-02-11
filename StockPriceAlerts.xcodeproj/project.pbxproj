@@ -124,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06AAD7C316C93920003B54C1 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D25DDA7C133F56C10086783B /* Custom Cell */,
+				9895CA7F16BF32DE0004EE6E /* BasicBackground */,
+				9895CA7016BF30E80004EE6E /* Header */,
+				9895CA7216BF30EF0004EE6E /* Footer */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +165,7 @@
 		29B97314FDCFA39411CA2CEA /* PXListView */ = {
 			isa = PBXGroup;
 			children = (
+				06AAD7C316C93920003B54C1 /* Custom Views */,
 				9898888416B77A1C004688D2 /* Custom Controls */,
 				980782AD16B8D20D00933B40 /* ViewControllers */,
 				D25DDA7B133F569B0086783B /* Classes */,
@@ -270,9 +282,6 @@
 		9898888416B77A1C004688D2 /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
-				9895CA7F16BF32DE0004EE6E /* BasicBackground */,
-				9895CA7216BF30EF0004EE6E /* Footer */,
-				9895CA7016BF30E80004EE6E /* Header */,
 				98D7F20216BB44A200116B44 /* JAListView */,
 				9898888116B77677004688D2 /* EDSideBar */,
 			);
@@ -306,7 +315,6 @@
 				D26669CA11B1B2F1007597F1 /* AppDelegate.m */,
 				980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */,
 				980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */,
-				D25DDA7C133F56C10086783B /* Custom Cell */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
