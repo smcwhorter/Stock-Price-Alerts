@@ -16,5 +16,5 @@
 @property (assign) float frameWidth;
 @property (assign) float frameHeigth;
 
-- (void)drawBackground;
+-(void)drawBackground:(NSRect)rect;
 @end

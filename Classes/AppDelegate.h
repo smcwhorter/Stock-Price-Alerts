@@ -10,9 +10,7 @@
 
 #import "EDSideBar.h"
 #import "SPAHeaderViewController.h"
-#import "StockEditViewController.h"
-#import "StockListViewController.h"
-#import "SettingsViewController.h"
+#import "SPAMainContentController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -21,15 +19,14 @@
     IBOutlet NSWindow *window;
 	IBOutlet EDSideBar *sideBarDefault;
     IBOutlet NSView *footerView;
-    NSView *incommingView;
+    //NSView *incommingView;
     
     SPAHeaderViewController *headerViewController;
-    StockEditViewController *stockEditViewController;
-    StockListViewController *stockListViewController;
-    SettingsViewController *stockSettingsViewController;
+    SPAMainContentController *mainContentController;
+    
     NSInteger selectedSideBarButton;
 }
 
--(void) setMainView:(NSInteger)selectedView;
+-(void)setHeaderTitle:(NSString*)titleText;
 
 @end

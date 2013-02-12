@@ -21,25 +21,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SPAHeaderView.m"
-         timestampString = "382283296.003103"
+         timestampString = "382329065.194871"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
-         landmarkName = "-initWithFrame:"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
+         landmarkName = "-drawBackground:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SPAHeaderView.m"
-         timestampString = "382283406.415209"
+         filePath = "SPAMainContentController.m"
+         timestampString = "382332466.155164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
-         landmarkName = "-drawBackground"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-loadMainContentView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JAListView.m"
+         timestampString = "382324595.788648"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "589"
+         endingLineNumber = "589"
+         landmarkName = "-viewFrameDidChange:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

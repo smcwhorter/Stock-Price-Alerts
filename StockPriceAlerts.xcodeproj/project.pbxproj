@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		980782A816B8C94800933B40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980782A716B8C94800933B40 /* QuartzCore.framework */; };
@@ -46,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAMainContentController.h; sourceTree = "<group>"; };
+		06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAMainContentController.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		256AC3F00F4B6AF500CF3369 /* StockPriceAlerts_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockPriceAlerts_Prefix.pch; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 		980782AD16B8D20D00933B40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */,
+				06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */,
 				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
 				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
 				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
@@ -421,6 +426,7 @@
 				9895CA7E16BF32860004EE6E /* SPAFooterViewController.m in Sources */,
 				9895CA8216BF41080004EE6E /* BasicBackGroundView.m in Sources */,
 				980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */,
+				06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

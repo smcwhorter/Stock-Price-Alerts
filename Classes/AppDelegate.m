@@ -9,11 +9,10 @@
 #import "AppDelegate.h"
 #import "BlackCell.h"
 #import "SPAHeaderViewController.h"
-#import "StockEditViewController.h"
-#import "SettingsViewController.h"
 #import "SPAAppUtilies.h"
 
 @implementation AppDelegate
+
 
 #pragma mark -
 #pragma mark Init/Dealloc
@@ -48,24 +47,7 @@
 -(void)applicationDidFinishLaunching:(NSNotification *)notification{
     NSLog(@"applicationDidFinishLaunching");
     
-    
-    if(stockSettingsViewController == nil)
-    {
-        stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-    }
-    NSRect sideBarFrame = sideBarDefault.bounds;
-    NSRect footerFrame = footerView.bounds;
-    NSRect mainContainerFrame = [mainContainerView frame];
-    
-    NSRect newRect = NSMakeRect(0, footerFrame.origin.y, mainContainerFrame.size.width, mainContainerFrame.size.height -3);
-    
-    NSInteger frameInOutStatus = 1;
-    incommingView = [stockSettingsViewController view];
-    [incommingView setFrame:newRect];
-    //Add the incomming view as the main container's subview
-    [mainContainerView addSubview:incommingView];
-    incommingView = nil;
-    
+   
     if(headerViewController == nil)
     {
         headerViewController = [[SPAHeaderViewController alloc] initWithNibName:@"SPAHeaderView" bundle:nil];
@@ -73,11 +55,23 @@
     
     
     NSView *d = [headerViewController view];
-    //[d setFrame:window.frame];
+    float w = window.frame.size.width;
+    NSRect frame = NSMakeRect(0.0, 0.0, w-65, 40.0);
+    [d setFrame:frame];
     [d setAutoresizingMask:(NSViewWidthSizable)];
     
     [headerView addSubview:d];
-    [headerViewController.headerTitle setBackgroundColor:[SPAAppUtilies darkGray]];
+    //[headerViewController.headerTitle setStringValue:[NSString stringWithFormat:@"Temp Title"]];
+    
+    if(mainContentController == nil)
+    {
+        mainContentController = [[SPAMainContentController alloc] init];
+    }
+    mainContentController.mainContainerView = mainContainerView;
+    mainContentController.headerViewController = headerViewController;
+    [mainContentController loadHeaderViewController];
+    //Set the main content view to be the first view
+    [mainContentController loadMainContentView:0];
 
 }
 
@@ -94,7 +88,9 @@
 	//NSString *str = [NSString stringWithFormat:@"Selected button"];
 	NSLog(@"Button selected: %lu", button );
     if(button != selectedSideBarButton){
-        [self setMainView:button];
+        //[self setMainView:button];
+        [mainContentController loadMainContentView:button];
+
         selectedSideBarButton = button;
     }
     
@@ -125,100 +121,9 @@
 }
 
 
-#pragma mark - MainViewController
--(void) setMainView:(NSInteger)selectedView {
-    
-    //Get the frame for each view on the window
-    NSRect windowFrame = window.frame;
-    
-    NSRect footerFrame = footerView.bounds;
-    NSRect mainContainerFrame = [mainContainerView frame];
-    NSRect outGoingViewRect;
-    NSRect initIncommingViewRect;
-  
-    
-    initIncommingViewRect = NSMakeRect(-windowFrame.size.width, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
-    NSRect inViewRect = NSMakeRect(0, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
-    outGoingViewRect= NSMakeRect(windowFrame.size.width,0, mainContainerFrame.size.width, mainContainerFrame.size.height);
-
-  
-    if(selectedView == 0)
-    {
-        
-        if(stockSettingsViewController == nil)
-        {
-            stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-        }
-        
-        incommingView = [stockSettingsViewController view];
-        
-            
-    }
-    if(selectedView ==1 )
-    {
-        if(stockEditViewController == nil)
-        {
-            stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
-        }
-        
-        incommingView = [stockEditViewController view];
-                
-    }
-    if(selectedView == 2)
-    {
-        if(stockListViewController == nil)
-        {
-            stockListViewController = [[StockListViewController alloc] initWithNibName:@"StockListViewController" bundle:nil];
-        }
-        
-        incommingView = [stockListViewController view];
-        
-    }
-    
-    //**This works
-    if([mainContainerView.subviews count] > 0){
-        NSArray *aviableSubViews = [mainContainerView subviews];
-        NSLog(@"1 Number of sub views in mainContainerView: %d", (int)[aviableSubViews count]);
-        NSView *viewToRemove = mainContainerView.subviews[0];
-        
-        [NSAnimationContext beginGrouping];
-        
-        [[NSAnimationContext currentContext] setCompletionHandler:^{
-            NSLog(@"Remove Animation Complete");
-            
-            [incommingView setFrame:initIncommingViewRect];
-            [mainContainerView addSubview:incommingView];
-            
-            
-            [NSAnimationContext beginGrouping];
-            
-            [[NSAnimationContext currentContext] setCompletionHandler:^{
-                NSLog(@"Add Animation Complete");
-                //NSArray *aviableSubViews = [mainContainerView subviews];
-                //NSLog(@"2 Number of sub views in mainContainerView: %d", (int)[aviableSubViews count]);
-                //Remove the view that is not visable
-                [viewToRemove removeFromSuperview];
-               
-                
-            }];
-            [[NSAnimationContext currentContext] setDuration:.3];
-             //Set this view's frame into the main window's view
-            [[incommingView animator] setFrame:inViewRect];
-            [incommingView setNeedsDisplay:YES];
-            
-            [NSAnimationContext endGrouping];
-
-        }];
-        
-        [[NSAnimationContext currentContext] setDuration:0.1];
-        //Set this view's frame out of the main window's view
-        [[viewToRemove animator] setFrame:outGoingViewRect];
-        [viewToRemove setNeedsDisplay:YES];
-        
-        [NSAnimationContext endGrouping];;
-        
-        [headerViewController.headerTitle setStringValue:[NSString stringWithFormat:@"View %d",selectedView]];
-    }
+#pragma mark - HeaderViewController
+-(void)setHeaderTitle:(NSString*)titleText{
+     [headerViewController.headerTitle setStringValue:titleText];
 }
 
 @end

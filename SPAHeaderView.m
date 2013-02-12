@@ -33,9 +33,8 @@
         
         frameWidth = w;
         frameHeigth = h;
-        
+       
         NSLog(@"Header initWithFrame - Width: %f Heigth: %f",w,h);
-        //[self setPreferred
     }
     
     return self;
@@ -45,17 +44,19 @@
 {
     // Drawing code here.
     [super drawRect:dirtyRect];
-    [self drawBackground];
+    [self drawBackground: dirtyRect];
 }
 
-- (void)drawBackground {
+-(void)drawBackground:(NSRect)rect {
+     //NSRect rec = NSMakeRect(0.0f, 0.0f, w, h);
     
     // Initialization code here.
     float w = self.bounds.size.width;
     float h =self.bounds.size.height;
-    
+   
     //Define the rectangle
     NSRect rec = NSMakeRect(0.0f, 0.0f, w, h);
+    NSLog(@"header drawBackground - Width: %f Heigth: %f",w,h);
     //NSColor *rgb1 = [NSColor colorWithDeviceRed: red1 green: green1 blue: blue1 alpha: alpha1];
     //[rgb1 set]; //set the color
     // NSRectFill(rec); //Fill the rectangle
@@ -78,7 +79,7 @@
     NSBezierPath *path1 = [NSBezierPath bezierPathWithRect:rectGradient];
     [gradient1 drawInBezierPath:path1 angle:0];
     
-     NSLog(@"header drawBackground - Width: %f Heigth: %f",w,h);
+    
     
 #if !__has_feature(objc_arc)
     [gradient release];
