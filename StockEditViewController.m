@@ -13,7 +13,7 @@
 @end
 
 @implementation StockEditViewController
-@synthesize stockSymbolName;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +28,7 @@
 }
 
 - (IBAction)SaveStock:(id)sender {
-    NSString *val = [stockSymbolName stringValue];
+    NSString *val = [_stockSymbolName stringValue];
     NSLog(@"Stock Edit Button clicked - %@",val);
 }
 @end

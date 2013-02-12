@@ -66,7 +66,7 @@
 }
 
 - (void)setText:(NSString *)newText {
-    NSString *newValue = [[newText copy] autorelease];
+    NSString *newValue = [newText copy];// autorelease];
     [self.textField setStringValue:newValue];
     [self.shadowTextField setStringValue:newValue];
 }

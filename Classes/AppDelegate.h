@@ -27,6 +27,6 @@
     NSInteger selectedSideBarButton;
 }
 
--(void)setHeaderTitle:(NSString*)titleText;
+-(void)setupTheMainWindowWithViewParts;
 
 @end

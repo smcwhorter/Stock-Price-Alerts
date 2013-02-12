@@ -13,9 +13,9 @@
 
 @interface StockListViewController : NSViewController <JAListViewDataSource, JAListViewDelegate>
 {
-    IBOutlet JAListView *listView;
+    IBOutlet __unsafe_unretained JAListView *listView;
     
 }
-@property (assign) IBOutlet JAListView *listView;
+@property (assign) __unsafe_unretained IBOutlet JAListView *listView;
 
 @end

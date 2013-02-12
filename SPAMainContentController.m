@@ -27,6 +27,9 @@
     }
 }
 
+/*
+ *This method will load the main content view base on the selected view controller
+ */
 -(void) loadMainContentView:(NSInteger)selectedView {
 
     NSRect mainContainerFrame = [mainContainerView frame];

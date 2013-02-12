@@ -11,8 +11,6 @@
 @interface StockEditViewController : NSViewController
 {
     IBOutlet NSButton *butSave;
-   
-    IBOutlet NSTextField *stockSymbolName;
 }
 @property (assign) IBOutlet NSButton *butSave;
 @property (assign) IBOutlet NSTextField *stockSymbolName;

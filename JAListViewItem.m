@@ -42,10 +42,10 @@
     [self cacheDisplayInRect:self.bounds toBitmapImageRep:bitmap];
     
     NSSize imageSize = [bitmap size];
-    NSImage *image = [[[NSImage alloc] initWithSize:imageSize] autorelease];
+    NSImage *image = [[NSImage alloc] initWithSize:imageSize];// autorelease];
     [image addRepresentation:bitmap];
     
-    NSImage *result = [[[NSImage alloc] initWithSize:imageSize] autorelease];
+                      NSImage *result = [[NSImage alloc] initWithSize:imageSize];// autorelease];
     [result lockFocus];
     NSGraphicsContext *currentContext = [NSGraphicsContext currentContext];
     NSImageInterpolation savedInterpolation = [currentContext imageInterpolation];

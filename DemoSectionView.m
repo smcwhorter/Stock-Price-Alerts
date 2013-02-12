@@ -47,8 +47,8 @@
 @synthesize shadowTextField;
 
 - (void)setText:(NSString *)text {
-    [self.textField setStringValue:[[text copy] autorelease]];
-    [self.shadowTextField setStringValue:[[text copy] autorelease]];
+    [self.textField setStringValue:[text copy]];// autorelease]];
+     [self.shadowTextField setStringValue:[text copy]];// autorelease]];
 }
 
 - (NSString *)text {

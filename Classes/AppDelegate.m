@@ -14,10 +14,7 @@
 @implementation AppDelegate
 
 
-#pragma mark -
-#pragma mark Init/Dealloc
-
-
+#pragma mark - Init/Dealloc
 
 - (void)awakeFromNib
 {
@@ -47,7 +44,13 @@
 -(void)applicationDidFinishLaunching:(NSNotification *)notification{
     NSLog(@"applicationDidFinishLaunching");
     
-   
+    //Call method to setup the window with the custom views
+    [self setupTheMainWindowWithViewParts];
+
+}
+
+-(void) setupTheMainWindowWithViewParts{
+    
     if(headerViewController == nil)
     {
         headerViewController = [[SPAHeaderViewController alloc] initWithNibName:@"SPAHeaderView" bundle:nil];
@@ -72,14 +75,13 @@
     [mainContentController loadHeaderViewController];
     //Set the main content view to be the first view
     [mainContentController loadMainContentView:0];
-
 }
 
 - (void)dealloc
 {
 	//[_listItems release], _listItems=nil;
     
-	[super dealloc];
+	//[super dealloc];
 }
 
 #pragma mark - Sidebar 
@@ -96,6 +98,7 @@
     
 }
 
+/*
 -(NSImage*)buildSelectionImage
 {
 	// Create the selection image on the fly, instead of loading from a file resource.
@@ -118,12 +121,8 @@
 	[triangle stroke];
 	[destImage unlockFocus];
 	return destImage;
-}
+}*/
 
 
-#pragma mark - HeaderViewController
--(void)setHeaderTitle:(NSString*)titleText{
-     [headerViewController.headerTitle setStringValue:titleText];
-}
 
 @end

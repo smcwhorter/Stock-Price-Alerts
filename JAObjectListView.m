@@ -25,7 +25,7 @@
 - (void)dealloc {
     self.sectionRowViews = nil;
     
-    [super dealloc];
+    //[super dealloc];
 }
 
 
@@ -153,7 +153,7 @@
 - (NSArray *)viewsInSection:(NSUInteger)section {
     NSParameterAssert(section < self.sectionRowViews.count);
     
-    NSMutableArray *views = [[[self.sectionRowViews objectAtIndex:section] mutableCopy] autorelease];
+    NSMutableArray *views = [[self.sectionRowViews objectAtIndex:section] mutableCopy];
     if(views.count < 1) return nil;
     
     [views removeObjectAtIndex:0];

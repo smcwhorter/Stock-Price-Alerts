@@ -12,6 +12,6 @@
     NSTextField *headerTitle;
 }
 
-@property (assign) IBOutlet NSTextField *headerTitle;
+@property (assign) __unsafe_unretained IBOutlet NSTextField *headerTitle;
 
 @end

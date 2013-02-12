@@ -13,7 +13,7 @@
 @end
 
 @implementation SPAHeaderViewController
-@synthesize headerTitle;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
