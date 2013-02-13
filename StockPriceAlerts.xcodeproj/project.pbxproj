@@ -16,6 +16,8 @@
 		980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */ = {isa = PBXBuildFile; fileRef = 980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */; };
 		980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */; };
 		980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA716C8988E0073CBC3 /* ic_addstock.png */; };
+		9818BA9016CB3BB300D706D3 /* SPADataModels.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */; };
+		9818BA9316CB459200D706D3 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA9216CB459200D706D3 /* CoreDataController.m */; };
 		9895CA7516BF31050004EE6E /* SPAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* SPAHeaderView.m */; };
 		9895CA7816BF310E0004EE6E /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7716BF310E0004EE6E /* FooterView.m */; };
 		9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */; };
@@ -64,6 +66,9 @@
 		980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAAppUtilies.m; sourceTree = "<group>"; };
 		980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPAHeaderView.xib; sourceTree = "<group>"; };
 		980B5DA716C8988E0073CBC3 /* ic_addstock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_addstock.png; sourceTree = "<group>"; };
+		9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPADataModels.xcdatamodel; sourceTree = "<group>"; };
+		9818BA9116CB459200D706D3 /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
+		9818BA9216CB459200D706D3 /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
 		9895CA7316BF31050004EE6E /* SPAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAHeaderView.h; sourceTree = "<group>"; };
 		9895CA7416BF31050004EE6E /* SPAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAHeaderView.m; sourceTree = "<group>"; };
 		9895CA7616BF310E0004EE6E /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 		29B97314FDCFA39411CA2CEA /* PXListView */ = {
 			isa = PBXGroup;
 			children = (
+				9818BA8D16CB3B8100D706D3 /* Models */,
 				06AAD7C316C93920003B54C1 /* Custom Views */,
 				9898888416B77A1C004688D2 /* Custom Controls */,
 				980782AD16B8D20D00933B40 /* ViewControllers */,
@@ -229,6 +235,14 @@
 				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9818BA8D16CB3B8100D706D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		9895CA7016BF30E80004EE6E /* Header */ = {
@@ -320,6 +334,8 @@
 				D26669CA11B1B2F1007597F1 /* AppDelegate.m */,
 				980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */,
 				980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */,
+				9818BA9116CB459200D706D3 /* CoreDataController.h */,
+				9818BA9216CB459200D706D3 /* CoreDataController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -427,6 +443,8 @@
 				9895CA8216BF41080004EE6E /* BasicBackGroundView.m in Sources */,
 				980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */,
 				06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */,
+				9818BA9016CB3BB300D706D3 /* SPADataModels.xcdatamodel in Sources */,
+				9818BA9316CB459200D706D3 /* CoreDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
