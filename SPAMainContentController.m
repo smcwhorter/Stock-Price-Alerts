@@ -7,14 +7,31 @@
 //
 
 #import "SPAMainContentController.h"
+#import "CoreDataController.h"
 
 @interface SPAMainContentController ()
 
 @end
 
 @implementation SPAMainContentController
+
+//Properties
 @synthesize mainContainerView;
 @synthesize headerViewController;
+@synthesize coreDataController;
+
+
+
+#pragma mark - Core Data Controller
+-(void) setupTheCoreDataController{
+    
+    if(coreDataController == nil)
+    {
+        coreDataController = [[CoreDataController alloc] init];
+    }
+}
+
+#pragma mark - header View Controller
 
 -(void) loadHeaderViewController{
 
@@ -27,6 +44,7 @@
     }
 }
 
+#pragma mark - Main View Controller
 /*
  *This method will load the main content view base on the selected view controller
  */
@@ -62,8 +80,15 @@
             stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
         }
         
+        //Set the edit view's coreDataController
+        stockEditViewController.coreDataController = self.coreDataController;
+        
+        //get the view
         incommingView = [stockEditViewController view];
+        
+        //Set the header view title
         [headerViewController.headerTitle setStringValue:@"Edit Stock"];
+        
         
     }
     if(selectedView == 2)
@@ -127,6 +152,7 @@
         [mainContainerView addSubview:incommingView];
     }
 }
+
 
 
 @end

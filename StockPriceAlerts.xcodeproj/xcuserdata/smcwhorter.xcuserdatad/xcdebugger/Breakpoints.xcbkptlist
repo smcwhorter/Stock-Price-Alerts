@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SPAMainContentController.m"
-         timestampString = "382333443.714154"
+         timestampString = "382473585.719493"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "35"
-         endingLineNumber = "35"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
          landmarkName = "-loadMainContentView:"
          landmarkType = "5">
       </FileBreakpoint>

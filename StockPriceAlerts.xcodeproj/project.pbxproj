@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063AE63F16CBEA78005C8332 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063AE63E16CBEA78005C8332 /* CoreData.framework */; };
+		063AE64516CBED86005C8332 /* coreDataExample.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */; };
+		063AE64616CBF06C005C8332 /* SPADataModels.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */; };
 		06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -16,7 +19,6 @@
 		980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */ = {isa = PBXBuildFile; fileRef = 980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */; };
 		980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */; };
 		980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA716C8988E0073CBC3 /* ic_addstock.png */; };
-		9818BA9016CB3BB300D706D3 /* SPADataModels.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */; };
 		9818BA9316CB459200D706D3 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA9216CB459200D706D3 /* CoreDataController.m */; };
 		9895CA7516BF31050004EE6E /* SPAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* SPAHeaderView.m */; };
 		9895CA7816BF310E0004EE6E /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7716BF310E0004EE6E /* FooterView.m */; };
@@ -49,10 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063AE63E16CBEA78005C8332 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataExample.xcdatamodel; sourceTree = "<group>"; };
 		06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAMainContentController.h; sourceTree = "<group>"; };
 		06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAMainContentController.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		256AC3F00F4B6AF500CF3369 /* StockPriceAlerts_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockPriceAlerts_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -124,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063AE63F16CBEA78005C8332 /* CoreData.framework in Frameworks */,
 				980782A816B8C94800933B40 /* QuartzCore.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 			);
@@ -154,9 +158,9 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				063AE63E16CBEA78005C8332 /* CoreData.framework */,
 				980782A716B8C94800933B40 /* QuartzCore.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -240,6 +244,7 @@
 		9818BA8D16CB3B8100D706D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */,
 				9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */,
 			);
 			name = Models;
@@ -421,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063AE64616CBF06C005C8332 /* SPADataModels.xcdatamodel in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				D26669CB11B1B2F1007597F1 /* AppDelegate.m in Sources */,
 				9898887316B7762A004688D2 /* EDSideBar.m in Sources */,
@@ -443,8 +449,8 @@
 				9895CA8216BF41080004EE6E /* BasicBackGroundView.m in Sources */,
 				980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */,
 				06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */,
-				9818BA9016CB3BB300D706D3 /* SPADataModels.xcdatamodel in Sources */,
 				9818BA9316CB459200D706D3 /* CoreDataController.m in Sources */,
+				063AE64516CBED86005C8332 /* coreDataExample.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

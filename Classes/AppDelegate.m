@@ -6,17 +6,19 @@
 //  Copyright 2010 Alex Rozanski. http://perspx.com. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "BlackCell.h"
 #import "SPAHeaderViewController.h"
 #import "SPAAppUtilies.h"
+//#import "CoreDataController.h"
 
 @implementation AppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
-
+//@synthesize coreDateController;
 #pragma mark - Init/Dealloc
 
 - (void)awakeFromNib
@@ -49,6 +51,7 @@
     
     //Call method to setup the window with the custom views
     [self setupTheMainWindowWithViewParts];
+   
 
 }
 
@@ -73,8 +76,12 @@
     {
         mainContentController = [[SPAMainContentController alloc] init];
     }
+    //Call method to setup the data controller
+    [mainContentController setupTheCoreDataController];
+    
     mainContentController.mainContainerView = mainContainerView;
     mainContentController.headerViewController = headerViewController;
+    
     [mainContentController loadHeaderViewController];
     //Set the main content view to be the first view
     [mainContentController loadMainContentView:0];
@@ -127,11 +134,13 @@
 }*/
 
 #pragma mark - Core Data Section
-// Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.AlienHive.coredataexample" in the user's Application Support directory.
+
+// Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.cardinal.coreDataExample" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+    
     return [appSupportURL URLByAppendingPathComponent:@"com.AlienHive.StockPriceAlerts"];
 }
 
@@ -141,8 +150,10 @@
     if (_managedObjectModel) {
         return _managedObjectModel;
     }
-	
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"StockPriceAlerts" withExtension:@"momd"];
+	NSBundle *d = [NSBundle mainBundle];
+    NSLog(@"%@",d);
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SPADataModels" withExtension:@"mom"];
+     
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -162,6 +173,7 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
+     
     NSError *error = nil;
     
     NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:@[NSURLIsDirectoryKey] error:&error];
@@ -189,7 +201,7 @@
         }
     }
     
-    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"coredataexample.storedata"];
+    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"SPADataModels.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];

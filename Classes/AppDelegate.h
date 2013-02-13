@@ -7,10 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreData/CoreData.h>
 
 #import "EDSideBar.h"
 #import "SPAHeaderViewController.h"
 #import "SPAMainContentController.h"
+//#import "CoreDataController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -24,13 +26,20 @@
     SPAHeaderViewController *headerViewController;
     SPAMainContentController *mainContentController;
     
+    //CoreDataController *coreDataController;
+    
     NSInteger selectedSideBarButton;
 }
+
+//Property definitions
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (retain) CoreDataController *coreDateController;
 
+//Method definitions
 - (IBAction)saveAction:(id)sender;
 -(void)setupTheMainWindowWithViewParts;
+//-(void)setupTheCoreDataController;
 
 @end

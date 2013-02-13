@@ -7,12 +7,15 @@
 //
 
 #import "StockEditViewController.h"
-
+#import "CoreDataController.h"
 @interface StockEditViewController ()
 
 @end
 
 @implementation StockEditViewController
+
+//Properties
+@synthesize coreDataController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,5 +33,14 @@
 - (IBAction)SaveStock:(id)sender {
     NSString *val = [_stockSymbolName stringValue];
     NSLog(@"Stock Edit Button clicked - %@",val);
+    
+    //Call method to add a new stock
+    if(coreDataController != nil)
+    {
+        [coreDataController addStockEnitiy];
+        NSInteger *stockCount = [coreDataController stockEntityCount];
+        NSLog(@"Number of items in the array:%d",stockCount);
+    }
+    
 }
 @end

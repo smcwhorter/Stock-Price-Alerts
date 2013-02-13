@@ -12,4 +12,5 @@
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 -(void)addStockEnitiy;
+-(NSInteger*)stockEntityCount;
 @end
