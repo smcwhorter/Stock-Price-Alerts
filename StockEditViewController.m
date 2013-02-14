@@ -8,6 +8,8 @@
 
 #import "StockEditViewController.h"
 #import "CoreDataController.h"
+#import "SPAAppUtilies.h"
+
 @interface StockEditViewController ()
 
 @end
@@ -26,8 +28,18 @@
          //[StockSearchField setValue:@"Enter a stock"];
        
     }
-    
+   
     return self;
+}
+
+-(void)customizeView{
+    NSView *currentView = [self view];
+    
+    NSRect rec = NSMakeRect(currentView.frame.origin.x + 5, currentView.frame.origin.y+5, currentView.frame.size.width, currentView.frame.size.height);
+    NSColor *mycolor = [SPAAppUtilies darkGray];
+    [mycolor setFill];
+    NSRectFill(rec);
+    
 }
 
 - (IBAction)SaveStock:(id)sender {

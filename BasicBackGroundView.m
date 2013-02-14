@@ -7,6 +7,7 @@
 //
 
 #import "BasicBackGroundView.h"
+#import "SPAAppUtilies.h"
 
 @implementation BasicBackGroundView
 
@@ -38,25 +39,32 @@
 
 - (void)drawBackground {
     
-    
-    //[[NSColor controlBackgroundColor] set];
-    // NSLog(@"drawBackground");
-    float red = 0.1f;
-    float green = 0.3f;
-    float blue = 0.6f;
-    float alpha = 1.0f;
-    // Initialization code here.
     float x = self.bounds.origin.x;
     float y = self.bounds.origin.y;
     float w = self.bounds.size.width;
     float h =self.bounds.size.height;
     NSLog(@"main drawBackground - Width: %f Heigth: %f",w,h);
     
-    // NSLog(@"drawBackground - Width: %f Heigth: %f",w,h);
-    NSColor *rgb = [NSColor colorWithDeviceRed: red green: green blue: blue alpha: alpha];
-    [rgb set];
-    NSRectFill(NSMakeRect(x, y, w, h));
+    //Very inner rect
+    //NSColor *shadowStartColor = [NSColor colorWithDeviceWhite:(42.0/255.0) alpha:1.0];
+    //NSColor *shadowEndColor = [NSColor colorWithDeviceWhite:(56.0/255.0) alpha:1.0];
     
+    //Create the gradient
+    NSGradient *gradientColor = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies stockEditGradientStart] endingColor:[SPAAppUtilies stockEditGradientEnd]];
+    //Define the rectangle
+    NSRect rectGradient = NSMakeRect(x+21, y+21, w-52, h-42);
+    NSBezierPath *path = [NSBezierPath bezierPathWithRect:rectGradient];
+    [gradientColor drawInBezierPath:path angle:90];
+    
+    //Inner rect
+    NSColor *rgb1 = [SPAAppUtilies borderWhite];
+    [rgb1 set];
+    NSFrameRect(NSMakeRect(x+20, y+20, w-50, h-40));
+    
+    //Outer rect
+    NSColor *rgb = [SPAAppUtilies borderMedium];
+    [rgb set];
+    NSFrameRect(NSMakeRect(x+19, y+19, w-48, h-38));
 }
 
 @end

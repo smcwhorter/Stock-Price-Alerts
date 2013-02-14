@@ -62,13 +62,13 @@
     [gradient drawInBezierPath:path angle:90];
     
     //***upper shadow***/
-    NSColor *shadowStartColor = [NSColor colorWithDeviceWhite:(42.0/255.0) alpha:1.0];
-    NSColor *shadowEndColor = [NSColor colorWithDeviceWhite:(56.0/255.0) alpha:0.3];
+    NSColor *shadowStartColor = [NSColor colorWithDeviceWhite:(42.0/255.0) alpha:0.8];
+    NSColor *shadowEndColor = [NSColor colorWithDeviceWhite:(56.0/255.0) alpha:1.0];
     
     //Create the gradient 
-    NSGradient *gradient1 = [[NSGradient alloc] initWithStartingColor:shadowStartColor endingColor:shadowEndColor];
+    NSGradient *gradient1 = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies borderWhite] endingColor:shadowEndColor];
     //Define the rectangle
-    NSRect rectGradient = NSMakeRect(0, NSMaxY(self.bounds)-1, NSWidth(self.bounds), 1.0);
+    NSRect rectGradient = NSMakeRect(0, NSMaxY(self.bounds)-2, NSWidth(self.bounds), 2.0);
     NSBezierPath *path1 = [NSBezierPath bezierPathWithRect:rectGradient];
     [gradient1 drawInBezierPath:path1 angle:90];
     

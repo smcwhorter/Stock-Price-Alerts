@@ -12,4 +12,8 @@
 
 +(NSColor*) lightGray;
 +(NSColor*) darkGray;
++(NSColor*) borderWhite;
++(NSColor*) borderMedium;
++(NSColor*) stockEditGradientStart;
++(NSColor*) stockEditGradientEnd;
 @end

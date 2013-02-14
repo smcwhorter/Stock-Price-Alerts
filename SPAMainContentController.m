@@ -82,7 +82,7 @@
         
         //Set the edit view's coreDataController
         stockEditViewController.coreDataController = self.coreDataController;
-        
+        //[stockEditViewController customizeView];
         //get the view
         incommingView = [stockEditViewController view];
         

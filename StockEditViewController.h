@@ -22,4 +22,5 @@
 
 //Method definitions
 - (IBAction)SaveStock:(id)sender;
+-(void)customizeView;
 @end
