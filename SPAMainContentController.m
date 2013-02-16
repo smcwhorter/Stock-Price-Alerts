@@ -45,6 +45,11 @@
 }
 
 #pragma mark - Main View Controller
+-(void) makeMainControlerBigger {
+    NSWindow *window= [mainContainerView window];
+    NSRect  mainContainerRec = NSMakeRect(window.frame.origin.x, window.frame.origin.y, window.frame.size.width+200, window.frame.size.height);
+    [window setFrame:mainContainerRec display:YES animate:YES];}
+
 /*
  *This method will load the main content view base on the selected view controller
  */
@@ -100,6 +105,9 @@
         
         incommingView = [stockSettingsViewController view];
         [headerViewController.headerTitle setStringValue:@"Stock Settings"];
+    }
+    if(selectedView == 3){
+        [self makeMainControlerBigger];
     }
     
     //This works

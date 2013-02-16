@@ -6,10 +6,10 @@
 //
 //
 
-#import "BasicBackGroundView.h"
+#import "SquareBorderView.h"
 #import "SPAAppUtilies.h"
 
-@implementation BasicBackGroundView
+@implementation SquareBorderView
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -51,7 +51,7 @@
     //Define the rectangle
     NSRect innerRecFrame = NSMakeRect(x+21, y+21, w-52, h-42);
     
-    NSBezierPath *clipPath = [NSBezierPath bezierPathWithRoundedRect:innerRecFrame xRadius:10.0 yRadius:10.0];
+    NSBezierPath *clipPath = [NSBezierPath bezierPathWithRect:innerRecFrame];
     //[clipPath addClip];
     //NSBezierPath *path = [NSBezierPath bezierPathWithRect:rectGradient];
     [gradientColor drawInBezierPath:clipPath angle:90];
@@ -64,7 +64,7 @@
     //NSFrameRect(NSMakeRect(x+20, y+20, w-50, h-40));
     NSRect middleRecFrame = NSMakeRect(x+20, y+20, w-50, h-40);
     
-    NSBezierPath *middleRoundedRecPath = [NSBezierPath bezierPathWithRoundedRect:middleRecFrame xRadius:10.0 yRadius:10.0];
+    NSBezierPath *middleRoundedRecPath = [NSBezierPath bezierPathWithRect:middleRecFrame];
     //[innerRoundedRecPath addClip];
     //Draws a line along the receiver’s path using the current stroke color and drawing attributes.
     [middleRoundedRecPath stroke];
@@ -75,7 +75,7 @@
     //NSFrameRect(NSMakeRect(x+19, y+19, w-48, h-38));*/
     NSRect outerRectFrame = NSMakeRect(x+19, y+19, w-48, h-38);
     
-    NSBezierPath *outerRoundedRecPath = [NSBezierPath bezierPathWithRoundedRect:outerRectFrame xRadius:10.0 yRadius:10.0];
+    NSBezierPath *outerRoundedRecPath = [NSBezierPath bezierPathWithRect:outerRectFrame];
     //[outerRoundedRecPath addClip];
     [outerRoundedRecPath stroke];
     [outerRoundedRecPath addClip];

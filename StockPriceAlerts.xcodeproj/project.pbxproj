@@ -10,6 +10,7 @@
 		063AE63F16CBEA78005C8332 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063AE63E16CBEA78005C8332 /* CoreData.framework */; };
 		063AE64516CBED86005C8332 /* coreDataExample.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */; };
 		063AE64616CBF06C005C8332 /* SPADataModels.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */; };
+		0668F10716CFD37C007C8A10 /* SquareBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0668F10616CFD37C007C8A10 /* SquareBorderView.m */; };
 		06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -53,6 +54,8 @@
 /* Begin PBXFileReference section */
 		063AE63E16CBEA78005C8332 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataExample.xcdatamodel; sourceTree = "<group>"; };
+		0668F10516CFD37C007C8A10 /* SquareBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareBorderView.h; sourceTree = "<group>"; };
+		0668F10616CFD37C007C8A10 /* SquareBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareBorderView.m; sourceTree = "<group>"; };
 		06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAMainContentController.h; sourceTree = "<group>"; };
 		06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAMainContentController.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -271,6 +274,8 @@
 		9895CA7F16BF32DE0004EE6E /* BasicBackground */ = {
 			isa = PBXGroup;
 			children = (
+				0668F10516CFD37C007C8A10 /* SquareBorderView.h */,
+				0668F10616CFD37C007C8A10 /* SquareBorderView.m */,
 				9895CA8016BF41080004EE6E /* BasicBackGroundView.h */,
 				9895CA8116BF41080004EE6E /* BasicBackGroundView.m */,
 			);
@@ -451,6 +456,7 @@
 				06AAD7D316C948AE003B54C1 /* SPAMainContentController.m in Sources */,
 				9818BA9316CB459200D706D3 /* CoreDataController.m in Sources */,
 				063AE64516CBED86005C8332 /* coreDataExample.xcdatamodel in Sources */,
+				0668F10716CFD37C007C8A10 /* SquareBorderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

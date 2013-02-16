@@ -31,5 +31,6 @@
 
 -(void) loadHeaderViewController;
 -(void) loadMainContentView:(NSInteger)selectedView;
--(void)setupTheCoreDataController;
+-(void) setupTheCoreDataController;
+-(void) makeMainControlerBigger;
 @end

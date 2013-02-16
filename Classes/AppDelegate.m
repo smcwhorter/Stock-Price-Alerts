@@ -11,6 +11,7 @@
 #import "BlackCell.h"
 #import "SPAHeaderViewController.h"
 #import "SPAAppUtilies.h"
+#import "BasicBackGroundView.h"
 //#import "CoreDataController.h"
 
 @implementation AppDelegate
@@ -35,7 +36,8 @@
 	[sideBarDefault addButtonWithTitle:@"Stock List" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Add Stock" image:[NSImage imageNamed:@"ic_addstock.png"] alternateImage:[NSImage imageNamed:@"ic_addstock.png"]];
 	[sideBarDefault addButtonWithTitle:@"Settings" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
-	[sideBarDefault selectButtonAtRow:0];
+	[sideBarDefault addButtonWithTitle:@"Make Bigger" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
+    [sideBarDefault selectButtonAtRow:0];
 	// Add a bit of noise texture
     sideBarDefault.noiseAlpha=0.04;
     [sideBarDefault setTarget:self withSelector:@selector(logThis:) atIndex:0];
@@ -84,7 +86,7 @@
     
     [mainContentController loadHeaderViewController];
     //Set the main content view to be the first view
-    [mainContentController loadMainContentView:0];
+    [mainContentController loadMainContentView:1];
 }
 
 - (void)dealloc
@@ -99,7 +101,29 @@
 {
 	//NSString *str = [NSString stringWithFormat:@"Selected button"];
 	NSLog(@"Button selected: %lu", button );
-    if(button != selectedSideBarButton){
+    
+    //if(button == 3){
+        // NSArray *viewContraints = [mainContainerView constraints];
+        //NSLog(@"%@",viewContraints);
+        //[[mainContainerView subviews[0]] removeConstraints:viewContraints];
+        //NSLog(@"------------");
+        //NSArray *views = [mainContainerView subviews];
+        //NSArray *viewContraints = [views[0]constraints ];
+        //NSLog(@"%@",[views[0] constraints]);
+        //NSView *thisView = views[0];
+        //[views[0] removeConstraints:viewContraints];
+       // [mainContainerView removeConstraint:];
+        
+        //[mainContentController makeMainControlerBigger];
+       // SPAMainContentController *newMain = [[SPAMainContentController alloc] init];
+        //[newMain loadMainContentView:0];
+        //NSRect mainContainer = mainContainerView.frame;
+        //NSRect placeholderView = NSMakeRect(0, 0, mainContainer.size.width, mainContainer.size.height);
+        //NSView *v = [[BasicBackGroundView alloc] initWithFrame:placeholderView];
+        //[mainContainerView addSubview:v];
+        
+    //}
+    if((button != selectedSideBarButton) && (button != 3)){
         //[self setMainView:button];
         [mainContentController loadMainContentView:button];
 
