@@ -10,27 +10,30 @@
 #import "CoreDataController.h"
 #import "BasicBackGroundView.h"
 #import "JAListView.h"
+#import "SPADataDownloadManager.h"
  
-@interface StockEditViewController : NSViewController <JAListViewDataSource, JAListViewDelegate>
+@interface StockEditViewController : NSViewController <JAListViewDataSource, JAListViewDelegate, SAPDataDownloadCompleteDelegate>
 {
     IBOutlet NSButton *butSave;
     CoreDataController *coreDataController;
     __weak NSButton *toggleView;
     __weak BasicBackGroundView *searchResultsView;
     __weak JAListView *listView;
+    SPADataDownloadManager *stockDownloadManager;
 }
 
 //Properties
 @property (assign) IBOutlet NSButton *butSave;
 @property (assign) IBOutlet NSTextField *stockSymbolName;
-@property (strong) CoreDataController *coreDataController;
 @property (weak) IBOutlet NSButton *butToggleView;
 @property (weak) IBOutlet BasicBackGroundView *searchResultsView;
 @property (weak) IBOutlet JAListView *listView;
+@property (strong) CoreDataController *coreDataController;
+@property (strong) SPADataDownloadManager *stockDownloadManager;
 
 //Method definitions
 - (IBAction)SaveStock:(id)sender;
 -(void)customizeView;
 - (IBAction)toggleView:(id)sender;
-
+-(void) searchForStock;
 @end

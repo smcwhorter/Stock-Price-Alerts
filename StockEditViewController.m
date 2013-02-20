@@ -9,8 +9,10 @@
 #import "StockEditViewController.h"
 #import "CoreDataController.h"
 #import "SPAAppUtilies.h"
+#import "SPADataDownloadManager.h"
 #import "BasicBackGroundView.h"
 #import "DemoView.h"
+
 
 @interface StockEditViewController ()
 
@@ -22,24 +24,28 @@
 @synthesize searchResultsView;
 @synthesize listView;
 @synthesize coreDataController;
+@synthesize stockDownloadManager;
 
 
-
+#pragma mark - NSViewController methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code here.
-         //[StockSearchField setValue:@"Enter a stock"];
+        
         // Initialization code here.
         self.listView.canCallDataSourceInParallel = YES;
         [self.listView reloadData];
-       
+        
+        //Create a new SPANetworkManager object
+        stockDownloadManager = [[SPADataDownloadManager alloc] init];
+        stockDownloadManager.delegate = self;
     }
    
     return self;
 }
 
+#pragma mark - StockEditViewController method
 -(void)customizeView{
     NSView *currentView = [self view];
     
@@ -119,10 +125,14 @@
 
 }
 
+-(void) searchForStock{
+    [stockDownloadManager searchForStockWithCriteria:@"S"];
+}
+
 - (IBAction)SaveStock:(id)sender {
     NSString *val = [_stockSymbolName stringValue];
     NSLog(@"Stock Edit Button clicked - %@",val);
-    
+    [self searchForStock];
     
     //NSRect frame = NSMakeRect(200.0, 0.0, 200.0, 200.0);
     //StockEditViewController *anotherStockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
@@ -142,8 +152,12 @@
     */
 }
 
+#pragma mark - SPADataDownloadManagerDelegate
+-(void) downloadDataComplete {
+    NSLog(@"StockEditViewController - Delegate method called");
+}
 
-#pragma mark JAListViewDelegate
+#pragma mark - JAListViewDelegate
 
 - (void)listView:(JAListView *)list willSelectView:(JAListViewItem *)view {
     if(list == self.listView) {
@@ -167,7 +181,7 @@
 }
 
 
-#pragma mark JAListViewDataSource
+#pragma mark - JAListViewDataSource
 
 - (NSUInteger)numberOfItemsInListView:(JAListView *)listView {
     return 100;

@@ -43,7 +43,7 @@
     float y = self.bounds.origin.y;
     float w = self.bounds.size.width;
     float h =self.bounds.size.height;
-    NSLog(@"main drawBackground - Width: %f Heigth: %f",w,h);
+    //NSLog(@"main drawBackground - Width: %f Heigth: %f",w,h);
     
     
     //Create the gradient
