@@ -28,6 +28,8 @@
 
 
 #pragma mark - NSViewController methods
+
+//Returns an NSViewController object initialized to the nib file in the specified bundle.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,6 +46,12 @@
    
     return self;
 }
+
+//Instantiate the receiver’s view and set it
+- (void)loadView{
+    [super loadView];
+}
+
 
 #pragma mark - StockEditViewController method
 -(void)customizeView{
@@ -68,16 +76,7 @@
         frame.size.height = 0;
     }
     
-    //[NSAnimationContext beginGrouping];
-    
-    
-    //[[NSAnimationContext currentContext] setDuration:0.5];
-    //Set this view's frame out of the main window's view
-    //[[searchResultsView animator] setFrame:frame];
-    //[searchResultsView setNeedsDisplay:YES];
-    
-    //[NSAnimationContext endGrouping];;
-    
+       
     if([searchResultsView isHidden] == YES)
     {
          [[searchResultsView animator] setAlphaValue:1.0];
@@ -101,11 +100,6 @@
     }
    else
    {
-       
-      
-      // [searchResultsView setHidden:YES];
-        //[searchResultsView setNeedsDisplay:YES];
-       
        
        [NSAnimationContext beginGrouping];
        
@@ -153,8 +147,11 @@
 }
 
 #pragma mark - SPADataDownloadManagerDelegate
--(void) downloadDataComplete {
-    NSLog(@"StockEditViewController - Delegate method called");
+-(void) downloadDataCompletewithData:(NSMutableData *)theData {
+    
+    NSString *readableData = [[NSString alloc] initWithBytes:[theData bytes] length:[theData length] encoding: NSASCIIStringEncoding];
+    
+    NSLog(@"StockEditViewController - Delegate method called - Data: %@", readableData);
 }
 
 #pragma mark - JAListViewDelegate

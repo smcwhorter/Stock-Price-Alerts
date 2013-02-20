@@ -16,8 +16,9 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
 
 @implementation SPADataDownloadManager
 
-@synthesize connection;
+@synthesize fetchConnection;
 @synthesize rawData;
+@synthesize delegate;
 
 #pragma mark - Stock Data Request
 -(void) searchForStockWithCriteria:(NSString*) companyOrSymbol {
@@ -25,15 +26,15 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
     NSURL *url = [NSURL URLWithString:[kMainSearchURL stringByAppendingString:companyOrSymbol]];
     NSURLRequest *stockSearchRequest = [[NSURLRequest alloc] initWithURL:url];
     //Create a new connection object and search for the 
-    connection = [[NSURLConnection alloc] initWithRequest:stockSearchRequest delegate:self];
+    fetchConnection = [[NSURLConnection alloc] initWithRequest:stockSearchRequest delegate:self];
 
     //Start loading data
-    [connection start];
+    [fetchConnection start];
 }
 
 -(void)signalDownloadComplete {
-    connection = nil;
-    [delegate downloadDataComplete];
+    fetchConnection = nil;
+    [delegate downloadDataCompletewithData:self.rawData];
 }
 
 #pragma mark - NSURLConnection delegates
@@ -45,12 +46,13 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    if(connection != nil){
+    if(connection){
         NSLog(@"Received Data - size: %d",(int)[data length]);
         [rawData appendData:data];
     }
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    //Create and return an empty data object
     self.rawData = [NSMutableData data];
     [rawData setLength:0];
 
@@ -63,7 +65,7 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
 {
 #pragma unused(theConnection)
 #pragma unused(error)
-    assert(theConnection == self.connection);
+    assert(theConnection == self.fetchConnection);
     
     //[self stopReceiveWithStatus:@"Connection failed"];
 }

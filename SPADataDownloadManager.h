@@ -10,21 +10,21 @@
 
 //Define a delegte for this class
 @protocol SAPDataDownloadCompleteDelegate
--(void) downloadDataComplete;
+-(void) downloadDataCompletewithData:(NSMutableData*)theData;
 @end
 
 @interface SPADataDownloadManager : NSObject
 {
     NSMutableData *rawData;
-    NSURLConnection *connection;
+    NSURLConnection *fetchConnection;
     id <SAPDataDownloadCompleteDelegate> delegate;
     
 }
 
 //Properties
-@property (nonatomic, strong, readwrite) NSURLConnection *connection;
+@property (nonatomic, strong, readwrite) NSURLConnection *fetchConnection;
 @property (nonatomic, strong) NSMutableData *rawData;
-@property (retain, nonatomic) id <SAPDataDownloadCompleteDelegate> delegate;
+@property (nonatomic, strong) id <SAPDataDownloadCompleteDelegate> delegate;
 //Instance methods
 -(void) searchForStockWithCriteria:(NSString*) companyOrSymbol;
 -(void) signalDownloadComplete;
