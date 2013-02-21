@@ -10,6 +10,30 @@
 
 @implementation SPAAppUtilies
 
++(NSArray*) parseDownloadedDataForSearchResults:(NSData *)theData{
+    //Create a string that is readable from the data
+    NSString *readableData = [[NSString alloc] initWithBytes:[theData bytes] length:[theData length] encoding: NSASCIIStringEncoding];
+    
+    
+    NSRange partToFind = [readableData rangeOfString:@"["];
+    NSString *stringPart = [readableData substringFromIndex:partToFind.location];
+    //NSLog(@"StockEditViewController - Delegate method called - Data: %@", stringPart);
+    
+    NSRange partToFind1 = [stringPart rangeOfString:@"]"];
+    
+    NSString *jsonStringObject = [stringPart substringToIndex:partToFind1.location + 1];
+    //NSLog(@"StockEditViewController - Delegate method called - Data: %@", jsonStringObject);
+    
+    NSData *stringByToData = [jsonStringObject dataUsingEncoding:NSASCIIStringEncoding];
+    
+    
+    //parse out the json data
+    NSError* error;
+    NSArray *jsonSearchResults = [NSJSONSerialization JSONObjectWithData:stringByToData options:kNilOptions error:&error];
+    
+    return jsonSearchResults;
+}
+
 +(NSColor*) darkGray{
    
     //Dark gray

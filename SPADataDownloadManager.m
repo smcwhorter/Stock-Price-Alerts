@@ -7,12 +7,7 @@
 //
 
 #import "SPADataDownloadManager.h"
-
-//Constant strings
-static NSString *const kMainURL = @"http://download.finance.yahoo.com/d/quotes.csv?s=";
-static NSString *const KmMilURLTail = @"&f=snd1l1yrww1t8";
-static NSString *const kMainSearchURL = @"http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=";
-static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest.ssCallback";
+#import "SPAConstants.h"
 
 @implementation SPADataDownloadManager
 
@@ -25,8 +20,12 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
 //This method will call the web service and search for stock
 -(void) searchForStockWithCriteria:(NSString*) companyOrSymbol {
     //Create the url
-    NSString *urlString = [[kMainSearchURL stringByAppendingString:companyOrSymbol] stringByAppendingString:kSearchURLTrail];
+    NSString *urlString = [STOCK_SEARCH_MAIN_URL stringByAppendingString:companyOrSymbol];
+    urlString = [urlString stringByAppendingString:STOCK_SEARCH_MAIN_URL_SUFFIX];
+    
+    //Create a URL object
     NSURL *url = [NSURL URLWithString:urlString];
+    //Create a request object
     NSURLRequest *stockSearchRequest = [[NSURLRequest alloc] initWithURL:url];
     //Create a new connection object and search for the 
     fetchConnection = [[NSURLConnection alloc] initWithRequest:stockSearchRequest delegate:self];
@@ -35,6 +34,7 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
     [fetchConnection start];
 }
 
+//This method will cleanup the connection and call the delegate method
 -(void)signalDownloadComplete {
     fetchConnection = nil;
     [delegate downloadDataCompletewithData:self.rawData];

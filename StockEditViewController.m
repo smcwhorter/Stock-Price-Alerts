@@ -65,6 +65,40 @@
     
 }
 
+
+-(void) searchForStock{
+    //Call the download manager to search for the stock
+    [stockDownloadManager searchForStockWithCriteria:@"S"];
+    
+    //TODO: Show loading dialog
+}
+
+- (IBAction)SaveStock:(id)sender {
+    NSString *val = [_stockSymbolName stringValue];
+    NSLog(@"Stock Edit Button clicked - %@",val);
+    
+    //Call method to search for the stock
+    [self searchForStock];
+    
+    //NSRect frame = NSMakeRect(200.0, 0.0, 200.0, 200.0);
+    //StockEditViewController *anotherStockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
+    //NSView *nextView = [anotherStockEditViewController view];
+    //[nextView setFrame:frame];
+    
+    //[[self.view superview] addSubview:nextView positioned:NSWindowAbove relativeTo:self.view];
+    //[self]
+    /*
+     //Call method to add a new stock
+     if(coreDataController != nil)
+     {
+     [coreDataController addStockEnitiy];
+     NSInteger *stockCount = [coreDataController stockEntityCount];
+     NSLog(@"Number of items in the array:%d",stockCount);
+     }
+     */
+}
+
+
 - (IBAction)toggleView:(id)sender {
     
     NSRect frame = searchResultsView.frame;
@@ -120,57 +154,22 @@
 
 }
 
--(void) searchForStock{
-    [stockDownloadManager searchForStockWithCriteria:@"S"];
-}
-
-- (IBAction)SaveStock:(id)sender {
-    NSString *val = [_stockSymbolName stringValue];
-    NSLog(@"Stock Edit Button clicked - %@",val);
-    [self searchForStock];
-    
-    //NSRect frame = NSMakeRect(200.0, 0.0, 200.0, 200.0);
-    //StockEditViewController *anotherStockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
-    //NSView *nextView = [anotherStockEditViewController view];
-    //[nextView setFrame:frame];
-    
-    //[[self.view superview] addSubview:nextView positioned:NSWindowAbove relativeTo:self.view];
-   //[self]
-    /*
-    //Call method to add a new stock
-    if(coreDataController != nil)
-    {
-        [coreDataController addStockEnitiy];
-        NSInteger *stockCount = [coreDataController stockEntityCount];
-        NSLog(@"Number of items in the array:%d",stockCount);
-    }
-    */
-}
-
 #pragma mark - SPADataDownloadManagerDelegate
 -(void) downloadDataCompletewithData:(NSMutableData *)theData {
     
-    //Create a string that is readable from the data
-    NSString *readableData = [[NSString alloc] initWithBytes:[theData bytes] length:[theData length] encoding: NSASCIIStringEncoding];
+    NSArray *searchResults = [SPAAppUtilies parseDownloadedDataForSearchResults:theData];
+   // NSLog(@"%@",searchResults);
+    //NSEnumerator *iterator = [searchResults keyEnumerator];
     
     
-    NSRange partToFind = [readableData rangeOfString:@"["];
-    NSString *stringPart = [readableData substringFromIndex:partToFind.location];
-    //NSLog(@"StockEditViewController - Delegate method called - Data: %@", stringPart);
+    for(NSDictionary *thisJSONObject in searchResults){
+        //id value = [searchResults objectForKey:thisKey];
+       // NSLog(@"%@",thisJSONObject);
+        NSString *s = [thisJSONObject objectForKey:@"name"];
+        NSLog(@"%@",s);
 
-    NSRange partToFind1 = [stringPart rangeOfString:@"]"];
-
-    NSString *jsonStringObject = [stringPart substringToIndex:partToFind1.location + 1];
-    //NSLog(@"StockEditViewController - Delegate method called - Data: %@", jsonStringObject);
-    
-    NSData *stringByToData = [jsonStringObject dataUsingEncoding:NSASCIIStringEncoding];
-   
-    
-    //parse out the json data
-    NSError* error;
-    NSDictionary *jsonSearchResults = [NSJSONSerialization JSONObjectWithData:stringByToData options:kNilOptions error:&error];
-    NSLog(@"%@",jsonSearchResults);
-   // NSArray* searchResults = [jsonSearchResults objectForKey:@"loans"]; //2
+    }
+  // NSArray* searchResultsArray = [searchResults objectForKey:@""];
 }
 
 #pragma mark - JAListViewDelegate

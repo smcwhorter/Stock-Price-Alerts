@@ -16,4 +16,5 @@
 +(NSColor*) borderMedium;
 +(NSColor*) stockEditGradientStart;
 +(NSColor*) stockEditGradientEnd;
++(NSArray*) parseDownloadedDataForSearchResults:(NSData*) theData;
 @end
