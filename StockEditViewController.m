@@ -50,17 +50,18 @@
 //Instantiate the receiver’s view and set it
 - (void)loadView{
     [super loadView];
+   
 }
 
 
 #pragma mark - StockEditViewController method
 -(void)customizeView{
-    NSView *currentView = [self view];
+   /*NSView *currentView = [self view];
     
     NSRect rec = NSMakeRect(currentView.frame.origin.x + 5, currentView.frame.origin.y+5, currentView.frame.size.width, currentView.frame.size.height);
     NSColor *mycolor = [SPAAppUtilies darkGray];
     [mycolor setFill];
-    NSRectFill(rec);
+    NSRectFill(rec);*/
     
 }
 
@@ -149,9 +150,27 @@
 #pragma mark - SPADataDownloadManagerDelegate
 -(void) downloadDataCompletewithData:(NSMutableData *)theData {
     
+    //Create a string that is readable from the data
     NSString *readableData = [[NSString alloc] initWithBytes:[theData bytes] length:[theData length] encoding: NSASCIIStringEncoding];
     
-    NSLog(@"StockEditViewController - Delegate method called - Data: %@", readableData);
+    
+    NSRange partToFind = [readableData rangeOfString:@"["];
+    NSString *stringPart = [readableData substringFromIndex:partToFind.location];
+    //NSLog(@"StockEditViewController - Delegate method called - Data: %@", stringPart);
+
+    NSRange partToFind1 = [stringPart rangeOfString:@"]"];
+
+    NSString *jsonStringObject = [stringPart substringToIndex:partToFind1.location + 1];
+    //NSLog(@"StockEditViewController - Delegate method called - Data: %@", jsonStringObject);
+    
+    NSData *stringByToData = [jsonStringObject dataUsingEncoding:NSASCIIStringEncoding];
+   
+    
+    //parse out the json data
+    NSError* error;
+    NSDictionary *jsonSearchResults = [NSJSONSerialization JSONObjectWithData:stringByToData options:kNilOptions error:&error];
+    NSLog(@"%@",jsonSearchResults);
+   // NSArray* searchResults = [jsonSearchResults objectForKey:@"loans"]; //2
 }
 
 #pragma mark - JAListViewDelegate

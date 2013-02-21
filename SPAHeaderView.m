@@ -34,7 +34,7 @@
         frameWidth = w;
         frameHeigth = h;
        
-        NSLog(@"Header initWithFrame - Width: %f Heigth: %f",w,h);
+        //NSLog(@"Header initWithFrame - Width: %f Heigth: %f",w,h);
     }
     
     return self;
@@ -56,7 +56,7 @@
    
     //Define the rectangle
     NSRect rec = NSMakeRect(0.0f, 0.0f, w, h);
-    NSLog(@"header drawBackground - Width: %f Heigth: %f",w,h);
+    //NSLog(@"header drawBackground - Width: %f Heigth: %f",w,h);
     //NSColor *rgb1 = [NSColor colorWithDeviceRed: red1 green: green1 blue: blue1 alpha: alpha1];
     //[rgb1 set]; //set the color
     // NSRectFill(rec); //Fill the rectangle

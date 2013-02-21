@@ -21,9 +21,12 @@ static NSString *const kSearchURLTrail = @"&callback=YAHOO.Finance.SymbolSuggest
 @synthesize delegate;
 
 #pragma mark - Stock Data Request
+
+//This method will call the web service and search for stock
 -(void) searchForStockWithCriteria:(NSString*) companyOrSymbol {
     //Create the url
-    NSURL *url = [NSURL URLWithString:[kMainSearchURL stringByAppendingString:companyOrSymbol]];
+    NSString *urlString = [[kMainSearchURL stringByAppendingString:companyOrSymbol] stringByAppendingString:kSearchURLTrail];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *stockSearchRequest = [[NSURLRequest alloc] initWithURL:url];
     //Create a new connection object and search for the 
     fetchConnection = [[NSURLConnection alloc] initWithRequest:stockSearchRequest delegate:self];

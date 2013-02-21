@@ -33,6 +33,7 @@
 		9898887F16B77669004688D2 /* icon1-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887B16B77669004688D2 /* icon1-gray.png */; };
 		9898888016B77669004688D2 /* icon1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887C16B77669004688D2 /* icon1-white.png */; };
 		98CBD9E116D4668800EB0F21 /* SPADataDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CBD9E016D4668800EB0F21 /* SPADataDownloadManager.m */; };
+		98CBD9E816D5C79700EB0F21 /* SPAConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CBD9E716D5C79700EB0F21 /* SPAConstants.m */; };
 		98D7F1EE16BA0C1400116B44 /* StockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F1EC16BA0C1400116B44 /* StockListViewController.m */; };
 		98D7F1EF16BA0C1400116B44 /* StockListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */; };
 		98D7F1F416BA1BEF00116B44 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */; };
@@ -96,6 +97,8 @@
 		9898887C16B77669004688D2 /* icon1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-white.png"; sourceTree = "<group>"; };
 		98CBD9DF16D4668800EB0F21 /* SPADataDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPADataDownloadManager.h; sourceTree = "<group>"; };
 		98CBD9E016D4668800EB0F21 /* SPADataDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPADataDownloadManager.m; sourceTree = "<group>"; };
+		98CBD9E616D5C79700EB0F21 /* SPAConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAConstants.h; sourceTree = "<group>"; };
+		98CBD9E716D5C79700EB0F21 /* SPAConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAConstants.m; sourceTree = "<group>"; };
 		98D7F1EB16BA0C1400116B44 /* StockListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockListViewController.h; sourceTree = "<group>"; };
 		98D7F1EC16BA0C1400116B44 /* StockListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockListViewController.m; sourceTree = "<group>"; };
 		98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockListViewController.xib; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 			children = (
 				980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */,
 				980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */,
+				98CBD9E616D5C79700EB0F21 /* SPAConstants.h */,
+				98CBD9E716D5C79700EB0F21 /* SPAConstants.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				063AE64516CBED86005C8332 /* coreDataExample.xcdatamodel in Sources */,
 				0668F10716CFD37C007C8A10 /* SquareBorderView.m in Sources */,
 				98CBD9E116D4668800EB0F21 /* SPADataDownloadManager.m in Sources */,
+				98CBD9E816D5C79700EB0F21 /* SPAConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

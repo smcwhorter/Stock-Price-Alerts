@@ -72,7 +72,7 @@
     NSBezierPath *path1 = [NSBezierPath bezierPathWithRect:rectGradient];
     [gradient1 drawInBezierPath:path1 angle:90];
     
-    NSLog(@"footer drawBackground - Width: %f Heigth: %f",w,h);
+   // NSLog(@"footer drawBackground - Width: %f Heigth: %f",w,h);
    
 #if !__has_feature(objc_arc)
     [gradient release];
