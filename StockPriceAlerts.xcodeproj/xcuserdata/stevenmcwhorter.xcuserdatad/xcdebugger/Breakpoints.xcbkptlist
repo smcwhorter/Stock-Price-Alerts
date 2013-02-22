@@ -28,32 +28,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "StockEditViewController.m"
-         timestampString = "383023304.467813"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
-         landmarkName = "coreDataController"
-         landmarkType = "19">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "StockEditViewController.m"
-         timestampString = "383023304.467813"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
-         landmarkName = "@implementation StockEditViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -97,12 +71,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StockEditViewController.m"
-         timestampString = "383108550.324423"
+         timestampString = "383192326.051615"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
-         landmarkName = "-SaveStock:"
+         startingLineNumber = "129"
+         endingLineNumber = "129"
+         landmarkName = "-toggleView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -129,6 +103,19 @@
          startingLineNumber = "28"
          endingLineNumber = "28"
          landmarkName = "-searchForStockWithCriteria:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StockEditViewController.m"
+         timestampString = "383193273.541975"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
+         landmarkName = "-listView:didUnSelectView:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

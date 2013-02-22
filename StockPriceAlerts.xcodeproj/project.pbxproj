@@ -21,6 +21,7 @@
 		980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */; };
 		980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA716C8988E0073CBC3 /* ic_addstock.png */; };
 		9818BA9316CB459200D706D3 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA9216CB459200D706D3 /* CoreDataController.m */; };
+		987F702016D709AA0074DF7C /* STOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F701F16D709AA0074DF7C /* STOverlayView.m */; };
 		9895CA7516BF31050004EE6E /* SPAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* SPAHeaderView.m */; };
 		9895CA7816BF310E0004EE6E /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7716BF310E0004EE6E /* FooterView.m */; };
 		9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */; };
@@ -77,6 +78,8 @@
 		9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPADataModels.xcdatamodel; sourceTree = "<group>"; };
 		9818BA9116CB459200D706D3 /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
 		9818BA9216CB459200D706D3 /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
+		987F701E16D709AA0074DF7C /* STOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOverlayView.h; sourceTree = "<group>"; };
+		987F701F16D709AA0074DF7C /* STOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOverlayView.m; sourceTree = "<group>"; };
 		9895CA7316BF31050004EE6E /* SPAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAHeaderView.h; sourceTree = "<group>"; };
 		9895CA7416BF31050004EE6E /* SPAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAHeaderView.m; sourceTree = "<group>"; };
 		9895CA7616BF310E0004EE6E /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
@@ -259,6 +262,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		987F702216D709B30074DF7C /* STOverlayView */ = {
+			isa = PBXGroup;
+			children = (
+				987F701E16D709AA0074DF7C /* STOverlayView.h */,
+				987F701F16D709AA0074DF7C /* STOverlayView.m */,
+			);
+			name = STOverlayView;
+			sourceTree = "<group>";
+		};
 		9895CA7016BF30E80004EE6E /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +329,7 @@
 		9898888416B77A1C004688D2 /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
+				987F702216D709B30074DF7C /* STOverlayView */,
 				98D7F20216BB44A200116B44 /* JAListView */,
 				9898888116B77677004688D2 /* EDSideBar */,
 			);
@@ -477,6 +490,7 @@
 				0668F10716CFD37C007C8A10 /* SquareBorderView.m in Sources */,
 				98CBD9E116D4668800EB0F21 /* SPADataDownloadManager.m in Sources */,
 				98CBD9E816D5C79700EB0F21 /* SPAConstants.m in Sources */,
+				987F702016D709AA0074DF7C /* STOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
