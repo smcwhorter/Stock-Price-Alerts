@@ -30,10 +30,10 @@
 @property (weak) IBOutlet JAListView *listView;
 @property (strong) CoreDataController *coreDataController;
 @property (strong) SPADataDownloadManager *stockDownloadManager;
+@property (nonatomic, strong) NSArray *searchResults;
 
 //Method definitions
 - (IBAction)SaveStock:(id)sender;
--(void)customizeView;
 - (IBAction)toggleView:(id)sender;
 -(void) searchForStock;
 @end

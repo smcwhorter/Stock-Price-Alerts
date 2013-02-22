@@ -25,7 +25,7 @@
 @synthesize listView;
 @synthesize coreDataController;
 @synthesize stockDownloadManager;
-
+@synthesize searchResults;
 
 #pragma mark - NSViewController methods
 
@@ -35,10 +35,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        // Initialization code here.
-        self.listView.canCallDataSourceInParallel = YES;
-        [self.listView reloadData];
-        
+        // Initialization code here
+    
         //Create a new SPANetworkManager object
         stockDownloadManager = [[SPADataDownloadManager alloc] init];
         stockDownloadManager.delegate = self;
@@ -54,28 +52,23 @@
 }
 
 
-#pragma mark - StockEditViewController method
--(void)customizeView{
-   /*NSView *currentView = [self view];
-    
-    NSRect rec = NSMakeRect(currentView.frame.origin.x + 5, currentView.frame.origin.y+5, currentView.frame.size.width, currentView.frame.size.height);
-    NSColor *mycolor = [SPAAppUtilies darkGray];
-    [mycolor setFill];
-    NSRectFill(rec);*/
-    
-}
 
+
+#pragma mark - StockEditViewController method
 
 -(void) searchForStock{
+    NSString *searchCriteria = [self.stockSymbolName stringValue];
+    searchCriteria = [searchCriteria stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     //Call the download manager to search for the stock
-    [stockDownloadManager searchForStockWithCriteria:@"S"];
+    [stockDownloadManager searchForStockWithCriteria:searchCriteria];
     
     //TODO: Show loading dialog
 }
 
 - (IBAction)SaveStock:(id)sender {
     NSString *val = [_stockSymbolName stringValue];
-    NSLog(@"Stock Edit Button clicked - %@",val);
+    //NSLog(@"Stock Edit Button clicked - %@",val);
     
     //Call method to search for the stock
     [self searchForStock];
@@ -121,7 +114,7 @@
         [NSAnimationContext beginGrouping];
         
         [[NSAnimationContext currentContext] setCompletionHandler:^{
-            NSLog(@"Add Animation Complete");
+            //NSLog(@"Add Animation Complete");
             [searchResultsView setHidden:NO];
             
         }];
@@ -139,7 +132,7 @@
        [NSAnimationContext beginGrouping];
        
        [[NSAnimationContext currentContext] setCompletionHandler:^{
-           NSLog(@"Add Animation Complete");
+           //NSLog(@"Add Animation Complete");
            [searchResultsView setHidden:YES];
            
        }];
@@ -157,18 +150,18 @@
 #pragma mark - SPADataDownloadManagerDelegate
 -(void) downloadDataCompletewithData:(NSMutableData *)theData {
     
-    NSArray *searchResults = [SPAAppUtilies parseDownloadedDataForSearchResults:theData];
+    self.searchResults = [SPAAppUtilies parseDownloadedDataForSearchResults:theData];
    // NSLog(@"%@",searchResults);
     //NSEnumerator *iterator = [searchResults keyEnumerator];
-    
-    
-    for(NSDictionary *thisJSONObject in searchResults){
-        //id value = [searchResults objectForKey:thisKey];
-       // NSLog(@"%@",thisJSONObject);
+    self.listView.canCallDataSourceInParallel = YES;
+    [self.listView reloadData];
+    self.listView.delegate = self;
+    /*for(NSDictionary *thisJSONObject in searchResults){
+       
         NSString *s = [thisJSONObject objectForKey:@"name"];
         NSLog(@"%@",s);
 
-    }
+    }*/
   // NSArray* searchResultsArray = [searchResults objectForKey:@""];
 }
 
@@ -185,6 +178,7 @@
     if(list == self.listView) {
         DemoView *demoView = (DemoView *) view;
         demoView.selected = NO;
+        NSLog(@"Selected: %@", demoView.text);
     }
 }
 
@@ -198,13 +192,25 @@
 
 #pragma mark - JAListViewDataSource
 
+//return the number of items for the list
 - (NSUInteger)numberOfItemsInListView:(JAListView *)listView {
-    return 100;
+    return [searchResults count];
 }
 
+//Returns a view for each index
 - (JAListViewItem *)listView:(JAListView *)listView viewAtIndex:(NSUInteger)index {
+    //Create a new custom view for the cell
     DemoView *view = [DemoView demoView];
-    view.text = [NSString stringWithFormat:@"Row %d", (int)index + 1];
+    
+    //Get the object out of the array
+    NSDictionary *searchItem = [searchResults objectAtIndex:index];
+    NSString *textForCell =  [searchItem objectForKey:@"name"];
+    textForCell = [textForCell stringByAppendingString:@" - "];
+    textForCell = [textForCell stringByAppendingString:[searchItem objectForKey:@"symbol"]];
+    view.text = textForCell;
+    //view.textField = @"test";
+    //view.shadowTextField = @"b";
+    //NSLog(@"%@",searchItem);
     return view;
 }
 @end
