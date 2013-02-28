@@ -9,31 +9,42 @@
 #import <Cocoa/Cocoa.h>
 #import "CoreDataController.h"
 #import "BasicBackGroundView.h"
+#import "SquareBorderView.h"
 #import "JAListView.h"
 #import "SPADataDownloadManager.h"
  
 @interface StockEditViewController : NSViewController <JAListViewDataSource, JAListViewDelegate, SAPDataDownloadCompleteDelegate>
 {
-    IBOutlet NSButton *butSave;
+    IBOutlet NSButton *butSearch;
     CoreDataController *coreDataController;
     __weak NSButton *toggleView;
     __weak BasicBackGroundView *searchResultsView;
     __weak JAListView *listView;
+    __weak SquareBorderView *stockDetailsView;
     SPADataDownloadManager *stockDownloadManager;
+    __weak NSLayoutConstraint *searchResultsVerticalLeadingConstraint;
+    __weak NSLayoutConstraint *searchResultsVerticalTrailingConstraint;
 }
 
 //Properties
-@property (assign) IBOutlet NSButton *butSave;
+@property (assign) IBOutlet NSButton *butSearch;
 @property (assign) IBOutlet NSTextField *stockSymbolName;
-@property (weak) IBOutlet NSButton *butToggleView;
 @property (weak) IBOutlet BasicBackGroundView *searchResultsView;
 @property (weak) IBOutlet JAListView *listView;
-@property (strong) CoreDataController *coreDataController;
-@property (strong) SPADataDownloadManager *stockDownloadManager;
+@property (weak) IBOutlet SquareBorderView *stockDetailsView;
+
+@property (weak) IBOutlet NSLayoutConstraint *searchResultsVerticalLeadingConstraint;
+@property (weak) IBOutlet NSLayoutConstraint *searchResultsVerticalTrailingConstraint;
+
+@property (nonatomic, strong) CoreDataController *coreDataController;
+@property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;
 @property (nonatomic, strong) NSArray *searchResults;
+@property (strong, nonatomic) NSArray *searchRessultsViewVisibleConstraints, *searchRessultsViewNotVisibleConstraints;
 
 //Method definitions
-- (IBAction)SaveStock:(id)sender;
-- (IBAction)toggleView:(id)sender;
--(void) searchForStock;
+- (IBAction) butSearchClicked:(id)sender;
+- (void) toggleViewFadeInOut:(id)sender;
+- (void) searchForStock;
+- (void) setUpConstraints;
+- (void) toggleSearchResultsViewVisable:(BOOL)isVisible;
 @end

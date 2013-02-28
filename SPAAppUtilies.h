@@ -14,7 +14,14 @@
 +(NSColor*) darkGray;
 +(NSColor*) borderWhite;
 +(NSColor*) borderMedium;
+
++(NSColor*) stockEditDarkGrayStart;
++(NSColor*) stockEditDarkGrayEnd;
 +(NSColor*) stockEditGradientStart;
 +(NSColor*) stockEditGradientEnd;
+
+
 +(NSArray*) parseDownloadedDataForSearchResults:(NSData*) theData;
+
+
 @end

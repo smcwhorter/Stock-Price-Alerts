@@ -34,6 +34,30 @@
     return jsonSearchResults;
 }
 
++(NSColor*)  stockEditDarkGrayStart{
+    
+    //Dark gray
+    float red1 = 216.0/255.0;
+    float green1 = 216.0/255.0;
+    float blue1 = 216.0/255.0;
+    float alpha1 = 1.0f;
+    NSColor *rgb1 = [NSColor colorWithDeviceRed: red1 green: green1 blue: blue1 alpha: alpha1];
+    
+    return rgb1;
+}
+
++(NSColor*) stockEditDarkGrayEnd{
+    
+    //Dark gray
+    float red1 = 204.0/255.0;
+    float green1 = 204.0/255.0;
+    float blue1 = 204.0/255.0;
+    float alpha1 = 1.0f;
+    NSColor *rgb1 = [NSColor colorWithDeviceRed: red1 green: green1 blue: blue1 alpha: alpha1];
+    
+    return rgb1;
+}
+
 +(NSColor*) darkGray{
    
     //Dark gray

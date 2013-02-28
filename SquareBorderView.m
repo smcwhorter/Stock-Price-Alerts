@@ -45,9 +45,9 @@
     float h =self.bounds.size.height;
     //NSLog(@"main drawBackground - Width: %f Heigth: %f",w,h);
     
-    
+       
     //Create the gradient
-    NSGradient *gradientColor = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies stockEditGradientStart] endingColor:[SPAAppUtilies stockEditGradientEnd]];
+    NSGradient *gradientColor = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies stockEditDarkGrayStart] endingColor:[SPAAppUtilies stockEditDarkGrayEnd]];
     //Define the rectangle
     NSRect innerRecFrame = NSMakeRect(x+21, y+21, w-52, h-42);
     

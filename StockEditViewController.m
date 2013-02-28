@@ -23,9 +23,13 @@
 //Properties
 @synthesize searchResultsView;
 @synthesize listView;
+@synthesize stockDetailsView;
 @synthesize coreDataController;
 @synthesize stockDownloadManager;
 @synthesize searchResults;
+@synthesize searchResultsVerticalLeadingConstraint;
+@synthesize searchResultsVerticalTrailingConstraint;
+@synthesize searchRessultsViewVisibleConstraints, searchRessultsViewNotVisibleConstraints;
 
 #pragma mark - NSViewController methods
 
@@ -45,10 +49,13 @@
     return self;
 }
 
-//Instantiate the receiver’s view and set it
+//Instantiate the receiver’s view and set up the initial display
 - (void)loadView{
     [super loadView];
-   
+    //[self toggleSearchResultsView];
+    //The search results are hidden by default
+    [self.searchResultsView setHidden:YES];
+    [self.stockDetailsView setHidden:YES];
 }
 
 
@@ -56,17 +63,48 @@
 
 #pragma mark - StockEditViewController method
 
+- (void)setUpConstraints
+{
+    
+    
+    [NSAnimationContext beginGrouping];
+    NSAnimationContext.currentContext.duration = 0.5;
+    //NSAnimationContext.currentContext.completionHandler = ^{[self removeConstraint:collapseConstraint];};
+    [searchResultsVerticalTrailingConstraint.animator setConstant:30];
+    [NSAnimationContext endGrouping];
+    //
+   // searchResultsVerticalTrailingConstraint.constant = 150;
+   /*
+    searchRessultsViewVisibleConstraints = [self.searchResultsView constraints];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(searchResultsView);
+    NSLog(@"%@",views);
+    NSDictionary *metrics = NSDictionaryOfVariableBindings(@500,@10);
+    
+    NSArray *c1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-500-[searchResultsView]-0-|"
+                                                          options:NSLayoutFormatDirectionLeadingToTrailing
+                                                          metrics:metrics
+                                                            views:views];
+    
+    NSMutableArray *newConstraints = [NSMutableArray array];
+    
+    //[self mergeArraysInto:&newConstraints, c1, nil];
+    
+    searchRessultsViewNotVisibleConstraints = newConstraints;*/
+}
+
+//This t
 -(void) searchForStock{
     NSString *searchCriteria = [self.stockSymbolName stringValue];
-    searchCriteria = [searchCriteria stringByTrimmingCharactersInSet:
-                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    searchCriteria = [searchCriteria stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
     //Call the download manager to search for the stock
     [stockDownloadManager searchForStockWithCriteria:searchCriteria];
     
     //TODO: Show loading dialog
 }
 
-- (IBAction)SaveStock:(id)sender {
+- (IBAction)butSearchClicked:(id)sender {
     NSString *val = [_stockSymbolName stringValue];
     //NSLog(@"Stock Edit Button clicked - %@",val);
     
@@ -91,8 +129,40 @@
      */
 }
 
+- (void) toggleSearchResultsViewVisable:(BOOL)isVisible{
+    
+    CGFloat currentValue = searchResultsVerticalTrailingConstraint.constant;
+    CGFloat startAlphValue = 0.0;
+    CGFloat endAlphValue = 0.0;
+    if(isVisible == YES){
+        currentValue = 50.0;
+        startAlphValue = 0.0;
+        endAlphValue = 1.0;
+        [searchResultsView setHidden:NO];
+    }else{
+        currentValue = 200.0;
+        startAlphValue = 1.0;
+        endAlphValue = 0.0;
+    }
+    
+   
+    [searchResultsView setAlphaValue:startAlphValue];
+    
+    //Setup the animation
+    [NSAnimationContext beginGrouping];
+    NSAnimationContext.currentContext.duration = 0.2;
+    NSAnimationContext.currentContext.completionHandler = ^{
+        if(!isVisible){
+             [searchResultsView setHidden:YES];
+        }
+    };
+    [[searchResultsView animator] setAlphaValue:endAlphValue];
+    [searchResultsVerticalTrailingConstraint.animator setConstant:currentValue];
+    [NSAnimationContext endGrouping];
+}
 
-- (IBAction)toggleView:(id)sender {
+
+- (IBAction)toggleViewFadeInOut:(id)sender {
     
     NSRect frame = searchResultsView.frame;
     if(frame.size.height == 0)
@@ -150,19 +220,18 @@
 #pragma mark - SPADataDownloadManagerDelegate
 -(void) downloadDataCompletewithData:(NSMutableData *)theData {
     
+    //Get the search results from the downloaded data
     self.searchResults = [SPAAppUtilies parseDownloadedDataForSearchResults:theData];
-   // NSLog(@"%@",searchResults);
-    //NSEnumerator *iterator = [searchResults keyEnumerator];
+    
+    //Bind the listview
     self.listView.canCallDataSourceInParallel = YES;
     [self.listView reloadData];
     self.listView.delegate = self;
-    /*for(NSDictionary *thisJSONObject in searchResults){
-       
-        NSString *s = [thisJSONObject objectForKey:@"name"];
-        NSLog(@"%@",s);
-
-    }*/
-  // NSArray* searchResultsArray = [searchResults objectForKey:@""];
+    
+    if(searchResultsView.isHidden){
+        //Display the search results
+        [self toggleSearchResultsViewVisable:YES];
+    }
 }
 
 #pragma mark - JAListViewDelegate
@@ -171,6 +240,8 @@
     if(list == self.listView) {
         DemoView *demoView = (DemoView *) view;
         demoView.selected = YES;
+        [self toggleSearchResultsViewVisable:NO];
+        [self.stockDetailsView setHidden:NO];
     }
 }
 
@@ -179,6 +250,7 @@
         DemoView *demoView = (DemoView *) view;
         demoView.selected = NO;
         NSLog(@"Selected: %@", demoView.text);
+        
     }
 }
 
