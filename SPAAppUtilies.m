@@ -34,6 +34,13 @@
     return jsonSearchResults;
 }
 
++(NSArray*) parseDownloadedDataForAdditionalData:(NSData *)theData {
+    NSString *stockInfoString = [[NSString alloc] initWithData:theData encoding:NSASCIIStringEncoding];
+    NSString *stockInfoStringNoQuotes = [stockInfoString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    NSArray *stockData = [stockInfoStringNoQuotes componentsSeparatedByString:@","];
+    return stockData;
+}
+
 +(NSColor*)  stockEditDarkGrayStart{
     
     //Dark gray

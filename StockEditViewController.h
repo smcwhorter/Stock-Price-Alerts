@@ -13,7 +13,7 @@
 #import "JAListView.h"
 #import "SPADataDownloadManager.h"
  
-@interface StockEditViewController : NSViewController <JAListViewDataSource, JAListViewDelegate, SAPDataDownloadCompleteDelegate>
+@interface StockEditViewController : NSViewController <NSTextViewDelegate, JAListViewDataSource, JAListViewDelegate, SAPDataDownloadCompleteDelegate>
 {
     IBOutlet NSButton *butSearch;
     CoreDataController *coreDataController;
@@ -24,6 +24,9 @@
     SPADataDownloadManager *stockDownloadManager;
     __weak NSLayoutConstraint *searchResultsVerticalLeadingConstraint;
     __weak NSLayoutConstraint *searchResultsVerticalTrailingConstraint;
+    __weak NSButton *deleteStock;
+    __weak NSLayoutConstraint *saveStockButton;
+    BasicBackGroundView *saveStockClicked;
 }
 
 //Properties
@@ -41,10 +44,4 @@
 @property (nonatomic, strong) NSArray *searchResults;
 @property (strong, nonatomic) NSArray *searchRessultsViewVisibleConstraints, *searchRessultsViewNotVisibleConstraints;
 
-//Method definitions
-- (IBAction) butSearchClicked:(id)sender;
-- (void) toggleViewFadeInOut:(id)sender;
-- (void) searchForStock;
-- (void) setUpConstraints;
-- (void) toggleSearchResultsViewVisable:(BOOL)isVisible;
 @end

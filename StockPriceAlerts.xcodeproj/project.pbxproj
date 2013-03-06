@@ -49,6 +49,7 @@
 		98D7F21B16BB44D700116B44 /* DemoSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F21716BB44D700116B44 /* DemoSectionView.m */; };
 		98D7F21C16BB44D700116B44 /* DemoSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98D7F21816BB44D700116B44 /* DemoSectionView.xib */; };
 		98D7F21F16BB45BC00116B44 /* JAObjectListViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F21E16BB45BC00116B44 /* JAObjectListViewItem.m */; };
+		98F11DC216E6F7EB00B56237 /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F11DC116E6F7EB00B56237 /* Stock.m */; };
 		D26669CB11B1B2F1007597F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D26669CA11B1B2F1007597F1 /* AppDelegate.m */; };
 		D26669D211B1B302007597F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D26669CE11B1B302007597F1 /* InfoPlist.strings */; };
 		D26669D311B1B302007597F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26669D011B1B302007597F1 /* MainMenu.xib */; };
@@ -127,6 +128,8 @@
 		98D7F21816BB44D700116B44 /* DemoSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoSectionView.xib; sourceTree = "<group>"; };
 		98D7F21D16BB45BC00116B44 /* JAObjectListViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAObjectListViewItem.h; sourceTree = "<group>"; };
 		98D7F21E16BB45BC00116B44 /* JAObjectListViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAObjectListViewItem.m; sourceTree = "<group>"; };
+		98F11DC016E6F7EB00B56237 /* Stock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stock.h; sourceTree = "<group>"; };
+		98F11DC116E6F7EB00B56237 /* Stock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stock.m; sourceTree = "<group>"; };
 		D26669C911B1B2F1007597F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		D26669CA11B1B2F1007597F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		D26669CC11B1B2F8007597F1 /* StockPriceAlerts-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "StockPriceAlerts-Info.plist"; path = "Resources/StockPriceAlerts-Info.plist"; sourceTree = "<group>"; };
@@ -258,6 +261,8 @@
 			children = (
 				063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */,
 				9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */,
+				98F11DC016E6F7EB00B56237 /* Stock.h */,
+				98F11DC116E6F7EB00B56237 /* Stock.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				98CBD9E116D4668800EB0F21 /* SPADataDownloadManager.m in Sources */,
 				98CBD9E816D5C79700EB0F21 /* SPAConstants.m in Sources */,
 				987F702016D709AA0074DF7C /* STOverlayView.m in Sources */,
+				98F11DC216E6F7EB00B56237 /* Stock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

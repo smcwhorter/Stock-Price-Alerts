@@ -22,6 +22,7 @@
 
 
 +(NSArray*) parseDownloadedDataForSearchResults:(NSData*) theData;
++(NSArray*) parseDownloadedDataForAdditionalData:(NSData *)theData;
 
 
 @end
