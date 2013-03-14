@@ -24,9 +24,12 @@
     SPADataDownloadManager *stockDownloadManager;
     __weak NSLayoutConstraint *searchResultsVerticalLeadingConstraint;
     __weak NSLayoutConstraint *searchResultsVerticalTrailingConstraint;
+    __weak NSLayoutConstraint *placeholderHorizontalTrailingContraint;
+    __weak NSLayoutConstraint *placeholderHorizontalLeadingConstraint;
     __weak NSButton *deleteStock;
     __weak NSLayoutConstraint *saveStockButton;
     BasicBackGroundView *saveStockClicked;
+    __weak NSView *placeholderView;
 }
 
 //Properties
@@ -38,6 +41,8 @@
 
 @property (weak) IBOutlet NSLayoutConstraint *searchResultsVerticalLeadingConstraint;
 @property (weak) IBOutlet NSLayoutConstraint *searchResultsVerticalTrailingConstraint;
+@property (weak) IBOutlet NSLayoutConstraint *placeholderHorizontalTrailingContraint;
+@property (weak) IBOutlet NSLayoutConstraint *placeholderHorizontalLeadingConstraint;
 
 @property (nonatomic, strong) CoreDataController *coreDataController;
 @property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;

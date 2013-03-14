@@ -8,11 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/AppDelegate.m"
-         timestampString = "382419236.773949"
+         timestampString = "384535840.793229"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299">
+         startingLineNumber = "300"
+         endingLineNumber = "300"
+         landmarkName = "-applicationShouldTerminate:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -70,19 +72,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "StockEditViewController.m"
-         timestampString = "384232441.535832"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "-butSearchClicked:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "SPANetworkManager.m"
          timestampString = "383023825.036473"
          startingColumnNumber = "9223372036854775807"
@@ -103,19 +92,6 @@
          startingLineNumber = "88"
          endingLineNumber = "88"
          landmarkName = "-connection:didReceiveResponse:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "StockEditViewController.m"
-         timestampString = "384232441.535832"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "62"
-         endingLineNumber = "62"
-         landmarkName = "-setsearchCriteriaString:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

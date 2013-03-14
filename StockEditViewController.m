@@ -11,11 +11,13 @@
 #import "SPAAppUtilies.h"
 #import "SPADataDownloadManager.h"
 #import "BasicBackGroundView.h"
+#import "SPAStockDetailViewController.h"
 #import "DemoView.h"
 
 
 @interface StockEditViewController ()
 
+@property (weak) IBOutlet NSView *placeholderView;
 
 @property (nonatomic, strong) NSString *searchCriteriaString;
 
@@ -41,6 +43,7 @@
 @implementation StockEditViewController
 
 //Properties
+@synthesize placeholderView;
 @synthesize currentPriceLabel;
 @synthesize lowPriceTextField;
 @synthesize highPriceTextField;
@@ -53,6 +56,8 @@
 @synthesize stockDownloadManager;
 @synthesize searchResultsVerticalLeadingConstraint;
 @synthesize searchResultsVerticalTrailingConstraint;
+@synthesize placeholderHorizontalTrailingContraint;
+@synthesize placeholderHorizontalLeadingConstraint;
 @synthesize searchRessultsViewVisibleConstraints, searchRessultsViewNotVisibleConstraints;
 
 -(void) setsearchCriteriaString:(NSString *)searchCriteriaString{
@@ -69,7 +74,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        // Initialization code here
+        
     
     }
    
@@ -86,6 +91,50 @@
         self.stockDownloadManager.delegate = self;
     }
     
+    // Initialization code here
+    SPAStockDetailViewController *stockDetailVC = [[SPAStockDetailViewController alloc] initWithNibName:@"StockDetailsView" bundle:nil];
+    //stockDetailVC.view.frame = placeholderView.bounds;
+    
+    BasicBackGroundView *_stockDetailsView = stockDetailVC.view;
+    [_stockDetailsView setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+    
+    
+    //NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_stockDetailsView);
+    
+    [self.view addSubview:_stockDetailsView];
+    
+   [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(50)-[_stockDetailsView(>=200)]-(50)-|"
+                                                          options:0
+                                                          metrics:nil
+                                                          views:NSDictionaryOfVariableBindings(_stockDetailsView)]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(125)-[_stockDetailsView(>=200)]-|"
+                                                                                 options:0
+                                                                                 metrics:nil
+                                                                                   views:NSDictionaryOfVariableBindings(_stockDetailsView)]];
+    NSArray *constraints = [self.view constraints];
+    NSLog(@"%@",constraints);
+    /*
+     NSLayoutConstraint *horizontalConstraint = [NSLayoutConstraint
+     constraintsWithVisualFormat:@"H:|-(50)-[_stockDetailsView(>=200)]-(50)-|"
+     options:0
+     metrics:nil
+     views:NSDictionaryOfVariableBindings(_stockDetailsView)];
+     
+     NSLayoutConstraint *verticalConstraint = [NSLayoutConstraint
+     constraintsWithVisualFormat:@"V:|-(125)-[_stockDetailsView(>=200)]-(100)-|"
+     options:0
+     metrics:nil
+     views:NSDictionaryOfVariableBindings(_stockDetailsView)];
+     
+     NSArray *constraints  = @[horizontalConstraint, verticalConstraint];
+     [self.view addConstraint:horizontalConstraint];
+     [self.view addConstraint:verticalConstraint];*/
+
+    NSLog(@"Place Holder: Frame %@ - bounds %@",NSStringFromRect(self.placeholderView.frame),NSStringFromRect(self.placeholderView.bounds));
+    NSLog(@"Details View Frame %@ - bounds %@",NSStringFromRect(stockDetailVC.view.frame),NSStringFromRect(stockDetailVC.view.bounds));
+        
     //The search results are hidden by default
     [self.searchResultsView setHidden:YES];
     [self.stockDetailsView setHidden:YES];
@@ -100,6 +149,14 @@
 }
 
 - (IBAction)saveStockClicked:(id)sender {
+    //Call method to add a new stock
+    if(coreDataController != nil)
+    {
+        [coreDataController addStockEnitiy];
+        NSInteger *stockCount = [coreDataController stockEntityCount];
+        NSLog(@"Number of items in the array:%d",stockCount);
+    }
+    
 }
 
 - (IBAction)deleteStockClicked:(id)sender {
@@ -109,40 +166,44 @@
     _searchCriteriaString = [_stockSymbolName stringValue];
     //Call the download manager to search for the stock
     [stockDownloadManager searchForStockWithCriteria:_searchCriteriaString];
-    
-    //NSRect frame = NSMakeRect(200.0, 0.0, 200.0, 200.0);
-    //StockEditViewController *anotherStockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
-    //NSView *nextView = [anotherStockEditViewController view];
-    //[nextView setFrame:frame];
-    
-    //[[self.view superview] addSubview:nextView positioned:NSWindowAbove relativeTo:self.view];
-    //[self]
-    /*
-     //Call method to add a new stock
-     if(coreDataController != nil)
-     {
-     [coreDataController addStockEnitiy];
-     NSInteger *stockCount = [coreDataController stockEntityCount];
-     NSLog(@"Number of items in the array:%d",stockCount);
-     }
-     */
 }
 
+//Display the listsview with the search results
 -(void) displaySearchTableView{
-    
-    
+
     //Bind the listview
     self.listView.canCallDataSourceInParallel = YES;
     self.listView.delegate = self;
     
-    if(searchResultsView.isHidden){
+    /*NSArray *constrains = [[NSArray alloc]
+                           initWithObjects:searchResultsVerticalLeadingConstraint,
+                           searchResultsVerticalTrailingConstraint,
+                           placeholderHorizontalLeadingConstraint,
+                           placeholderHorizontalTrailingContraint
+                           ,nil];*/
+   // [stockDetailsView addConstraints:constrains];
+    
+    //[self.placeholderView addSubview:stockDetailsView];
+   /* [self.placeholderView removeFromSuperview];
+   
+    NSLayoutConstraint *c = [NSLayoutConstraint constraintWithVisualFormat:
+                @"V:|-[stockDetailsView(200)]-|"
+                                                      options:NSLayoutFormatAlignAllLeft
+                                                      metrics:nil
+                                                                     views:NSDictionaryOfVariableBindings()];
+    NSArray *constrains = [[NSArray alloc]
+                           initWithObjects:c,nil];
+    [stockDetailsView addConstraints:constrains];
+     [self.view addSubview:stockDetailsView];*/
+    //if(searchResultsView.isHidden){
         //Display the search results
-        [self toggleSearchResultsViewVisable:YES];
-    }
+    //    [self toggleSearchResultsViewVisable:YES];
+    //}
     [self.stockDetailsView setHidden:YES];
     [self.listView reloadData];
 }
 
+//Display the selected stock details - i.e., currect price, low/high price
 -(void) displayStockDetails:(NSArray*)theDetails{
     [self toggleSearchResultsViewVisable:NO];
     [self.stockDetailsView setHidden:NO];
@@ -156,6 +217,7 @@
     }
 }
 
+//This will animate the tableview visable by changing its alpha and auto layout contraint
 - (void) toggleSearchResultsViewVisable:(BOOL)isVisible{
     
     CGFloat currentValue = searchResultsVerticalTrailingConstraint.constant;
@@ -189,6 +251,7 @@
 }
 
 #pragma mark - SPADataDownloadManagerDelegate
+//Delegate method to is called with data has been downloaded
 -(void) downloadDataCompletewithData:(NSMutableData *)theData forStockDataType:(StockDownloadDataType)theStockDataType{
     
     if(theStockDataType == StockSearchData){
@@ -268,9 +331,6 @@
     textForCell = [textForCell stringByAppendingString:@" - "];
     textForCell = [textForCell stringByAppendingString:[searchItem objectForKey:@"symbol"]];
     view.text = textForCell;
-    //view.textField = @"test";
-    //view.shadowTextField = @"b";
-    //NSLog(@"%@",searchItem);
     return view;
 }
 @end

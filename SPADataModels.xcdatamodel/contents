@@ -15,9 +15,10 @@
         <attribute name="percentChange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priceRange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="symbol" attributeType="String" syncable="YES"/>
+        <relationship name="stocksPriceHistory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PriceHistory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PriceHistory" positionX="-1550" positionY="594" width="128" height="103"/>
-        <element name="Stock" positionX="-1820" positionY="575" width="182" height="163"/>
+        <element name="PriceHistory" positionX="-1521" positionY="621" width="200" height="103"/>
+        <element name="Stock" positionX="-1820" positionY="560" width="227" height="178"/>
     </elements>
 </model>

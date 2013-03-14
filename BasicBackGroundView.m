@@ -43,13 +43,17 @@
     float y = self.bounds.origin.y;
     float w = self.bounds.size.width;
     float h =self.bounds.size.height;
+    
+    if((x == 0.0) && (y = 0.0)){
+        return;
+    }
     //NSLog(@"main drawBackground - Width: %f Heigth: %f",w,h);
     
     
     //Create the gradient
     NSGradient *gradientColor = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies stockEditGradientStart] endingColor:[SPAAppUtilies stockEditGradientEnd]];
     //Define the rectangle
-    NSRect innerRecFrame = NSMakeRect(x+21, y+21, w-52, h-42);
+    NSRect innerRecFrame = NSMakeRect(roundf(x+21), roundf(y+21), w-52, h-42);
     
     NSBezierPath *clipPath = [NSBezierPath bezierPathWithRoundedRect:innerRecFrame xRadius:10.0 yRadius:10.0];
     //[clipPath addClip];

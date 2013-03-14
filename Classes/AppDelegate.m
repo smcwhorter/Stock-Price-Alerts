@@ -175,7 +175,7 @@
         return _managedObjectModel;
     }
 	NSBundle *d = [NSBundle mainBundle];
-    NSLog(@"%@",d);
+    NSLog(@"Manaed Object Model: %@",d);
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SPADataModels" withExtension:@"mom"];
      
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
@@ -226,6 +226,7 @@
     }
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"SPADataModels.storedata"];
+    NSLog(@"storedata file: %@",url);
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
