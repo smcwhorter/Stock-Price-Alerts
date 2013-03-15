@@ -33,6 +33,7 @@
 		9898887E16B77669004688D2 /* icon1-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887A16B77669004688D2 /* icon1-blue.png */; };
 		9898887F16B77669004688D2 /* icon1-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887B16B77669004688D2 /* icon1-gray.png */; };
 		9898888016B77669004688D2 /* icon1-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 9898887C16B77669004688D2 /* icon1-white.png */; };
+		989E53D516F2B5C900123F6B /* StockSearchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 989E53D416F2B5C900123F6B /* StockSearchListView.m */; };
 		98CBD9E116D4668800EB0F21 /* SPADataDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CBD9E016D4668800EB0F21 /* SPADataDownloadManager.m */; };
 		98CBD9E816D5C79700EB0F21 /* SPAConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CBD9E716D5C79700EB0F21 /* SPAConstants.m */; };
 		98D7F1EE16BA0C1400116B44 /* StockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D7F1EC16BA0C1400116B44 /* StockListViewController.m */; };
@@ -52,6 +53,9 @@
 		98F11DC216E6F7EB00B56237 /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F11DC116E6F7EB00B56237 /* Stock.m */; };
 		98F11DC516EBA37B00B56237 /* StockDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F11DC416EBA37B00B56237 /* StockDetailsView.xib */; };
 		98F11DC816EBA41100B56237 /* SPAStockDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F11DC716EBA41100B56237 /* SPAStockDetailViewController.m */; };
+		98F11DCB16F290C300B56237 /* StockDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F11DCA16F290C300B56237 /* StockDetailsView.m */; };
+		98F37EB216F29A160076FA17 /* StockSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F37EB016F29A160076FA17 /* StockSearchListViewController.m */; };
+		98F37EB316F29A160076FA17 /* StockSearchListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98F37EB116F29A160076FA17 /* StockSearchListView.xib */; };
 		D26669CB11B1B2F1007597F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D26669CA11B1B2F1007597F1 /* AppDelegate.m */; };
 		D26669D211B1B302007597F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D26669CE11B1B302007597F1 /* InfoPlist.strings */; };
 		D26669D311B1B302007597F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26669D011B1B302007597F1 /* MainMenu.xib */; };
@@ -101,6 +105,8 @@
 		9898887A16B77669004688D2 /* icon1-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-blue.png"; sourceTree = "<group>"; };
 		9898887B16B77669004688D2 /* icon1-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-gray.png"; sourceTree = "<group>"; };
 		9898887C16B77669004688D2 /* icon1-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon1-white.png"; sourceTree = "<group>"; };
+		989E53D316F2B5C900123F6B /* StockSearchListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockSearchListView.h; sourceTree = "<group>"; };
+		989E53D416F2B5C900123F6B /* StockSearchListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockSearchListView.m; sourceTree = "<group>"; };
 		98CBD9DF16D4668800EB0F21 /* SPADataDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPADataDownloadManager.h; sourceTree = "<group>"; };
 		98CBD9E016D4668800EB0F21 /* SPADataDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPADataDownloadManager.m; sourceTree = "<group>"; };
 		98CBD9E616D5C79700EB0F21 /* SPAConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAConstants.h; sourceTree = "<group>"; };
@@ -135,6 +141,11 @@
 		98F11DC416EBA37B00B56237 /* StockDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockDetailsView.xib; sourceTree = "<group>"; };
 		98F11DC616EBA41100B56237 /* SPAStockDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAStockDetailViewController.h; sourceTree = "<group>"; };
 		98F11DC716EBA41100B56237 /* SPAStockDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAStockDetailViewController.m; sourceTree = "<group>"; };
+		98F11DC916F290C300B56237 /* StockDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockDetailsView.h; sourceTree = "<group>"; };
+		98F11DCA16F290C300B56237 /* StockDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockDetailsView.m; sourceTree = "<group>"; };
+		98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockSearchListViewController.h; sourceTree = "<group>"; };
+		98F37EB016F29A160076FA17 /* StockSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockSearchListViewController.m; sourceTree = "<group>"; };
+		98F37EB116F29A160076FA17 /* StockSearchListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockSearchListView.xib; sourceTree = "<group>"; };
 		D26669C911B1B2F1007597F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		D26669CA11B1B2F1007597F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		D26669CC11B1B2F8007597F1 /* StockPriceAlerts-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "StockPriceAlerts-Info.plist"; path = "Resources/StockPriceAlerts-Info.plist"; sourceTree = "<group>"; };
@@ -259,6 +270,8 @@
 				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
 				98F11DC616EBA41100B56237 /* SPAStockDetailViewController.h */,
 				98F11DC716EBA41100B56237 /* SPAStockDetailViewController.m */,
+				98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */,
+				98F37EB016F29A160076FA17 /* StockSearchListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +321,10 @@
 				0668F10616CFD37C007C8A10 /* SquareBorderView.m */,
 				9895CA8016BF41080004EE6E /* BasicBackGroundView.h */,
 				9895CA8116BF41080004EE6E /* BasicBackGroundView.m */,
+				98F11DC916F290C300B56237 /* StockDetailsView.h */,
+				98F11DCA16F290C300B56237 /* StockDetailsView.m */,
+				989E53D316F2B5C900123F6B /* StockSearchListView.h */,
+				989E53D416F2B5C900123F6B /* StockSearchListView.m */,
 			);
 			name = BasicBackground;
 			sourceTree = "<group>";
@@ -324,6 +341,7 @@
 				98D7F21816BB44D700116B44 /* DemoSectionView.xib */,
 				98D7F21516BB44D700116B44 /* DemoView.xib */,
 				98F11DC416EBA37B00B56237 /* StockDetailsView.xib */,
+				98F37EB116F29A160076FA17 /* StockSearchListView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -466,6 +484,7 @@
 				980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */,
 				980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */,
 				98F11DC516EBA37B00B56237 /* StockDetailsView.xib in Resources */,
+				98F37EB316F29A160076FA17 /* StockSearchListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +526,9 @@
 				987F702016D709AA0074DF7C /* STOverlayView.m in Sources */,
 				98F11DC216E6F7EB00B56237 /* Stock.m in Sources */,
 				98F11DC816EBA41100B56237 /* SPAStockDetailViewController.m in Sources */,
+				98F11DCB16F290C300B56237 /* StockDetailsView.m in Sources */,
+				98F37EB216F29A160076FA17 /* StockSearchListViewController.m in Sources */,
+				989E53D516F2B5C900123F6B /* StockSearchListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
