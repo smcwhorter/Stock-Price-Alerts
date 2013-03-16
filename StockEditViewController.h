@@ -13,7 +13,7 @@
 #import "JAListView.h"
 #import "SPADataDownloadManager.h"
  
-@interface StockEditViewController : NSViewController <NSTextViewDelegate, SAPDataDownloadCompleteDelegate>
+@interface StockEditViewController : NSViewController <NSTextViewDelegate, SPADataDownloadCompleteDelegate>
 {
     IBOutlet NSButton *butSearch;
 }

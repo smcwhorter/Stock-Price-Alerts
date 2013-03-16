@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 //Define a delegte for this class
-@protocol SAPDataDownloadCompleteDelegate
+@protocol SPADataDownloadCompleteDelegate
 -(void) downloadDataCompletewithData:(NSMutableData*)theData forStockDataType:(StockDownloadDataType) theStockDataType;
 @end
 
 @interface SPADataDownloadManager : NSObject
 
-@property (assign, nonatomic) id <SAPDataDownloadCompleteDelegate> delegate;
+@property (assign, nonatomic) id <SPADataDownloadCompleteDelegate> delegate;
 //Public methods
 -(void) searchForStockWithCriteria:(NSString*) companyOrSymbol;
 -(void) fetchStockDetailInformation:(NSString*) companyOrSymbol;

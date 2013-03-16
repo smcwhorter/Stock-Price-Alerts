@@ -17,6 +17,10 @@
 
 @implementation DemoView
 
+@synthesize selected;
+@synthesize textField;
+@synthesize shadowTextField;
+
 + (DemoView *)demoView {
     static NSNib *nib = nil;
     if(nib == nil) {
@@ -80,9 +84,5 @@
     
     [self setNeedsDisplay:YES];
 }
-
-@synthesize selected;
-@synthesize textField;
-@synthesize shadowTextField;
 
 @end

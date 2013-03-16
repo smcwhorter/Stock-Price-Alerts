@@ -11,6 +11,7 @@
 
 @interface StockSearchListViewController ()
 
+@property (nonatomic, strong) NSDictionary *selectedStockData;
 @end
 
 @implementation StockSearchListViewController
@@ -22,27 +23,39 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
-        self.listView.canCallDataSourceInParallel = YES;
-        self.listView.delegate = self;
-        [self.listView reloadData];
+        //self.listView.delegate = self;
+        //self.listView.dataSource = self;
     }
     
     return self;
 }
 
-/** AutoLayout causes this to break*/
-//-(void)loadView{}
 
-#pragma mark JAListViewDelegate
+-(void)loadView{
+    [super loadView];//Must call or AutoLayout will break
+}
+
+-(void)downloadAdditionalStockData:(NSString*)theSymbol{
+    
+    [_stockDownloadManager fetchStockDetailInformation:theSymbol];
+    //TODO: Add loading dialog
+}
+
+#pragma mark - JAListViewDelegate
 
 - (void)listView:(JAListView *)list willSelectView:(JAListViewItem *)view {
+    NSLog(@"I will be selected");
     if(list == self.listView) {
         DemoView *demoView = (DemoView *) view;
         demoView.selected = YES;
+        
+        NSString *selectedSymbol = demoView.stockSymbol;
+        [self downloadAdditionalStockData:selectedSymbol];
     }
 }
 
 - (void)listView:(JAListView *)list didSelectView:(JAListViewItem *)view {
+    NSLog(@"I was selected");
     if(list == self.listView) {
         DemoView *demoView = (DemoView *) view;
         demoView.selected = NO;
@@ -60,12 +73,21 @@
 #pragma mark JAListViewDataSource
 
 - (NSUInteger)numberOfItemsInListView:(JAListView *)listView {
-    return 100;
+    return [_stockSearchResultsData count];
 }
 
 - (JAListViewItem *)listView:(JAListView *)listView viewAtIndex:(NSUInteger)index {
     DemoView *view = [DemoView demoView];
-    view.text = [NSString stringWithFormat:@"Row %d", (int)index + 1];
+    
+    //Get the object out of the array
+    NSDictionary *searchItem = [_stockSearchResultsData objectAtIndex:index];
+    NSString *textForCell =  [searchItem objectForKey:@"name"];
+    textForCell = [textForCell stringByAppendingString:@" - "];
+    textForCell = [textForCell stringByAppendingString:[searchItem objectForKey:@"symbol"]];
+    
+    view.text = textForCell;
+    view.stockSymbol = [searchItem objectForKey:@"symbol"];
+
     return view;
 }
 

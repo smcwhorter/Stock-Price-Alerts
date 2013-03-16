@@ -258,20 +258,15 @@
 			children = (
 				06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */,
 				06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */,
-				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
-				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
-				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
-				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
 				98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */,
 				98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */,
 				9895CA7916BF32860004EE6E /* SPAHeaderViewController.h */,
 				9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */,
 				9895CA7B16BF32860004EE6E /* SPAFooterViewController.h */,
 				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
-				98F11DC616EBA41100B56237 /* SPAStockDetailViewController.h */,
-				98F11DC716EBA41100B56237 /* SPAStockDetailViewController.m */,
-				98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */,
-				98F37EB016F29A160076FA17 /* StockSearchListViewController.m */,
+				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
+				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
+				98C0D15116F4C83E007A2F31 /* StockDetailController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -336,10 +331,10 @@
 				D26669D011B1B302007597F1 /* MainMenu.xib */,
 				980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */,
 				98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */,
-				980782B016B8D2A600933B40 /* StockEditViewController.xib */,
 				98D7F1F316BA1BEF00116B44 /* SettingsViewController.xib */,
 				98D7F21816BB44D700116B44 /* DemoSectionView.xib */,
 				98D7F21516BB44D700116B44 /* DemoView.xib */,
+				980782B016B8D2A600933B40 /* StockEditViewController.xib */,
 				98F11DC416EBA37B00B56237 /* StockDetailsView.xib */,
 				98F37EB116F29A160076FA17 /* StockSearchListView.xib */,
 			);
@@ -365,6 +360,19 @@
 				9898888116B77677004688D2 /* EDSideBar */,
 			);
 			name = "Custom Controls";
+			sourceTree = "<group>";
+		};
+		98C0D15116F4C83E007A2F31 /* StockDetailController */ = {
+			isa = PBXGroup;
+			children = (
+				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
+				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
+				98F11DC616EBA41100B56237 /* SPAStockDetailViewController.h */,
+				98F11DC716EBA41100B56237 /* SPAStockDetailViewController.m */,
+				98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */,
+				98F37EB016F29A160076FA17 /* StockSearchListViewController.m */,
+			);
+			name = StockDetailController;
 			sourceTree = "<group>";
 		};
 		98CBD9D916D4641300EB0F21 /* Utils */ = {

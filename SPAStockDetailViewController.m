@@ -24,4 +24,9 @@
     return self;
 }
 
+-(void) loadView{
+    [super loadView];
+    NSLog(@"Details: %@",_stockDetailInfo);
+}
+
 @end

@@ -85,13 +85,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SPADataDownloadManager.m"
-         timestampString = "384224984.3819"
+         filePath = "StockSearchListViewController.m"
+         timestampString = "385145858.47926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-connection:didReceiveResponse:"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-listView:willSelectView:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

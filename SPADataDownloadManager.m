@@ -16,7 +16,7 @@
 @interface SPADataDownloadManager()
 //Properties
 @property (nonatomic, assign) StockDownloadDataType stockDataRequetType;
-@property (nonatomic, strong, readwrite) NSURLConnection *fetchConnection;
+//@property (nonatomic, strong, readwrite) NSURLConnection *fetchConnection;
 @property (nonatomic, strong) NSMutableData *rawData;
 @end
 
@@ -38,10 +38,10 @@
     //Create a request object
     NSURLRequest *stockSearchRequest = [[NSURLRequest alloc] initWithURL:url];
     //Create a new connection object and search for the 
-    _fetchConnection = [[NSURLConnection alloc] initWithRequest:stockSearchRequest delegate:self];
-
+    NSURLConnection *searchConnection = [[NSURLConnection alloc] initWithRequest:stockSearchRequest delegate:self];
+    _rawData = [[NSMutableData alloc] init];
     //Start loading data
-    [_fetchConnection start];
+    [searchConnection start];
 }
 
 
@@ -50,14 +50,15 @@
     urlString = [urlString stringByAppendingString:@"&f=snd1l1yrww1t8"];
     self.stockDataRequetType = AdditionalDetailsData;
     //Create a URL object
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURL *detailsUrl = [NSURL URLWithString:urlString];
     //Create a request object
-    NSURLRequest *stockDetailsRequest = [[NSURLRequest alloc] initWithURL:url];
+    NSURLRequest *stockDetailsRequest = [[NSURLRequest alloc] initWithURL:detailsUrl];
     //create connection
-    _fetchConnection = [[NSURLConnection alloc] initWithRequest:stockDetailsRequest delegate:self];
+    NSURLConnection *fetchConnection = [[NSURLConnection alloc] initWithRequest:stockDetailsRequest delegate:self];
     
+    _rawData = [[NSMutableData alloc] init];
     //Start the connection
-    [_fetchConnection start];
+    [fetchConnection start];
 }
 
 //This method will cleanup the connection and call the delegate method
@@ -65,7 +66,7 @@
     //Call the delegate
     [_delegate downloadDataCompletewithData:self.rawData forStockDataType:self.stockDataRequetType];
     
-    _stockDataRequetType = noData;
+   
 }
 
 #pragma mark - NSURLConnection delegates
@@ -75,6 +76,10 @@
     
         //Call method to clean up connection and signal to others that the data is ready
         [self signalDownloadComplete];
+         _stockDataRequetType = noData;
+        _rawData = nil;
+        connection = nil;
+        
     }
 }
 
@@ -100,8 +105,6 @@
 {
 #pragma unused(theConnection)
 #pragma unused(error)
-    assert(theConnection == self.fetchConnection);
-    
-    //[self stopReceiveWithStatus:@"Connection failed"];
+    assert(theConnection);
 }
 @end

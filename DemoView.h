@@ -22,5 +22,6 @@
 @property (nonatomic, copy) NSString *text;
 @property (retain) IBOutlet NSTextField *textField;
 @property (retain) IBOutlet NSTextField *shadowTextField;
+@property (nonatomic, strong) NSString *stockSymbol;
 
 @end

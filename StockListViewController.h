@@ -18,4 +18,5 @@
 }
 @property (assign) __unsafe_unretained IBOutlet JAListView *listView;
 
+
 @end

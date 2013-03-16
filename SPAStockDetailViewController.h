@@ -10,5 +10,5 @@
 
 @interface SPAStockDetailViewController : NSViewController
 
-
+@property (nonatomic, strong) NSArray *stockDetailInfo;
 @end

@@ -26,6 +26,10 @@
 @property (nonatomic, strong) NSString *searchCriteriaString;
 @property (nonatomic, strong) NSArray *searchResults;
 @property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;
+@property (nonatomic, strong) StockSearchListViewController *searchListViewController;
+@property (nonatomic, strong) SPAStockDetailViewController *stockDetailViewController;
+@property (nonatomic, strong) StockSearchListView *stockSearchListView;
+@property (nonatomic, strong) StockDetailsView *_stockDetailsView;
 
 - (void) toggleViewFadeInOut:(id)sender;
 - (void) searchForStock:(NSString*) theSeachString;
@@ -55,9 +59,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        
-    
     }
    
     return self;
@@ -72,14 +73,6 @@
         self.stockDownloadManager = [[SPADataDownloadManager alloc] init];
         self.stockDownloadManager.delegate = self;
     }
-    
-       
-
-    //NSLog(@"Place Holder: Frame %@ - bounds %@",NSStringFromRect(self.placeholderView.frame),NSStringFromRect(self.placeholderView.bounds));
-    //NSLog(@"Details View Frame %@ - bounds %@",NSStringFromRect(stockDetailVC.view.frame),NSStringFromRect(stockDetailVC.view.bounds));
-        
-    //The search results are hidden by default
-    
 }
 
 #pragma mark - StockEditViewController method
@@ -110,37 +103,96 @@
     [stockDownloadManager searchForStockWithCriteria:_searchCriteriaString];
 }
 
-//Display the listsview with the search results
--(void) displaySearchTableView{
-   
-    StockSearchListViewController *searchListViewController = [[StockSearchListViewController alloc] initWithNibName:@"StockSearchListView" bundle:nil];
-   
-    StockSearchListView *_stockSearchListView = searchListViewController.view;
-    [_stockSearchListView setTranslatesAutoresizingMaskIntoConstraints:NO];
+#pragma mark - StockSearchListViewController
 
-    [self.view addSubview:_stockSearchListView];
+//Display the listsview with the search results
+-(void) loadSearchListViewController{
    
+    if(_searchListViewController == nil){
+        _searchListViewController = [[StockSearchListViewController alloc] initWithNibName:@"StockSearchListView" bundle:nil];
+    }
+   
+    //Set the list's data and load it
+    _searchListViewController.stockDownloadManager = stockDownloadManager;
+    _searchListViewController.stockSearchResultsData = _searchResults;
+    [_searchListViewController.listView reloadData];
     
+    //Call mehod to layout the views on the super view
+    [self layoutStockSearchListView];
+    
+}
+
+-(void) layoutStockSearchListView{
+    
+    //Remove the list view
+    if(_stockSearchListView != nil){
+        [_stockSearchListView removeFromSuperview];
+    }
+
+    //Get the view from the controlelr
+    _stockSearchListView = _searchListViewController.view;
+    [_stockSearchListView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _stockSearchListView.alphaValue = 0;
+    
+    //Add the view to the superview
+    [self.view addSubview:_stockSearchListView];
+    
+    //Define the layout constraints
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(50)-[_stockSearchListView(>=200)]-(50)-|"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_stockSearchListView)]];
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(150)-[_stockSearchListView(>=200)]-(200)-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(150)-[_stockSearchListView(>=200)]"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_stockSearchListView)]];
-
     
+    //TODO: Need to fix - needs bottom veritical padding
+    NSLayoutConstraint *trailingVerticalConstraint = [NSLayoutConstraint constraintWithItem:_stockSearchListView
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                  relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                                     toItem:self.view
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                 multiplier:1
+                                                                                   constant:0];
+    
+    [self.view addConstraint:trailingVerticalConstraint];
+    
+    //Setup the animation
+    [NSAnimationContext beginGrouping];
+    NSAnimationContext.currentContext.duration = 1.0;
+    NSAnimationContext.currentContext.completionHandler = ^{
+        NSLog(@"Animation complete");
+    };
+    [[_stockSearchListView animator] setAlphaValue:1];
+    
+    [NSAnimationContext endGrouping];
+
 }
 
+#pragma mark - StockDetailsViewController
+
 //Display the selected stock details - i.e., currect price, low/high price
--(void) displayStockDetails:(NSArray*)theDetails{
+-(void) loadStockDetailsViewController:(NSArray*)theDetails{
    
+    if(_stockDetailViewController == nil)
+    {
+        _stockDetailViewController = [[SPAStockDetailViewController alloc] initWithNibName:@"StockDetailsView" bundle:nil];
+    }
     
+    _stockDetailViewController.stockDetailInfo = theDetails;
     
-    SPAStockDetailViewController *stockDetailVC = [[SPAStockDetailViewController alloc] initWithNibName:@"StockDetailsView" bundle:nil];
-    StockDetailsView *_stockDetailsView = stockDetailVC.view;
+    [self layoutStockDetailsView];
+}
+
+-(void) layoutStockDetailsView{
+    
+    //Remove the list view
+    [_stockSearchListView removeFromSuperview];
+    
+    StockDetailsView *_stockDetailsView = _stockDetailViewController.view;
+    _stockDetailsView.alphaValue = 0;
     [_stockDetailsView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self.view addSubview:_stockDetailsView];
@@ -150,55 +202,31 @@
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_stockDetailsView)]];
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(150)-[_stockDetailsView(>=200)]-(200)-|"
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(150)-[_stockDetailsView(>=200)]"
                                                                       options:0
                                                                       metrics:nil
                                                                         views:NSDictionaryOfVariableBindings(_stockDetailsView)]];
     
-    NSArray *constraints = [self.view constraints];
-    //NSLog(@"%@",constraints);
-    /*
- 
-    if(theDetails.count >= 10){
-        
-         [self.currentPriceLabel setStringValue:[NSString stringWithFormat:@"%@ - Price: $%@",[theDetails objectAtIndex:1],[theDetails objectAtIndex:4]]];
-    }
-    else{
-       [self.currentPriceLabel setStringValue:[NSString stringWithFormat:@"%@ - Price: $%@",[theDetails objectAtIndex:1],[theDetails objectAtIndex:3]]];
-    }*/
-}
-
-//This will animate the tableview visable by changing its alpha and auto layout contraint
-- (void) toggleSearchResultsViewVisable:(BOOL)isVisible{
-    /*
-    CGFloat currentValue = searchResultsVerticalTrailingConstraint.constant;
-    CGFloat startAlphValue = 0.0;
-    CGFloat endAlphValue = 0.0;
-    if(isVisible == YES){
-        currentValue = 50.0;
-        startAlphValue = 0.0;
-        endAlphValue = 1.0;
-        [searchResultsView setHidden:NO];
-    }else{
-        currentValue = 200.0;
-        startAlphValue = 1.0;
-        endAlphValue = 0.0;
-    }
+    //TODO: Need to fix - needs bottom veritical padding
+    NSLayoutConstraint *trailingVerticalConstraint = [NSLayoutConstraint constraintWithItem:_stockDetailsView
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                  relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                                     toItem:self.view
+                                                                                  attribute:NSLayoutAttributeBottom
+                                                                                 multiplier:1
+                                                                                   constant:0];
     
-   
-    [searchResultsView setAlphaValue:startAlphValue];
+    [self.view addConstraint:trailingVerticalConstraint];
     
     //Setup the animation
     [NSAnimationContext beginGrouping];
-    NSAnimationContext.currentContext.duration = 0.2;
+    NSAnimationContext.currentContext.duration = 1.0;
     NSAnimationContext.currentContext.completionHandler = ^{
-        if(!isVisible){
-             [searchResultsView setHidden:YES];
-        }
+      //  NSLog(@"Animation complete");
     };
-    [[searchResultsView animator] setAlphaValue:endAlphValue];
-    [searchResultsVerticalTrailingConstraint.animator setConstant:currentValue];
-    [NSAnimationContext endGrouping];*/
+    [[_stockDetailsView animator] setAlphaValue:1];
+    
+    [NSAnimationContext endGrouping];
 }
 
 #pragma mark - SPADataDownloadManagerDelegate
@@ -206,16 +234,13 @@
 -(void) downloadDataCompletewithData:(NSMutableData *)theData forStockDataType:(StockDownloadDataType)theStockDataType{
     
     if(theStockDataType == StockSearchData){
-        //NSString *sringData = [[NSString alloc] initWithData:theData encoding:NSASCIIStringEncoding];
-        //NSLog(@"%@",sringData);
-        //Get the search results from the downloaded data
-        
         _searchResults = [SPAAppUtilies parseDownloadedDataForSearchResults:theData];
         
         if(_searchResults.count > 0){
-            [self displaySearchTableView];
+            [self loadSearchListViewController];
         }else {
-            //TODO: Display Alert
+            //TODO: Display Alert - no data found
+
             NSLog(@"No search results");
         }
     }
@@ -225,9 +250,9 @@
         NSArray *stockDetails = [SPAAppUtilies parseDownloadedDataForAdditionalData:theData];
         
         if(stockDetails.count > 0){
-            [self displayStockDetails:stockDetails];
+            [self loadStockDetailsViewController:stockDetails];
         }else{
-            //TODO:Display alert
+            //TODO:Display alert - no details found
         }
         //NSLog(@"Stock Details: %@",stockDetails);
         
