@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2549</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -47,6 +47,7 @@
 						<string key="NSFrame">{{265, 13}, {69, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="840428126">
@@ -114,6 +115,8 @@
 									<object class="NSLocale" key="locale" id="472042269">
 										<string key="NS.identifier"/>
 									</object>
+									<integer value="10000" key="maximum"/>
+									<integer value="0" key="minimum"/>
 									<string key="negativeInfinitySymbol">-∞</string>
 									<string key="nilSymbol"/>
 									<integer value="1" key="numberStyle"/>
@@ -131,15 +134,8 @@
 									<string key="NSString">NaN</string>
 									<dictionary key="NSAttributes" id="1024661461"/>
 								</object>
-								<object class="NSDecimalNumberPlaceholder" key="NS.min" id="37232221">
-									<int key="NS.exponent">0</int>
-									<int key="NS.length">0</int>
-									<bool key="NS.negative">YES</bool>
-									<bool key="NS.compact">NO</bool>
-									<int key="NS.mantissa.bo">1</int>
-									<bytes key="NS.mantissa">AAAAAAAAAAAAAAAAAAAAAA</bytes>
-								</object>
-								<reference key="NS.max" ref="37232221"/>
+								<integer value="0" key="NS.min"/>
+								<integer value="10000" key="NS.max"/>
 								<object class="NSDecimalNumberHandler" key="NS.rounding">
 									<int key="NS.roundingmode">3</int>
 									<bool key="NS.raise.overflow">YES</bool>
@@ -152,6 +148,7 @@
 								<bool key="NS.localized">NO</bool>
 								<bool key="NS.allowsfloats">YES</bool>
 							</object>
+							<string key="NSPlaceholderString">0</string>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="392826121"/>
 							<bool key="NSDrawsBackground">YES</bool>
@@ -228,6 +225,8 @@
 									<boolean value="YES" key="allowsFloats"/>
 									<integer value="1040" key="formatterBehavior"/>
 									<reference key="locale" ref="472042269"/>
+									<integer value="10000" key="maximum"/>
+									<real value="0.0" key="minimum"/>
 									<string key="negativeInfinitySymbol">-∞</string>
 									<string key="nilSymbol"/>
 									<integer value="1" key="numberStyle"/>
@@ -245,8 +244,8 @@
 									<string key="NSString">NaN</string>
 									<reference key="NSAttributes" ref="1024661461"/>
 								</object>
-								<reference key="NS.min" ref="37232221"/>
-								<reference key="NS.max" ref="37232221"/>
+								<real value="0.0" key="NS.min"/>
+								<integer value="10000" key="NS.max"/>
 								<object class="NSDecimalNumberHandler" key="NS.rounding">
 									<int key="NS.roundingmode">3</int>
 									<bool key="NS.raise.overflow">YES</bool>
@@ -259,6 +258,7 @@
 								<bool key="NS.localized">NO</bool>
 								<bool key="NS.allowsfloats">YES</bool>
 							</object>
+							<string key="NSPlaceholderString">0.0</string>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="619511522"/>
 							<bool key="NSDrawsBackground">YES</bool>
@@ -284,7 +284,10 @@
 								<dictionary class="NSMutableDictionary" key="NS.attributes">
 									<boolean value="YES" key="allowsFloats"/>
 									<integer value="1040" key="formatterBehavior"/>
+									<boolean value="NO" key="lenient"/>
 									<reference key="locale" ref="472042269"/>
+									<integer value="10000" key="maximum"/>
+									<real value="0.0" key="minimum"/>
 									<string key="negativeInfinitySymbol">-∞</string>
 									<string key="nilSymbol"/>
 									<integer value="1" key="numberStyle"/>
@@ -302,8 +305,8 @@
 									<string key="NSString">NaN</string>
 									<reference key="NSAttributes" ref="1024661461"/>
 								</object>
-								<reference key="NS.min" ref="37232221"/>
-								<reference key="NS.max" ref="37232221"/>
+								<real value="0.0" key="NS.min"/>
+								<integer value="10000" key="NS.max"/>
 								<object class="NSDecimalNumberHandler" key="NS.rounding">
 									<int key="NS.roundingmode">3</int>
 									<bool key="NS.raise.overflow">YES</bool>
@@ -316,6 +319,7 @@
 								<bool key="NS.localized">NO</bool>
 								<bool key="NS.allowsfloats">YES</bool>
 							</object>
+							<string key="NSPlaceholderString">0.0</string>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="60671865"/>
 							<bool key="NSDrawsBackground">YES</bool>
@@ -404,6 +408,78 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">123</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">d</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="936920253"/>
+					</object>
+					<int key="connectionID">236</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">currentPriceTextview</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="936920253"/>
+					</object>
+					<int key="connectionID">237</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">lowPriceTextView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="60671865"/>
+					</object>
+					<int key="connectionID">238</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">highPriceTextView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="619511522"/>
+					</object>
+					<int key="connectionID">239</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">numberOfSharesTextView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="392826121"/>
+					</object>
+					<int key="connectionID">240</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">deleteStockButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="98893781"/>
+					</object>
+					<int key="connectionID">241</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">saveStockButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="480601440"/>
+					</object>
+					<int key="connectionID">242</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">deleteStockClick</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="98893781"/>
+					</object>
+					<int key="connectionID">244</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">saveStockClick:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="480601440"/>
+					</object>
+					<int key="connectionID">245</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -790,13 +866,13 @@
 							</object>
 							<reference ref="936920253"/>
 							<reference ref="133605424"/>
-							<reference ref="619511522"/>
 							<reference ref="782099244"/>
 							<reference ref="790119874"/>
 							<reference ref="392826121"/>
 							<reference ref="480601440"/>
 							<reference ref="98893781"/>
 							<reference ref="60671865"/>
+							<reference ref="619511522"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">stockDetailsView</string>
@@ -1125,6 +1201,7 @@
 				<string key="173.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1041" key="174.IBNumberFormatterBehaviorMetadataKey"/>
 				<boolean value="YES" key="174.IBNumberFormatterLocalizesFormatMetadataKey"/>
+				<real value="1234.1099999999999" key="174.IBNumberFormatterSampleNumberKey"/>
 				<string key="174.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="176.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="177.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1134,6 +1211,7 @@
 				<string key="180.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1041" key="181.IBNumberFormatterBehaviorMetadataKey"/>
 				<boolean value="YES" key="181.IBNumberFormatterLocalizesFormatMetadataKey"/>
+				<real value="1234.1099999999999" key="181.IBNumberFormatterSampleNumberKey"/>
 				<string key="181.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="184.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="188.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1171,7 +1249,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">233</int>
+			<int key="maxID">245</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1186,6 +1264,56 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SPAStockDetailViewController</string>
 					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">saveStockClick:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">saveStockClick:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">saveStockClick:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="currentPriceTextview">NSTextField</string>
+						<string key="deleteStockButton">NSButton</string>
+						<string key="deleteStockClick">NSButton</string>
+						<string key="highPriceTextView">NSTextField</string>
+						<string key="lowPriceTextView">NSTextField</string>
+						<string key="numberOfSharesTextView">NSTextField</string>
+						<string key="saveStockButton">NSButton</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="currentPriceTextview">
+							<string key="name">currentPriceTextview</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="deleteStockButton">
+							<string key="name">deleteStockButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="deleteStockClick">
+							<string key="name">deleteStockClick</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="highPriceTextView">
+							<string key="name">highPriceTextView</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="lowPriceTextView">
+							<string key="name">lowPriceTextView</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="numberOfSharesTextView">
+							<string key="name">numberOfSharesTextView</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="saveStockButton">
+							<string key="name">saveStockButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SPAStockDetailViewController.h</string>

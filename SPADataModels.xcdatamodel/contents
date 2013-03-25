@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="PriceHistory" syncable="YES">
+<model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="PriceHistory" representedClassName="PriceHistory" syncable="YES">
         <attribute name="logDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="percentChanged" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
@@ -9,16 +9,17 @@
     <entity name="Stock" representedClassName="Stock" syncable="YES">
         <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currentPrice" optional="YES" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="highPriceAlerts" optional="YES" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="highPriceAlert" optional="YES" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lowPriceAlert" optional="YES" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
         <attribute name="numberOfOwnedShares" optional="YES" attributeType="Integer 32" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="percentChange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priceRange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="symbol" attributeType="String" syncable="YES"/>
+        <attribute name="targetPrice" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="stocksPriceHistory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PriceHistory" syncable="YES"/>
     </entity>
     <elements>
         <element name="PriceHistory" positionX="-1521" positionY="621" width="200" height="103"/>
-        <element name="Stock" positionX="-1820" positionY="560" width="227" height="178"/>
+        <element name="Stock" positionX="-1820" positionY="560" width="227" height="195"/>
     </elements>
 </model>

@@ -7,7 +7,7 @@
 //
 
 #import "StockEditViewController.h"
-#import "CoreDataController.h"
+#import "CoreDataManager.h"
 #import "SPAAppUtilies.h"
 #import "SPADataDownloadManager.h"
 #import "BasicBackGroundView.h"
@@ -42,7 +42,6 @@
 @implementation StockEditViewController
 
 //Properties
-@synthesize coreDataController;
 @synthesize stockDownloadManager;
 
 
@@ -84,13 +83,7 @@
 }
 
 - (IBAction)saveStockClicked:(id)sender {
-    //Call method to add a new stock
-    if(coreDataController != nil)
-    {
-        [coreDataController addStockEnitiy];
-        NSInteger *stockCount = [coreDataController stockEntityCount];
-        NSLog(@"Number of items in the array:%d",stockCount);
-    }
+ //  [CoreDataManager sharedManager] s
     
 }
 
@@ -155,7 +148,7 @@
                                                                                      toItem:self.view
                                                                                   attribute:NSLayoutAttributeBottom
                                                                                  multiplier:1
-                                                                                   constant:0];
+                                                                                   constant:50];
     
     [self.view addConstraint:trailingVerticalConstraint];
     
@@ -163,7 +156,7 @@
     [NSAnimationContext beginGrouping];
     NSAnimationContext.currentContext.duration = 1.0;
     NSAnimationContext.currentContext.completionHandler = ^{
-        NSLog(@"Animation complete");
+        //NSLog(@"Animation complete");
     };
     [[_stockSearchListView animator] setAlphaValue:1];
     
@@ -250,6 +243,7 @@
         NSArray *stockDetails = [SPAAppUtilies parseDownloadedDataForAdditionalData:theData];
         
         if(stockDetails.count > 0){
+            NSLog(@"Selected Stock: %@",stockDetails);
             [self loadStockDetailsViewController:stockDetails];
         }else{
             //TODO:Display alert - no details found

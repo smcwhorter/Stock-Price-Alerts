@@ -78,15 +78,13 @@
     {
         mainContentController = [[SPAMainContentController alloc] init];
     }
-    //Call method to setup the data controller
-    [mainContentController setupTheCoreDataController];
-    
+        
     mainContentController.mainContainerView = mainContainerView;
     mainContentController.headerViewController = headerViewController;
     
     [mainContentController loadHeaderViewController];
     //Set the main content view to be the first view
-    [mainContentController loadMainContentView:1];
+    [mainContentController loadMainContainerViewWithView:stockListView];
 }
 
 - (void)dealloc
@@ -125,7 +123,7 @@
     //}
     if((button != selectedSideBarButton) && (button != 3)){
         //[self setMainView:button];
-        [mainContentController loadMainContentView:button];
+        [mainContentController loadMainContainerViewWithView:button];
 
         selectedSideBarButton = button;
     }
@@ -175,7 +173,7 @@
         return _managedObjectModel;
     }
 	NSBundle *d = [NSBundle mainBundle];
-    NSLog(@"Manaed Object Model: %@",d);
+    NSLog(@"Managed Object Model: %@",d);
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SPADataModels" withExtension:@"mom"];
      
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];

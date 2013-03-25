@@ -44,7 +44,7 @@
 #pragma mark - JAListViewDelegate
 
 - (void)listView:(JAListView *)list willSelectView:(JAListViewItem *)view {
-    NSLog(@"I will be selected");
+    //NSLog(@"I will be selected");
     if(list == self.listView) {
         DemoView *demoView = (DemoView *) view;
         demoView.selected = YES;
@@ -55,7 +55,7 @@
 }
 
 - (void)listView:(JAListView *)list didSelectView:(JAListViewItem *)view {
-    NSLog(@"I was selected");
+   // NSLog(@"I was selected");
     if(list == self.listView) {
         DemoView *demoView = (DemoView *) view;
         demoView.selected = NO;

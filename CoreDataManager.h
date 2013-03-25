@@ -6,11 +6,16 @@
 //
 //
 
+@class Stock;
 #import <Foundation/Foundation.h>
 
-@interface CoreDataController : NSObject
+@interface CoreDataManager : NSObject
+
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
--(void)addStockEnitiy;
++ (id)sharedManager;
+
+-(Stock*) getStockObjectWithEmptyData;
+-(void) saveStockUsingManagedObject:(Stock*)stockObject;
 -(NSInteger*)stockEntityCount;
 @end

@@ -20,5 +20,6 @@
 @property (weak) IBOutlet JAListView *listView;
 @property (nonatomic, strong) NSArray *stockSearchResultsData;
 @property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;
+
 @end
     

@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "JAListView.h"
-#import "SPAHeaderViewController.h"
 
 @interface StockListViewController : NSViewController <JAListViewDataSource, JAListViewDelegate>
 {
@@ -18,5 +17,5 @@
 }
 @property (assign) __unsafe_unretained IBOutlet JAListView *listView;
 
-
+-(void)bindListViewWithStockList;
 @end

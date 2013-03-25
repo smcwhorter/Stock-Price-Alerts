@@ -7,7 +7,8 @@
 //
 
 #import "SPAMainContentController.h"
-#import "CoreDataController.h"
+#import "StockListViewController.h"
+#import "CoreDataManager.h"
 
 @interface SPAMainContentController ()
 
@@ -18,18 +19,7 @@
 //Properties
 @synthesize mainContainerView;
 @synthesize headerViewController;
-@synthesize coreDataController;
 
-
-
-#pragma mark - Core Data Controller
--(void) setupTheCoreDataController{
-    
-    if(coreDataController == nil)
-    {
-        coreDataController = [[CoreDataController alloc] init];
-    }
-}
 
 #pragma mark - header View Controller
 
@@ -53,50 +43,34 @@
 /*
  *This method will load the main content view base on the selected view controller
  */
--(void) loadMainContentView:(NSInteger)selectedView {
+-(void) loadMainContainerViewWithView:(MainContainerViews)selectedView {
 
-    NSRect mainContainerFrame = [mainContainerView frame];
-    NSRect outGoingViewRect;
-    NSRect initIncommingViewRect;
-
-    NSWindow *window= [mainContainerView window];
-    initIncommingViewRect = NSMakeRect(-window.frame.size.width, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
-    NSRect inViewRect = NSMakeRect(0, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
-    outGoingViewRect= NSMakeRect(window.frame.size.width,0, mainContainerFrame.size.width, mainContainerFrame.size.height);
-  
-    
-    
-    if(selectedView == 0)
+    if(selectedView == stockListView)
     {
         
         if(stockListViewController == nil)
         {
             stockListViewController = [[StockListViewController alloc] initWithNibName:@"StockListViewController" bundle:nil];
         }
-        
+        [stockListViewController bindListViewWithStockList];
         incommingView = [stockListViewController view];
         [headerViewController.headerTitle setStringValue:@"Stock List"];
         
     }
-    if(selectedView ==1 )
+    if(selectedView == stockDetailsView )
     {
         if(stockEditViewController == nil)
         {
             stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
         }
         
-        //Set the edit view's coreDataController
-        stockEditViewController.coreDataController = self.coreDataController;
-        //[stockEditViewController customizeView];
         //get the view
         incommingView = [stockEditViewController view];
         
         //Set the header view title
         [headerViewController.headerTitle setStringValue:@"Edit Stock"];
-        
-        
     }
-    if(selectedView == 2)
+    if(selectedView == stockSettingsView)
     {
         if(stockSettingsViewController == nil)
         {
@@ -109,6 +83,21 @@
     if(selectedView == 3){
         [self makeMainControlerBigger];
     }
+    
+    //Call method to perform the animation
+    [self animateOutGoingAndIncomingViews];
+}
+
+-(void) animateOutGoingAndIncomingViews {
+    NSRect mainContainerFrame = [mainContainerView frame];
+    NSRect outGoingViewRect;
+    NSRect initIncommingViewRect;
+    
+    NSWindow *window= [mainContainerView window];
+    initIncommingViewRect = NSMakeRect(-window.frame.size.width, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
+    NSRect inViewRect = NSMakeRect(0, 0, mainContainerFrame.size.width, mainContainerFrame.size.height);
+    outGoingViewRect= NSMakeRect(window.frame.size.width,0, mainContainerFrame.size.width, mainContainerFrame.size.height);
+    
     
     //This works
     if([mainContainerView.subviews count] > 0){
@@ -124,7 +113,7 @@
             [incommingView setFrame:initIncommingViewRect];
             [mainContainerView addSubview:incommingView];
             
-            
+            [self layoutConstraintsForMainContainerView];
             [NSAnimationContext beginGrouping];
             
             [[NSAnimationContext currentContext] setCompletionHandler:^{
@@ -158,9 +147,21 @@
         [incommingView setFrame:inViewRect];
         [incommingView setAutoresizingMask:(NSViewWidthSizable|NSViewHeightSizable)];
         [mainContainerView addSubview:incommingView];
+        
+        [self layoutConstraintsForMainContainerView];
     }
 }
 
-
-
+-(void) layoutConstraintsForMainContainerView{
+    //Define the layout constraints - Set Min Width
+    [mainContainerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[incommingView(>=400)]"
+                                                                              options:0
+                                                                              metrics:nil
+                                                                                views:NSDictionaryOfVariableBindings(incommingView)]];
+    //Define the layout constraints - Set Max Width
+    [mainContainerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[incommingView(<=1000)]"
+                                                                              options:0
+                                                                              metrics:nil
+                                                                                views:NSDictionaryOfVariableBindings(incommingView)]];
+}
 @end

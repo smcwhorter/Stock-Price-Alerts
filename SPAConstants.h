@@ -12,6 +12,18 @@ typedef enum {
     AdditionalDetailsData
 } StockDownloadDataType;
 
+typedef enum{
+    stockListView,
+    stockDetailsView,
+    stockSettingsView
+    
+} MainContainerViews;
+
+typedef enum{
+    newMode,
+    editMode
+}ViewMode;
+
 #import <Foundation/Foundation.h>
 
 

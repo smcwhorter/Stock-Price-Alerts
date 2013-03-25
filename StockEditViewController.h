@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CoreDataController.h"
+#import "CoreDataManager.h"
 #import "BasicBackGroundView.h"
 #import "SquareBorderView.h"
 #import "JAListView.h"
@@ -21,6 +21,5 @@
 //Properties
 @property (assign) IBOutlet NSButton *butSearch;
 @property (assign) IBOutlet NSTextField *stockSymbolName;
-@property (nonatomic, strong) CoreDataController *coreDataController;
 
 @end
