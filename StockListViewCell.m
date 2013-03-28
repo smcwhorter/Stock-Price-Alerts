@@ -20,6 +20,15 @@
 @synthesize gradient;
 @synthesize tickerTextView;
 @synthesize companyNameTextView;
+@synthesize currentPriceTextView;
+@synthesize priceChangeTextView;
+@synthesize lowPriceTextView;
+@synthesize highPriceTextView;
+@synthesize yearRangeTextView;
+@synthesize targetPriceTextView;
+@synthesize priceDirectionImageView;
+@synthesize lowPriceImageView;
+@synthesize highPriceImageView;
 
 //Gradient getter override
 - (NSGradient *)gradient {

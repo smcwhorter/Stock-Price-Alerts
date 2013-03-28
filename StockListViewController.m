@@ -7,6 +7,7 @@
 //
 
 #import "StockListViewController.h"
+#import "PullToRefreshScrollView.h"
 #import "DemoView.h"
 #import "StockListViewCell.h"
 #import "CoreDataManager.h"
@@ -15,10 +16,15 @@
 
 @interface StockListViewController ()
 @property (nonatomic, strong) NSArray *stockList;
+@property (weak) IBOutlet PullToRefreshScrollView *pullToRefreshView;
 @end
 
 @implementation StockListViewController
 @synthesize listView;
+@synthesize pullToRefreshView;
+
+
+
 
 #pragma mark - ViewController Overrides
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,12 +33,20 @@
     if (self) {
         // Initialization code here.
         self.listView.canCallDataSourceInParallel = YES;
+        
     }
     return self;
 }
 
 -(void)loadView{
     [super loadView];
+    if(pullToRefreshView != nil){
+        pullToRefreshView.delegate = self;
+    }
+    NSLog(@"%@",pullToRefreshView);
+    //[_pullToRefreshView setDelegate:self];
+
+   
     [self bindListViewWithStockList];
 }
 
@@ -43,6 +57,12 @@
     [self.listView reloadData];
 
 }
+
+#pragma mark - ScrollToRefresh Delegate
+- (void)ptrScrollViewDidTriggerRefresh:(id)sender {
+    NSLog(@"This is called by the PullToRefresh delegate protocol");
+}
+
 #pragma mark JAListViewDelegate
 
 - (void)listView:(JAListView *)list willSelectView:(JAListViewItem *)view {
@@ -82,6 +102,11 @@
     Stock *stockData = (Stock*)[_stockList objectAtIndex:index];
     cellView.tickerTextView.stringValue = stockData.symbol;
     cellView.companyNameTextView.stringValue = stockData.companyName;
+    cellView.currentPriceTextView.stringValue = [NSString stringWithFormat:@"$%@",stockData.currentPrice];
+    cellView.priceChangeTextView.stringValue = stockData.percentChange;
+    cellView.lowPriceTextView.stringValue = [NSString stringWithFormat:@"%@",stockData.lowPriceAlert];
+   // cellView.highPriceTextView.stringValue =[NSString stringWithFormat:@"%@",stockData.highPriceAlert];
+    
     
 //    view.text = stockData.symbol;
     return cellView;

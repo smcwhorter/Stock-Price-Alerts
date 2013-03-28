@@ -21,6 +21,10 @@
 		980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */; };
 		980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA716C8988E0073CBC3 /* ic_addstock.png */; };
 		9818BA9316CB459200D706D3 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA9216CB459200D706D3 /* CoreDataManager.m */; };
+		981CFB9817026265009D0E08 /* PullToRefreshClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981CFB9417026265009D0E08 /* PullToRefreshClipView.m */; };
+		981CFB9917026265009D0E08 /* PullToRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */; };
+		981CFB9C170266C4009D0E08 /* pull-to-refresh-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 981CFB9A170266C4009D0E08 /* pull-to-refresh-arrow.png */; };
+		981CFB9D170266C4009D0E08 /* release-to-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 981CFB9B170266C4009D0E08 /* release-to-refresh.png */; };
 		985758EE16F52E470059DD88 /* PriceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 985758ED16F52E470059DD88 /* PriceHistory.m */; };
 		985758F116F52E6D0059DD88 /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 985758F016F52E6D0059DD88 /* Stock.m */; };
 		987F702016D709AA0074DF7C /* STOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F701F16D709AA0074DF7C /* STOverlayView.m */; };
@@ -100,6 +104,13 @@
 		9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPADataModels.xcdatamodel; sourceTree = "<group>"; };
 		9818BA9116CB459200D706D3 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		9818BA9216CB459200D706D3 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		981CFB9317026265009D0E08 /* PullToRefreshClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshClipView.h; sourceTree = "<group>"; };
+		981CFB9417026265009D0E08 /* PullToRefreshClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshClipView.m; sourceTree = "<group>"; };
+		981CFB9517026265009D0E08 /* PullToRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshDelegate.h; sourceTree = "<group>"; };
+		981CFB9617026265009D0E08 /* PullToRefreshScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshScrollView.h; sourceTree = "<group>"; };
+		981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshScrollView.m; sourceTree = "<group>"; };
+		981CFB9A170266C4009D0E08 /* pull-to-refresh-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pull-to-refresh-arrow.png"; sourceTree = "<group>"; };
+		981CFB9B170266C4009D0E08 /* release-to-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "release-to-refresh.png"; sourceTree = "<group>"; };
 		985758EC16F52E470059DD88 /* PriceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceHistory.h; sourceTree = "<group>"; };
 		985758ED16F52E470059DD88 /* PriceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceHistory.m; sourceTree = "<group>"; };
 		985758EF16F52E6D0059DD88 /* Stock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stock.h; sourceTree = "<group>"; };
@@ -202,7 +213,7 @@
 		06AAD7C316C93920003B54C1 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				D25DDA7C133F56C10086783B /* Custom Cell */,
+				D25DDA7C133F56C10086783B /* List View Cells */,
 				9895CA7F16BF32DE0004EE6E /* BasicBackground */,
 				9895CA7016BF30E80004EE6E /* Header */,
 				9895CA7216BF30EF0004EE6E /* Footer */,
@@ -276,6 +287,8 @@
 		980782AC16B8CB2700933B40 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				981CFB9A170266C4009D0E08 /* pull-to-refresh-arrow.png */,
+				981CFB9B170266C4009D0E08 /* release-to-refresh.png */,
 				98E4141C16FFB2CF002346FD /* no_stocks.png */,
 				98E4141D16FFB2CF002346FD /* redarrow.png */,
 				98E4141E16FFB2CF002346FD /* rowhighlighted_alt.png */,
@@ -326,6 +339,18 @@
 				985758ED16F52E470059DD88 /* PriceHistory.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		981CFB9217026235009D0E08 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				981CFB9317026265009D0E08 /* PullToRefreshClipView.h */,
+				981CFB9417026265009D0E08 /* PullToRefreshClipView.m */,
+				981CFB9517026265009D0E08 /* PullToRefreshDelegate.h */,
+				981CFB9617026265009D0E08 /* PullToRefreshScrollView.h */,
+				981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */,
+			);
+			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
 		987F702216D709B30074DF7C /* STOverlayView */ = {
@@ -402,6 +427,7 @@
 		9898888416B77A1C004688D2 /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
+				981CFB9217026235009D0E08 /* PullToRefresh */,
 				987F702216D709B30074DF7C /* STOverlayView */,
 				98D7F20216BB44A200116B44 /* JAListView */,
 				9898888116B77677004688D2 /* EDSideBar */,
@@ -467,7 +493,7 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		D25DDA7C133F56C10086783B /* Custom Cell */ = {
+		D25DDA7C133F56C10086783B /* List View Cells */ = {
 			isa = PBXGroup;
 			children = (
 				98D7F21316BB44D700116B44 /* DemoView.h */,
@@ -477,7 +503,7 @@
 				98E4140D16FF9EE8002346FD /* StockListViewCell.h */,
 				98E4140E16FF9EE8002346FD /* StockListViewCell.m */,
 			);
-			name = "Custom Cell";
+			name = "List View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +581,8 @@
 				98E4142816FFB2CF002346FD /* stock_alerts_arrowdown.png in Resources */,
 				98E4142A16FFB2CF002346FD /* t_logo.png in Resources */,
 				98E4142B16FFB2CF002346FD /* under_shadow.png in Resources */,
+				981CFB9C170266C4009D0E08 /* pull-to-refresh-arrow.png in Resources */,
+				981CFB9D170266C4009D0E08 /* release-to-refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +629,8 @@
 				985758EE16F52E470059DD88 /* PriceHistory.m in Sources */,
 				985758F116F52E6D0059DD88 /* Stock.m in Sources */,
 				98E4140F16FF9EE8002346FD /* StockListViewCell.m in Sources */,
+				981CFB9817026265009D0E08 /* PullToRefreshClipView.m in Sources */,
+				981CFB9917026265009D0E08 /* PullToRefreshScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
