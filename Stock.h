@@ -22,6 +22,6 @@
 @property (nonatomic, retain) NSString * percentChange;
 @property (nonatomic, retain) NSString * priceRange;
 @property (nonatomic, retain) NSString *targetPrice;
-
 @property (nonatomic, retain) PriceHistory *stocksPriceHistory;
+
 @end

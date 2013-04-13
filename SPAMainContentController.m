@@ -19,6 +19,7 @@
 //Properties
 @synthesize mainContainerView;
 @synthesize headerViewController;
+@synthesize delegate;
 
 
 #pragma mark - header View Controller
@@ -38,54 +39,69 @@
 -(void) makeMainControlerBigger {
     NSWindow *window= [mainContainerView window];
     NSRect  mainContainerRec = NSMakeRect(window.frame.origin.x, window.frame.origin.y, window.frame.size.width+200, window.frame.size.height);
-    [window setFrame:mainContainerRec display:YES animate:YES];}
+    [window setFrame:mainContainerRec display:YES animate:YES];
+}
 
 /*
  *This method will load the main content view base on the selected view controller
  */
 -(void) loadMainContainerViewWithView:(MainContainerViews)selectedView {
 
+    [self loadSelectedView:selectedView];
+    [self animateOutGoingAndIncomingViews];
+}
+
+-(void) loadSelectedView:(MainContainerViews)selectedView{
     if(selectedView == stockListView)
     {
-        
-        if(stockListViewController == nil)
-        {
-            stockListViewController = [[StockListViewController alloc] initWithNibName:@"StockListViewController" bundle:nil];
-        }
-        [stockListViewController bindListViewWithStockList];
-        incommingView = [stockListViewController view];
-        [headerViewController.headerTitle setStringValue:@"Stock List"];
-        
+        [self loadstockListViewController];
     }
     if(selectedView == stockDetailsView )
     {
-        if(stockEditViewController == nil)
-        {
-            stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
-        }
-        
-        //get the view
-        incommingView = [stockEditViewController view];
-        
-        //Set the header view title
-        [headerViewController.headerTitle setStringValue:@"Edit Stock"];
+        [self loadStockEditViewController];
     }
     if(selectedView == stockSettingsView)
     {
-        if(stockSettingsViewController == nil)
-        {
-            stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
-        }
-        
-        incommingView = [stockSettingsViewController view];
-        [headerViewController.headerTitle setStringValue:@"Stock Settings"];
+        [self loadStockSettingsViewController];
     }
     if(selectedView == 3){
         [self makeMainControlerBigger];
     }
+}
+
+- (void)loadstockListViewController {
+    if(stockListViewController == nil)
+    {
+        stockListViewController = [[StockListViewController alloc] initWithNibName:@"StockListViewController" bundle:nil];
+    }
+    [stockListViewController bindListViewWithStockList];
+    incommingView = [stockListViewController view];
+    [headerViewController.headerTitle setStringValue:@"Stock List"];
+}
+
+- (void)loadStockEditViewController {
+    if(stockEditViewController == nil)
+    {
+        stockEditViewController = [[StockEditViewController alloc] initWithNibName:@"StockEditViewController" bundle:nil];
+        stockEditViewController.delegate = self;
+    }
+    stockEditViewController.viewMode = newStock;
+    [stockEditViewController initViewLayout];
+    //get the view
+    incommingView = [stockEditViewController view];
     
-    //Call method to perform the animation
-    [self animateOutGoingAndIncomingViews];
+    //Set the header view title
+    [headerViewController.headerTitle setStringValue:@"Edit Stock"];
+}
+
+- (void)loadStockSettingsViewController {
+    if(stockSettingsViewController == nil)
+    {
+        stockSettingsViewController = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    }
+    
+    incommingView = [stockSettingsViewController view];
+    [headerViewController.headerTitle setStringValue:@"Stock Settings"];
 }
 
 -(void) animateOutGoingAndIncomingViews {
@@ -163,5 +179,14 @@
                                                                               options:0
                                                                               metrics:nil
                                                                                 views:NSDictionaryOfVariableBindings(incommingView)]];
+}
+
+#pragma mark - SPAStockDetailViewControllerDelegate
+-(void) stockEditViewControllerFinished{
+    [self loadMainContainerViewWithView:stockListView];
+    
+    if(delegate != nil){
+        [delegate mainContianerViewChanged:stockListView];
+    }
 }
 @end

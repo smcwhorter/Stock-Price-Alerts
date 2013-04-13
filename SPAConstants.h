@@ -13,16 +13,16 @@ typedef enum {
 } StockDownloadDataType;
 
 typedef enum{
-    stockListView,
+    stockListView = 0,
     stockDetailsView,
     stockSettingsView
     
 } MainContainerViews;
 
 typedef enum{
-    newMode,
-    editMode
-}ViewMode;
+    newStock,
+    editStock
+}StockDetailsViewMode;
 
 #import <Foundation/Foundation.h>
 

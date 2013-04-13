@@ -11,9 +11,14 @@
 #import "StockEditViewController.h"
 #import "StockListViewController.h"
 #import "SettingsViewController.h"
+#import "SPAConstants.h"
 
+@protocol SPAMainContentViewControllerDelegate
+-(void)mainContianerViewChanged:(MainContainerViews)toSelectedView;
 
-@interface SPAMainContentController : NSObject
+@end
+
+@interface SPAMainContentController : NSObject <SPAStockDetailsViewDelegate>
 {
    
     NSView *mainContainerView;
@@ -24,6 +29,8 @@
     SettingsViewController *stockSettingsViewController;
     
 }
+@property (assign, nonatomic) id <SPAMainContentViewControllerDelegate> delegate;
+
 @property (strong) NSView *mainContainerView;
 @property (strong) SPAHeaderViewController *headerViewController;
 

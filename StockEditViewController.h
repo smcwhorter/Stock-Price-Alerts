@@ -12,14 +12,24 @@
 #import "SquareBorderView.h"
 #import "JAListView.h"
 #import "SPADataDownloadManager.h"
- 
-@interface StockEditViewController : NSViewController <NSTextViewDelegate, SPADataDownloadCompleteDelegate>
+#import "SPAStockDetailViewController.h"
+#import "StockSearchListViewController.h"
+
+@protocol SPAStockEditViewControllerDelegate
+-(void) stockEditViewControllerFinished;
+@end
+
+@interface StockEditViewController : NSViewController <NSTextViewDelegate, SPADataDownloadCompleteDelegate, SPAStockDetailsViewDelegate, SPAStockSearchViewControllerDelegate>
 {
     IBOutlet NSButton *butSearch;
 }
 
 //Properties
+@property (assign, nonatomic) id <SPAStockEditViewControllerDelegate> delegate;
+
 @property (assign) IBOutlet NSButton *butSearch;
 @property (assign) IBOutlet NSTextField *stockSymbolName;
+@property (assign) StockDetailsViewMode viewMode;
 
+-(void)initViewLayout;
 @end

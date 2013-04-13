@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/AppDelegate.m"
-         timestampString = "385170287.804525"
+         timestampString = "387579116.780207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
+         startingLineNumber = "259"
+         endingLineNumber = "259"
          landmarkName = "-applicationShouldTerminate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StockSearchListViewController.m"
-         timestampString = "385145858.47926"
+         timestampString = "387574843.558457"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
          landmarkName = "-listView:willSelectView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -72,13 +72,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "StockListViewController.m"
-         timestampString = "386123739.72503"
+         filePath = "Classes/AppDelegate.m"
+         timestampString = "387577824.916995"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-loadView"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-setupTheMainWindowWithViewParts"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

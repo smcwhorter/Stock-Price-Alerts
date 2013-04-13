@@ -53,17 +53,19 @@
     
     //Call method to setup the window with the custom views
     [self setupTheMainWindowWithViewParts];
-   
-
 }
 
 -(void) setupTheMainWindowWithViewParts{
     
+    [self loadHeaderViewController];
+    [self loadMainContentController];
+}
+
+- (void)loadHeaderViewController {
     if(headerViewController == nil)
     {
         headerViewController = [[SPAHeaderViewController alloc] initWithNibName:@"SPAHeaderView" bundle:nil];
     }
-    
     
     NSView *d = [headerViewController view];
     float w = window.frame.size.width;
@@ -72,16 +74,18 @@
     [d setAutoresizingMask:(NSViewWidthSizable)];
     
     [headerView addSubview:d];
-    //[headerViewController.headerTitle setStringValue:[NSString stringWithFormat:@"Temp Title"]];
+}
+
+- (void)loadMainContentController {
     
     if(mainContentController == nil)
     {
         mainContentController = [[SPAMainContentController alloc] init];
+        mainContentController.delegate = self;
     }
-        
+    
     mainContentController.mainContainerView = mainContainerView;
     mainContentController.headerViewController = headerViewController;
-    
     [mainContentController loadHeaderViewController];
     //Set the main content view to be the first view
     [mainContentController loadMainContainerViewWithView:stockListView];
@@ -89,71 +93,28 @@
 
 - (void)dealloc
 {
-	//[_listItems release], _listItems=nil;
-    
-	//[super dealloc];
 }
 
-#pragma mark - Sidebar 
+#pragma mark - Sidebar delegate
 -(void)sideBar:(EDSideBar*)tabBar didSelectButton:(NSInteger)button
 {
 	//NSString *str = [NSString stringWithFormat:@"Selected button"];
 	NSLog(@"Button selected: %lu", button );
     
-    //if(button == 3){
-        // NSArray *viewContraints = [mainContainerView constraints];
-        //NSLog(@"%@",viewContraints);
-        //[[mainContainerView subviews[0]] removeConstraints:viewContraints];
-        //NSLog(@"------------");
-        //NSArray *views = [mainContainerView subviews];
-        //NSArray *viewContraints = [views[0]constraints ];
-        //NSLog(@"%@",[views[0] constraints]);
-        //NSView *thisView = views[0];
-        //[views[0] removeConstraints:viewContraints];
-       // [mainContainerView removeConstraint:];
-        
-        //[mainContentController makeMainControlerBigger];
-       // SPAMainContentController *newMain = [[SPAMainContentController alloc] init];
-        //[newMain loadMainContentView:0];
-        //NSRect mainContainer = mainContainerView.frame;
-        //NSRect placeholderView = NSMakeRect(0, 0, mainContainer.size.width, mainContainer.size.height);
-        //NSView *v = [[BasicBackGroundView alloc] initWithFrame:placeholderView];
-        //[mainContainerView addSubview:v];
-        
-    //}
     if((button != selectedSideBarButton) && (button != 3)){
         //[self setMainView:button];
         [mainContentController loadMainContainerViewWithView:button];
 
         selectedSideBarButton = button;
     }
-    
 }
 
-/*
--(NSImage*)buildSelectionImage
-{
-	// Create the selection image on the fly, instead of loading from a file resource.
-	NSInteger imageWidth=12, imageHeight=22;
-	NSImage* destImage = [[NSImage alloc] initWithSize:NSMakeSize(imageWidth,imageHeight)];
-	[destImage lockFocus];
-	
-	
-	
-	// Constructing the path
-    NSBezierPath *triangle = [NSBezierPath bezierPath];
-	[triangle setLineWidth:1.0];
-    [triangle moveToPoint:NSMakePoint(imageWidth+1, 0.0)];
-    [triangle lineToPoint:NSMakePoint( 0, imageHeight/2.0)];
-    [triangle lineToPoint:NSMakePoint( imageWidth+1, imageHeight)];
-    [triangle closePath];
-	[[NSColor yellowColor] setFill];
-	[[NSColor darkGrayColor] setStroke];
-	[triangle fill];
-	[triangle stroke];
-	[destImage unlockFocus];
-	return destImage;
-}*/
+#pragma mark - SPAMainContentControllerDelegate
+-(void) mainContianerViewChanged:(MainContainerViews)toSelectedView{
+    
+    [sideBarDefault selectButtonAtRow:toSelectedView];
+    selectedSideBarButton = toSelectedView;
+}
 
 #pragma mark - Core Data Section
 

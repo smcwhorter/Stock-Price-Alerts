@@ -96,19 +96,28 @@
 - (JAListViewItem *)listView:(JAListView *)listView viewAtIndex:(NSUInteger)index {
     //Create a new Cell
     StockListViewCell *cellView = [StockListViewCell stockListViewCell];
-    //DemoView *view = [DemoView demoView];
     
     //Get the stock obect from the list
     Stock *stockData = (Stock*)[_stockList objectAtIndex:index];
     cellView.tickerTextView.stringValue = stockData.symbol;
     cellView.companyNameTextView.stringValue = stockData.companyName;
-    cellView.currentPriceTextView.stringValue = [NSString stringWithFormat:@"$%@",stockData.currentPrice];
+    cellView.currentPriceTextView.stringValue = [NSString stringWithFormat:@"Price: $%@",stockData.currentPrice];
     cellView.priceChangeTextView.stringValue = stockData.percentChange;
-    cellView.lowPriceTextView.stringValue = [NSString stringWithFormat:@"%@",stockData.lowPriceAlert];
-   // cellView.highPriceTextView.stringValue =[NSString stringWithFormat:@"%@",stockData.highPriceAlert];
+    cellView.lowPriceTextView.stringValue = [NSString stringWithFormat:@"Low Price Alerts: $%@",stockData.lowPriceAlert];
+    cellView.highPriceTextView.stringValue =[NSString stringWithFormat:@"High Price Alert: $%@",stockData.highPriceAlert];
+    cellView.yearRangeTextView.stringValue = [NSString stringWithFormat:@"52 Week Range: %@", stockData.priceRange];
+    cellView.targetPriceTextView.stringValue = [NSString stringWithFormat:@"Target Price: %@",stockData.priceRange];
     
-    
-//    view.text = stockData.symbol;
+        //cellView.lowPriceImageView.image =alertIndicatorImage;
+    //cellView.highPriceImageView.image = alertIndicatorImage;
+    NSRange charToFind = [stockData.percentChange rangeOfString:@"-"];
+    if(charToFind.length > 0){
+        NSImage *redImage = [NSImage imageNamed:@"redarrow.png"];
+        cellView.priceDirectionImageView.image = redImage;
+    }else{
+        NSImage *greenImage = [NSImage imageNamed:@"greenarrow.png"];
+         cellView.priceDirectionImageView.image = greenImage;
+    }
     return cellView;
 }
 

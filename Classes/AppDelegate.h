@@ -14,7 +14,7 @@
 #import "SPAMainContentController.h"
 //#import "CoreDataController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, EDSideBarDelegate,SPAMainContentViewControllerDelegate>
 {
     IBOutlet NSView *headerView;
     IBOutlet NSView *mainContainerView;

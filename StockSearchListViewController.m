@@ -16,6 +16,7 @@
 
 @implementation StockSearchListViewController
 @synthesize listView;
+@synthesize delegate;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,6 +52,10 @@
         
         NSString *selectedSymbol = demoView.stockSymbol;
         [self downloadAdditionalStockData:selectedSymbol];
+        
+        if(delegate != nil){
+            [delegate selectedStockFromListView:selectedSymbol];
+        }
     }
 }
 

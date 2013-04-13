@@ -8,8 +8,12 @@
 
 #import "SPAConstants.h"
 #import "Stock.h"
-#import "CoreDataManager.h"
 #import <Cocoa/Cocoa.h>
+
+@protocol SPAStockDetailsViewDelegate
+-(void) stockDetailsViewControllerSavedStock;
+-(void) stockDetailsViewControllerDeletedStock;
+@end
 
 @interface SPAStockDetailViewController : NSViewController {
     __weak NSTextField *d;
@@ -29,9 +33,13 @@
 @property (weak) IBOutlet NSButton *saveStockButton;
 @property (weak) IBOutlet NSButton *deleteStockClick;
 
+@property (assign, nonatomic) id <SPAStockDetailsViewDelegate> delegate;
+
+
+-(void) initViewWithStockDetails;
 - (IBAction)saveStockClick:(id)sender;
 
-@property ViewMode *viewMode;
+@property (assign) StockDetailsViewMode viewMode;
 @property (nonatomic, strong) Stock *stockEnity;
 @property (nonatomic, strong) NSArray *stockDetailInfo;
 @end

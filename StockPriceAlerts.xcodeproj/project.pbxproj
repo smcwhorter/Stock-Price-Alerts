@@ -20,6 +20,8 @@
 		980B5DA016C8820D0073CBC3 /* SPAAppUtilies.m in Sources */ = {isa = PBXBuildFile; fileRef = 980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */; };
 		980B5DA316C88E810073CBC3 /* SPAHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */; };
 		980B5DA816C8988E0073CBC3 /* ic_addstock.png in Resources */ = {isa = PBXBuildFile; fileRef = 980B5DA716C8988E0073CBC3 /* ic_addstock.png */; };
+		980F4B271705E4EC007A31B9 /* greenarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 980F4B261705E4EB007A31B9 /* greenarrow.png */; };
+		980F4B2A1705E854007A31B9 /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 980F4B291705E854007A31B9 /* ApplicationState.m */; };
 		9818BA9316CB459200D706D3 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9818BA9216CB459200D706D3 /* CoreDataManager.m */; };
 		981CFB9817026265009D0E08 /* PullToRefreshClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981CFB9417026265009D0E08 /* PullToRefreshClipView.m */; };
 		981CFB9917026265009D0E08 /* PullToRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */; };
@@ -101,6 +103,9 @@
 		980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAAppUtilies.m; sourceTree = "<group>"; };
 		980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPAHeaderView.xib; sourceTree = "<group>"; };
 		980B5DA716C8988E0073CBC3 /* ic_addstock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_addstock.png; sourceTree = "<group>"; };
+		980F4B261705E4EB007A31B9 /* greenarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenarrow.png; sourceTree = "<group>"; };
+		980F4B281705E854007A31B9 /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
+		980F4B291705E854007A31B9 /* ApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationState.m; sourceTree = "<group>"; };
 		9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPADataModels.xcdatamodel; sourceTree = "<group>"; };
 		9818BA9116CB459200D706D3 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		9818BA9216CB459200D706D3 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
@@ -287,6 +292,7 @@
 		980782AC16B8CB2700933B40 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				980F4B261705E4EB007A31B9 /* greenarrow.png */,
 				981CFB9A170266C4009D0E08 /* pull-to-refresh-arrow.png */,
 				981CFB9B170266C4009D0E08 /* release-to-refresh.png */,
 				98E4141C16FFB2CF002346FD /* no_stocks.png */,
@@ -323,7 +329,7 @@
 				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
 				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
 				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
-				98C0D15116F4C83E007A2F31 /* StockDetailController */,
+				98C0D15116F4C83E007A2F31 /* StockDetailControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -333,6 +339,8 @@
 			children = (
 				063AE64416CBED86005C8332 /* coreDataExample.xcdatamodel */,
 				9818BA8F16CB3BB300D706D3 /* SPADataModels.xcdatamodel */,
+				980F4B281705E854007A31B9 /* ApplicationState.h */,
+				980F4B291705E854007A31B9 /* ApplicationState.m */,
 				985758EF16F52E6D0059DD88 /* Stock.h */,
 				985758F016F52E6D0059DD88 /* Stock.m */,
 				985758EC16F52E470059DD88 /* PriceHistory.h */,
@@ -435,7 +443,7 @@
 			name = "Custom Controls";
 			sourceTree = "<group>";
 		};
-		98C0D15116F4C83E007A2F31 /* StockDetailController */ = {
+		98C0D15116F4C83E007A2F31 /* StockDetailControllers */ = {
 			isa = PBXGroup;
 			children = (
 				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
@@ -445,7 +453,7 @@
 				98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */,
 				98F37EB016F29A160076FA17 /* StockSearchListViewController.m */,
 			);
-			name = StockDetailController;
+			name = StockDetailControllers;
 			sourceTree = "<group>";
 		};
 		98CBD9D916D4641300EB0F21 /* Utils */ = {
@@ -583,6 +591,7 @@
 				98E4142B16FFB2CF002346FD /* under_shadow.png in Resources */,
 				981CFB9C170266C4009D0E08 /* pull-to-refresh-arrow.png in Resources */,
 				981CFB9D170266C4009D0E08 /* release-to-refresh.png in Resources */,
+				980F4B271705E4EC007A31B9 /* greenarrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +640,7 @@
 				98E4140F16FF9EE8002346FD /* StockListViewCell.m in Sources */,
 				981CFB9817026265009D0E08 /* PullToRefreshClipView.m in Sources */,
 				981CFB9917026265009D0E08 /* PullToRefreshScrollView.m in Sources */,
+				980F4B2A1705E854007A31B9 /* ApplicationState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

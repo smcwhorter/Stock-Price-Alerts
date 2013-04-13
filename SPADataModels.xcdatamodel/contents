@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ApplicationState" representedClassName="ApplicationState" syncable="YES">
+        <attribute name="alertStateOnOff" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="PriceHistory" representedClassName="PriceHistory" syncable="YES">
         <attribute name="logDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="percentChanged" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,6 +24,7 @@
     </entity>
     <elements>
         <element name="PriceHistory" positionX="-1521" positionY="621" width="200" height="103"/>
-        <element name="Stock" positionX="-1820" positionY="560" width="227" height="195"/>
+        <element name="Stock" positionX="-1899" positionY="486" width="227" height="195"/>
+        <element name="ApplicationState" positionX="-1899" positionY="693" width="128" height="73"/>
     </elements>
 </model>
