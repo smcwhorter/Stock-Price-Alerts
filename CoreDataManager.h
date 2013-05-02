@@ -7,6 +7,7 @@
 //
 
 @class Stock;
+@class PriceHistory;
 #import <Foundation/Foundation.h>
 
 @interface CoreDataManager : NSObject
@@ -15,7 +16,8 @@
 
 + (id)sharedManager;
 
--(Stock*) getStockObjectWithEmptyData;
--(void) saveStockUsingManagedObject:(Stock*)stockObject;
+-(NSArray *) stockList;
+-(void) saveStockWithDetails:(NSArray *)theStockDetails withUserEnteredValues:(NSArray*)highLowNumOfShares;
+-(void) updateStockListWithPriceHistoryData:(NSMutableDictionary*)stockListData;
 -(NSInteger*)stockEntityCount;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "SPAHeaderView.h"
-#import "SPAAppUtilies.h"
+#import "SPAColors.h"
 
 @implementation SPAHeaderView
 
@@ -62,7 +62,7 @@
     // NSRectFill(rec); //Fill the rectangle
   
     //Create a gradient with two colors
-    NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies darkGray] endingColor:[SPAAppUtilies lightGray]];
+    NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:[SPAColors darkGray] endingColor:[SPAColors lightGray]];
     //Create a rectangle
     NSBezierPath *path = [NSBezierPath bezierPathWithRect:rec];
     //Fills the specified path with a linear gradient
@@ -73,7 +73,7 @@
     NSColor *shadowEndColor = [NSColor colorWithDeviceWhite:(56.0/255.0) alpha:1.0];
     
     //Create the gradient
-    NSGradient *gradient1 = [[NSGradient alloc] initWithStartingColor:shadowStartColor endingColor:[SPAAppUtilies borderWhite]];
+    NSGradient *gradient1 = [[NSGradient alloc] initWithStartingColor:shadowStartColor endingColor:[SPAColors borderWhite]];
     //Define the rectangle
     NSRect rectGradient = NSMakeRect(0, NSMinY(self.bounds), NSWidth(self.bounds), 2.0);
     NSBezierPath *path1 = [NSBezierPath bezierPathWithRect:rectGradient];

@@ -7,8 +7,6 @@
 //
 
 #import "JAListView.h"
-#import "SPADataDownloadManager.h"
-#import "SPADataDownloadManager.h"
 #import <Cocoa/Cocoa.h>
 
 @protocol SPAStockSearchViewControllerDelegate
@@ -25,7 +23,6 @@
 
 @property (weak) IBOutlet JAListView *listView;
 @property (nonatomic, strong) NSArray *stockSearchResultsData;
-@property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;
 
 @end
     

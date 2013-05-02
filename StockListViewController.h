@@ -15,6 +15,5 @@
 }
 @property (assign) __unsafe_unretained IBOutlet JAListView *listView;
 
-
 -(void)bindListViewWithStockList;
 @end

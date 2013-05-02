@@ -6,7 +6,6 @@
 //
 //
 
-#import "Stock.h"
 #import "SPAStockDetailViewController.h"
 
 @interface SPAStockDetailViewController ()
@@ -27,16 +26,13 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
+    if (self) {}
     
     return self;
 }
 
 -(void) loadView{
     [super loadView];
-    NSLog(@"Details: %@",_stockDetailInfo);
 }
 
 #pragma mark - Stock Detail Methods
@@ -44,20 +40,36 @@
 -(void) initViewWithStockDetails{
     
     if(_viewMode == newStock){
-        lowPriceTextView.stringValue = @"";
-        highPriceTextView.stringValue = @"";
-        
-        if([_stockDetailInfo count] == 10){
-            currentPriceTextview.stringValue = [NSString stringWithFormat:@"Current Price: $%@ - Target Price: $%@",[_stockDetailInfo objectAtIndex:4],[_stockDetailInfo objectAtIndex:9]];
-        
-        }else{
-       
-            currentPriceTextview.stringValue = [NSString stringWithFormat:@"Current Price: $%@ - Target Price: $%@",[_stockDetailInfo objectAtIndex:3],[_stockDetailInfo objectAtIndex:8]];
-        }
+        [self setupStockDetailsControler];
     }else{
         //TODO: Fill view with current stock data to edit
     }
-   
+    
+    NSLog(@"Details text view: %@",currentPriceTextview.stringValue);
+}
+
+-(void) setupStockDetailsControler{
+    [self resetTextControler];
+    for(id key in[_stockListDetailInfo allKeys])
+    {
+        NSArray *stockInfoForKey = [_stockListDetailInfo objectForKey:key];
+        [self setTextValuesBasedOnCountStockDetails:stockInfoForKey];
+    }
+}
+
+-(void) resetTextControler{
+    lowPriceTextView.stringValue = @"";
+    highPriceTextView.stringValue = @"";
+}
+
+-(void) setTextValuesBasedOnCountStockDetails:(NSArray*)theDetails{
+    if([theDetails count] == 10){
+        currentPriceTextview.stringValue = [NSString stringWithFormat:@"Current Price: $%@ - Target Price: $%@",[theDetails objectAtIndex:4],[theDetails objectAtIndex:9]];
+        
+    }else{
+        
+        currentPriceTextview.stringValue = [NSString stringWithFormat:@"Current Price: $%@ - Target Price: $%@",[theDetails objectAtIndex:3],[theDetails objectAtIndex:8]];
+    }
 }
 
 //Save button click event

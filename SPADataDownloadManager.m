@@ -76,9 +76,9 @@
     
         //Call method to clean up connection and signal to others that the data is ready
         [self signalDownloadComplete];
-         _stockDataRequetType = noData;
-        _rawData = nil;
-        connection = nil;
+         //_stockDataRequetType = noData;
+        //_rawData = nil;
+        //connection = nil;
         
     }
 }

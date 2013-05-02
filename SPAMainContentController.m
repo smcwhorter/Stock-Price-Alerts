@@ -183,6 +183,7 @@
 
 #pragma mark - SPAStockDetailViewControllerDelegate
 -(void) stockEditViewControllerFinished{
+    stockEditViewController = nil;//No longer need the edit view
     [self loadMainContainerViewWithView:stockListView];
     
     if(delegate != nil){

@@ -8,7 +8,7 @@
 
 #import "StockEditViewController.h"
 #import "CoreDataManager.h"
-#import "SPAAppUtilies.h"
+#import "SPAStockWebServiceDataParser.h"
 #import "SPADataDownloadManager.h"
 #import "BasicBackGroundView.h"
 #import "SPAStockDetailViewController.h"
@@ -23,14 +23,17 @@
 - (IBAction) butSearchClicked:(id)sender;
 - (IBAction)textFieldAction:(id)sender;
 
-@property (nonatomic, strong) NSString *searchCriteriaString;
-@property (nonatomic, strong) NSArray *searchResults;
-@property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;
+//Views and controllers
 @property (nonatomic, strong) StockSearchListViewController *searchListViewController;
 @property (nonatomic, strong) SPAStockDetailViewController *stockDetailViewController;
 @property (nonatomic, strong) StockSearchListView *stockSearchListView;
 @property (nonatomic, strong) StockDetailsView *stockDetailsView;
-@property (nonatomic, strong) NSArray *stockDetails;
+
+//Objects
+@property (nonatomic, strong) NSString *searchCriteriaString;
+@property (nonatomic, strong) NSArray *searchResults;
+@property (nonatomic, strong) SPADataDownloadManager *stockDownloadManager;
+@property (nonatomic, strong) NSMutableDictionary *stockListContainingStockDetails;
 
 - (void) toggleViewFadeInOut:(id)sender;
 - (void) searchForStock:(NSString*) theSeachString;
@@ -52,12 +55,12 @@
    
 }
 
--(void)setStockDetails:(NSArray*)theStockDetails{
-    if(_stockDetails == nil){
-        _stockDetails = [[NSArray alloc] initWithArray:theStockDetails];
+-(void)setStockDetails:(NSMutableDictionary*)theStockListWithDetails{
+    if(_stockListContainingStockDetails == nil){
+        _stockListContainingStockDetails = [[NSMutableDictionary alloc] init];
     }
     
-    _stockDetails = theStockDetails;
+    _stockListContainingStockDetails = theStockListWithDetails;
 }
 
 //**********************Methods******************************
@@ -127,15 +130,12 @@
     }
    
     //Set the list's data and load it
-    _searchListViewController.stockDownloadManager = stockDownloadManager;
     _searchListViewController.stockSearchResultsData = _searchResults;
     _searchListViewController.delegate = self;
     [_searchListViewController.listView reloadData];
     
-    
     //Call mehod to layout the views on the super view
     [self layoutStockSearchListView];
-    
 }
 
 -(void) layoutStockSearchListView{
@@ -178,7 +178,6 @@
                                                                                    constant:50];
     
     [self.view addConstraint:trailingVerticalConstraint];
-    
 }
 
 -(void) animateStockSearchListSubView{
@@ -202,11 +201,12 @@
     {
         _stockDetailViewController = [[SPAStockDetailViewController alloc] initWithNibName:@"StockDetailsView" bundle:nil];
     }
+    [self layoutStockDetailsView];//Call method to animate the subview
+    
     _stockDetailViewController.delegate = self;
     _stockDetailViewController.viewMode = newStock;//Set the view mode
-    _stockDetailViewController.stockDetailInfo = theStockDetails;//Set the property with stock data
+    _stockDetailViewController.stockListDetailInfo = _stockListContainingStockDetails;//Set the property with stock data
     [_stockDetailViewController initViewWithStockDetails];//Call method to layout the view with data
-    [self layoutStockDetailsView];//Call method to animate the subview
 }
 
 
@@ -262,67 +262,33 @@
 //Saves the stock to core data
 -(void) saveStockToCoreDataManager{
     
-    if(_viewMode == newStock){
-        if(_stockDetails != nil){
-            Stock *newStock = [[CoreDataManager sharedManager] getStockObjectWithEmptyData];
-            
-            newStock.symbol = (NSString *)[_stockDetails objectAtIndex:0];
-            newStock.companyName = (NSString *)[_stockDetails objectAtIndex:1];
-            newStock.highPriceAlert = [self convertStringToDecimal:_stockDetailViewController.highPriceTextView.stringValue];
-            newStock.lowPriceAlert = [self convertStringToDecimal:_stockDetailViewController.lowPriceTextView.stringValue];  
-            newStock.numberOfOwnedShares = [self convertStringToNumber:_stockDetailViewController.numberOfSharesTextView.stringValue];
-            
-            if([_stockDetails count] >= 10){
-                
-                newStock.currentPrice = [NSDecimalNumber decimalNumberWithString:[_stockDetails objectAtIndex:4]];
-                newStock.priceRange = (NSString *)[_stockDetails objectAtIndex:7];
-                //Trim extra data from precent change
-                NSString *percentChange = (NSString *)[_stockDetails objectAtIndex:8];
-                newStock.percentChange = [percentChange substringFromIndex:3];
-                newStock.targetPrice = (NSString *)[_stockDetails objectAtIndex:9];
-                
-            }else{
-                newStock.currentPrice = [NSDecimalNumber decimalNumberWithString:[_stockDetails objectAtIndex:3]];
-                newStock.priceRange = (NSString *)[_stockDetails objectAtIndex:6];
-                NSString *percentChange = (NSString *)[_stockDetails objectAtIndex:8];
-                //Trim extra data from precent change
-                newStock.percentChange = [percentChange substringFromIndex:3];
-                newStock.targetPrice = (NSString *)[_stockDetails objectAtIndex:8];
-            }
+    NSArray *userEnteredValue = [self getUserEnteredValuesFromTheDetailViewController];
+    
+    for(id key in[_stockListContainingStockDetails allKeys])
+    {
+        NSArray *stockDetails = [_stockListContainingStockDetails objectForKey:key];
+        if([stockDetails count] > 8)//defence - need to refactor
+        {
+            [[CoreDataManager sharedManager] saveStockWithDetails:stockDetails withUserEnteredValues:userEnteredValue];
         }
-    }else{
     }
-    
-    
+   
     [[CoreDataManager sharedManager] stockEntityCount];
-    
 }
 
--(NSDecimalNumber*)convertStringToDecimal:(NSString*)thisStringValue{
-    NSDecimalNumber *returnvalue = [NSDecimalNumber decimalNumberWithString:@"0.0"];
-    if(![thisStringValue isEqualToString:@""]){
-        
-        returnvalue = [NSDecimalNumber decimalNumberWithString:[thisStringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    }
-    
-    return returnvalue;
-}
-
--(NSInteger*) convertStringToNumber:(NSString*)thisStringValue{
-    
-    NSInteger *returnValue = 0;
-    thisStringValue = [thisStringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-    if(![thisStringValue isEqualToString:@""]){
-        returnValue = [thisStringValue integerValue];
-    }
-    
-    return returnValue;
+-(NSArray*) getUserEnteredValuesFromTheDetailViewController
+{
+    NSString *highPrice = _stockDetailViewController.highPriceTextView.stringValue;
+    NSString *lowPrice = _stockDetailViewController.lowPriceTextView.stringValue;
+    NSString *numOfShare = _stockDetailViewController.numberOfSharesTextView.stringValue;
+    NSArray *userEnteredValues = [NSArray arrayWithObjects:highPrice,lowPrice,numOfShare, nil];
+    return userEnteredValues;
 }
 
 #pragma mark - StockSearchListViewControllerDelegate
 -(void) selectedStockFromListView:(NSString *)thisSelectedStock{
     NSLog(@"Delegate raised for selected Stock: %@",thisSelectedStock);
+    [stockDownloadManager fetchStockDetailInformation:thisSelectedStock];
 }
 
 #pragma mark - StockDetailViewControllerDelegate
@@ -330,6 +296,7 @@
     
     [self saveStockToCoreDataManager];
     if(delegate != nil){
+        stockDownloadManager = nil;
         [delegate stockEditViewControllerFinished];
     }
 }
@@ -340,7 +307,7 @@
 -(void) downloadDataCompletewithData:(NSMutableData *)theData forStockDataType:(StockDownloadDataType)theStockDataType{
     
     if(theStockDataType == StockSearchData){
-        _searchResults = [SPAAppUtilies parseDownloadedDataForSearchResults:theData];
+        _searchResults = [SPAStockWebServiceDataParser parseDownloadedDataForSearchResults:theData];
         
         if(_searchResults.count > 0){
             [self loadSearchListViewController];
@@ -353,11 +320,11 @@
     
     if(theStockDataType == AdditionalDetailsData){
         //NSString *stockDetailsData = [[NSString alloc] initWithData:theData encoding:NSASCIIStringEncoding];
-        _stockDetails = [SPAAppUtilies parseDownloadedDataForAdditionalData:theData];
+        _stockListContainingStockDetails = [SPAStockWebServiceDataParser parseDownloadedDataForAdditionalData:theData];
         
-        if(_stockDetails.count > 0){
-            NSLog(@"Selected Stock: %@",_stockDetails);
-            [self loadStockDetailsViewController:_stockDetails];
+        if(_stockListContainingStockDetails.count > 0){
+            //NSLog(@"Selected Stock: %@",_stockDetails[0]);
+            [self loadStockDetailsViewController:_stockListContainingStockDetails];
         }else{
             //TODO:Display alert - no details found
         }

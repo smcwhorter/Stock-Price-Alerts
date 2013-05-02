@@ -30,6 +30,8 @@
 		985758EE16F52E470059DD88 /* PriceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 985758ED16F52E470059DD88 /* PriceHistory.m */; };
 		985758F116F52E6D0059DD88 /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 985758F016F52E6D0059DD88 /* Stock.m */; };
 		987F702016D709AA0074DF7C /* STOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F701F16D709AA0074DF7C /* STOverlayView.m */; };
+		988B4141172C2617008FE7A2 /* SPAStockWebServiceDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 988B4140172C2617008FE7A2 /* SPAStockWebServiceDataParser.m */; };
+		988B4144172C32D6008FE7A2 /* SPAColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 988B4143172C32D6008FE7A2 /* SPAColors.m */; };
 		9895CA7516BF31050004EE6E /* SPAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7416BF31050004EE6E /* SPAHeaderView.m */; };
 		9895CA7816BF310E0004EE6E /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7716BF310E0004EE6E /* FooterView.m */; };
 		9895CA7D16BF32860004EE6E /* SPAHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */; };
@@ -122,6 +124,10 @@
 		985758F016F52E6D0059DD88 /* Stock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stock.m; sourceTree = "<group>"; };
 		987F701E16D709AA0074DF7C /* STOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOverlayView.h; sourceTree = "<group>"; };
 		987F701F16D709AA0074DF7C /* STOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOverlayView.m; sourceTree = "<group>"; };
+		988B413F172C2617008FE7A2 /* SPAStockWebServiceDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAStockWebServiceDataParser.h; sourceTree = "<group>"; };
+		988B4140172C2617008FE7A2 /* SPAStockWebServiceDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAStockWebServiceDataParser.m; sourceTree = "<group>"; };
+		988B4142172C32D6008FE7A2 /* SPAColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAColors.h; sourceTree = "<group>"; };
+		988B4143172C32D6008FE7A2 /* SPAColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAColors.m; sourceTree = "<group>"; };
 		9895CA7316BF31050004EE6E /* SPAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAHeaderView.h; sourceTree = "<group>"; };
 		9895CA7416BF31050004EE6E /* SPAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAHeaderView.m; sourceTree = "<group>"; };
 		9895CA7616BF310E0004EE6E /* FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
@@ -319,17 +325,16 @@
 		980782AD16B8D20D00933B40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9861C44A171B654500E0D017 /* Header and Footer */,
 				06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */,
 				06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */,
-				9895CA7B16BF32860004EE6E /* SPAFooterViewController.h */,
-				98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */,
-				98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */,
-				9895CA7916BF32860004EE6E /* SPAHeaderViewController.h */,
-				9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */,
-				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
 				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
 				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
-				98C0D15116F4C83E007A2F31 /* StockDetailControllers */,
+				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
+				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
+				98C0D15116F4C83E007A2F31 /* StockEdit Sub ViewsController */,
+				98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */,
+				98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -359,6 +364,17 @@
 				981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */,
 			);
 			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		9861C44A171B654500E0D017 /* Header and Footer */ = {
+			isa = PBXGroup;
+			children = (
+				9895CA7916BF32860004EE6E /* SPAHeaderViewController.h */,
+				9895CA7A16BF32860004EE6E /* SPAHeaderViewController.m */,
+				9895CA7C16BF32860004EE6E /* SPAFooterViewController.m */,
+				9895CA7B16BF32860004EE6E /* SPAFooterViewController.h */,
+			);
+			name = "Header and Footer";
 			sourceTree = "<group>";
 		};
 		987F702216D709B30074DF7C /* STOverlayView */ = {
@@ -443,26 +459,28 @@
 			name = "Custom Controls";
 			sourceTree = "<group>";
 		};
-		98C0D15116F4C83E007A2F31 /* StockDetailControllers */ = {
+		98C0D15116F4C83E007A2F31 /* StockEdit Sub ViewsController */ = {
 			isa = PBXGroup;
 			children = (
-				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
-				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
 				98F11DC616EBA41100B56237 /* SPAStockDetailViewController.h */,
 				98F11DC716EBA41100B56237 /* SPAStockDetailViewController.m */,
 				98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */,
 				98F37EB016F29A160076FA17 /* StockSearchListViewController.m */,
 			);
-			name = StockDetailControllers;
+			name = "StockEdit Sub ViewsController";
 			sourceTree = "<group>";
 		};
 		98CBD9D916D4641300EB0F21 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */,
-				980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */,
 				98CBD9E616D5C79700EB0F21 /* SPAConstants.h */,
 				98CBD9E716D5C79700EB0F21 /* SPAConstants.m */,
+				980B5D9E16C8820D0073CBC3 /* SPAAppUtilies.h */,
+				980B5D9F16C8820D0073CBC3 /* SPAAppUtilies.m */,
+				988B4142172C32D6008FE7A2 /* SPAColors.h */,
+				988B4143172C32D6008FE7A2 /* SPAColors.m */,
+				D26669C911B1B2F1007597F1 /* AppDelegate.h */,
+				D26669CA11B1B2F1007597F1 /* AppDelegate.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -490,12 +508,12 @@
 		D25DDA7B133F569B0086783B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D26669C911B1B2F1007597F1 /* AppDelegate.h */,
-				D26669CA11B1B2F1007597F1 /* AppDelegate.m */,
 				9818BA9116CB459200D706D3 /* CoreDataManager.h */,
 				9818BA9216CB459200D706D3 /* CoreDataManager.m */,
 				98CBD9DF16D4668800EB0F21 /* SPADataDownloadManager.h */,
 				98CBD9E016D4668800EB0F21 /* SPADataDownloadManager.m */,
+				988B413F172C2617008FE7A2 /* SPAStockWebServiceDataParser.h */,
+				988B4140172C2617008FE7A2 /* SPAStockWebServiceDataParser.m */,
 				98CBD9D916D4641300EB0F21 /* Utils */,
 			);
 			name = Classes;
@@ -641,6 +659,8 @@
 				981CFB9817026265009D0E08 /* PullToRefreshClipView.m in Sources */,
 				981CFB9917026265009D0E08 /* PullToRefreshScrollView.m in Sources */,
 				980F4B2A1705E854007A31B9 /* ApplicationState.m in Sources */,
+				988B4141172C2617008FE7A2 /* SPAStockWebServiceDataParser.m in Sources */,
+				988B4144172C32D6008FE7A2 /* SPAColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

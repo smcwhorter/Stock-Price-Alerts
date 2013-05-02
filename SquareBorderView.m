@@ -7,7 +7,7 @@
 //
 
 #import "SquareBorderView.h"
-#import "SPAAppUtilies.h"
+#import "SPAColors.h"
 
 @implementation SquareBorderView
 
@@ -47,7 +47,7 @@
     
        
     //Create the gradient
-    NSGradient *gradientColor = [[NSGradient alloc] initWithStartingColor:[SPAAppUtilies stockEditDarkGrayStart] endingColor:[SPAAppUtilies stockEditDarkGrayEnd]];
+    NSGradient *gradientColor = [[NSGradient alloc] initWithStartingColor:[SPAColors stockEditDarkGrayStart] endingColor:[SPAColors stockEditDarkGrayEnd]];
     //Define the rectangle
     NSRect innerRecFrame = NSMakeRect(x+21, y+21, w-52, h-42);
     
@@ -59,7 +59,7 @@
     
     
     //Inner rect
-    NSColor *rgb1 = [SPAAppUtilies borderWhite];
+    NSColor *rgb1 = [SPAColors borderWhite];
     [rgb1 set];
     //NSFrameRect(NSMakeRect(x+20, y+20, w-50, h-40));
     NSRect middleRecFrame = NSMakeRect(x+20, y+20, w-50, h-40);
@@ -70,7 +70,7 @@
     [middleRoundedRecPath stroke];
     
     //Outer rect
-    NSColor *rgb = [SPAAppUtilies borderMedium];
+    NSColor *rgb = [SPAColors borderMedium];
     [rgb set];
     //NSFrameRect(NSMakeRect(x+19, y+19, w-48, h-38));*/
     NSRect outerRectFrame = NSMakeRect(x+19, y+19, w-48, h-38);

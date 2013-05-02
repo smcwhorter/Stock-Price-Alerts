@@ -216,7 +216,7 @@ dispatch_queue_t trackingQueue;
 
     }
         [self refreshPTRScrollViewContents];
-    [self stopLoading];
+    //[self stopLoading];
 }
 
 - (void)stopLoading {	

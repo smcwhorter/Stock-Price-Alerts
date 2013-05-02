@@ -10,19 +10,6 @@
 
 @interface SPAAppUtilies : NSObject
 
-+(NSColor*) lightGray;
-+(NSColor*) darkGray;
-+(NSColor*) borderWhite;
-+(NSColor*) borderMedium;
-
-+(NSColor*) stockEditDarkGrayStart;
-+(NSColor*) stockEditDarkGrayEnd;
-+(NSColor*) stockEditGradientStart;
-+(NSColor*) stockEditGradientEnd;
-
-
-+(NSArray*) parseDownloadedDataForSearchResults:(NSData*) theData;
-+(NSArray*) parseDownloadedDataForAdditionalData:(NSData *)theData;
-
-
++(NSDecimalNumber*)convertStringToDecimal:(NSString*)thisStringValue;
++(NSInteger*) convertStringToNumber:(NSString*)thisStringValue;
 @end

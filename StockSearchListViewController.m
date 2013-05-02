@@ -36,12 +36,6 @@
     [super loadView];//Must call or AutoLayout will break
 }
 
--(void)downloadAdditionalStockData:(NSString*)theSymbol{
-    
-    [_stockDownloadManager fetchStockDetailInformation:theSymbol];
-    //TODO: Add loading dialog
-}
-
 #pragma mark - JAListViewDelegate
 
 - (void)listView:(JAListView *)list willSelectView:(JAListViewItem *)view {
@@ -51,7 +45,6 @@
         demoView.selected = YES;
         
         NSString *selectedSymbol = demoView.stockSymbol;
-        [self downloadAdditionalStockData:selectedSymbol];
         
         if(delegate != nil){
             [delegate selectedStockFromListView:selectedSymbol];

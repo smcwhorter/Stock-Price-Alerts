@@ -59,19 +59,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "StockSearchListViewController.m"
-         timestampString = "387574843.558457"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
-         landmarkName = "-listView:willSelectView:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Classes/AppDelegate.m"
          timestampString = "387577824.916995"
          startingColumnNumber = "9223372036854775807"
@@ -79,6 +66,32 @@
          startingLineNumber = "60"
          endingLineNumber = "60"
          landmarkName = "-setupTheMainWindowWithViewParts"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataManager.m"
+         timestampString = "389155702.696483"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
+         landmarkName = "-updateStockListWithPriceHistoryData:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataManager.m"
+         timestampString = "389156566.812195"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
+         landmarkName = "-updateStockListWithPriceHistoryData:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
