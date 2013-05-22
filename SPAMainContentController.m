@@ -51,6 +51,7 @@
     [self animateOutGoingAndIncomingViews];
 }
 
+//TDOO: Refactor the ifs
 -(void) loadSelectedView:(MainContainerViews)selectedView{
     if(selectedView == stockListView)
     {
@@ -77,6 +78,14 @@
     [stockListViewController bindListViewWithStockList];
     incommingView = [stockListViewController view];
     [headerViewController.headerTitle setStringValue:@"Stock List"];
+}
+
+-(void)loadPriceHistoryViewController {
+    if(priceHistoryViewController == nil){
+        priceHistoryViewController = [[SPAPriceHistoryViewController alloc]initWithNibName:@"PriceHistoryView" bundle:nil];
+    }
+    incommingView = [stockListViewController view];
+     [headerViewController.headerTitle setStringValue:@"Price History"];
 }
 
 - (void)loadStockEditViewController {

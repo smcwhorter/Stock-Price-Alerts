@@ -10,6 +10,7 @@
 #import "SPAHeaderViewController.h"
 #import "StockEditViewController.h"
 #import "StockListViewController.h"
+#import "SPAPriceHistoryViewController.h"
 #import "SettingsViewController.h"
 #import "SPAConstants.h"
 
@@ -26,6 +27,7 @@
     SPAHeaderViewController *headerViewController;
     StockEditViewController *stockEditViewController;
     StockListViewController *stockListViewController;
+    SPAPriceHistoryViewController *priceHistoryViewController;
     SettingsViewController *stockSettingsViewController;
     
 }

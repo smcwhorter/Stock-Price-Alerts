@@ -27,6 +27,8 @@
 		981CFB9917026265009D0E08 /* PullToRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */; };
 		981CFB9C170266C4009D0E08 /* pull-to-refresh-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 981CFB9A170266C4009D0E08 /* pull-to-refresh-arrow.png */; };
 		981CFB9D170266C4009D0E08 /* release-to-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 981CFB9B170266C4009D0E08 /* release-to-refresh.png */; };
+		9828FE3C1733458000C01C9C /* SPAPriceHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9828FE3B1733458000C01C9C /* SPAPriceHistoryViewController.m */; };
+		9828FE3E1733464500C01C9C /* PriceHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9828FE3D1733464500C01C9C /* PriceHistoryView.xib */; };
 		985758EE16F52E470059DD88 /* PriceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 985758ED16F52E470059DD88 /* PriceHistory.m */; };
 		985758F116F52E6D0059DD88 /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 985758F016F52E6D0059DD88 /* Stock.m */; };
 		987F702016D709AA0074DF7C /* STOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 987F701F16D709AA0074DF7C /* STOverlayView.m */; };
@@ -118,6 +120,9 @@
 		981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshScrollView.m; sourceTree = "<group>"; };
 		981CFB9A170266C4009D0E08 /* pull-to-refresh-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pull-to-refresh-arrow.png"; sourceTree = "<group>"; };
 		981CFB9B170266C4009D0E08 /* release-to-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "release-to-refresh.png"; sourceTree = "<group>"; };
+		9828FE3A1733458000C01C9C /* SPAPriceHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAPriceHistoryViewController.h; sourceTree = "<group>"; };
+		9828FE3B1733458000C01C9C /* SPAPriceHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAPriceHistoryViewController.m; sourceTree = "<group>"; };
+		9828FE3D1733464500C01C9C /* PriceHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceHistoryView.xib; sourceTree = "<group>"; };
 		985758EC16F52E470059DD88 /* PriceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceHistory.h; sourceTree = "<group>"; };
 		985758ED16F52E470059DD88 /* PriceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceHistory.m; sourceTree = "<group>"; };
 		985758EF16F52E6D0059DD88 /* Stock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stock.h; sourceTree = "<group>"; };
@@ -328,13 +333,12 @@
 				9861C44A171B654500E0D017 /* Header and Footer */,
 				06AAD7D116C948AE003B54C1 /* SPAMainContentController.h */,
 				06AAD7D216C948AE003B54C1 /* SPAMainContentController.m */,
-				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
-				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
-				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
-				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
-				98C0D15116F4C83E007A2F31 /* StockEdit Sub ViewsController */,
 				98D7F1F116BA1BEE00116B44 /* SettingsViewController.h */,
 				98D7F1F216BA1BEF00116B44 /* SettingsViewController.m */,
+				980782AE16B8D2A600933B40 /* StockEditViewController.h */,
+				980782AF16B8D2A600933B40 /* StockEditViewController.m */,
+				9828FE391733452F00C01C9C /* List ViewControllers */,
+				98C0D15116F4C83E007A2F31 /* StockEdit Sub ViewControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -364,6 +368,17 @@
 				981CFB9717026265009D0E08 /* PullToRefreshScrollView.m */,
 			);
 			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
+		9828FE391733452F00C01C9C /* List ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				98D7F1EB16BA0C1400116B44 /* StockListViewController.h */,
+				98D7F1EC16BA0C1400116B44 /* StockListViewController.m */,
+				9828FE3A1733458000C01C9C /* SPAPriceHistoryViewController.h */,
+				9828FE3B1733458000C01C9C /* SPAPriceHistoryViewController.m */,
+			);
+			name = "List ViewControllers";
 			sourceTree = "<group>";
 		};
 		9861C44A171B654500E0D017 /* Header and Footer */ = {
@@ -427,6 +442,7 @@
 				980B5DA216C88E810073CBC3 /* SPAHeaderView.xib */,
 				98D7F1ED16BA0C1400116B44 /* StockListViewController.xib */,
 				98E4141016FFA377002346FD /* StockListViewCell.xib */,
+				9828FE3D1733464500C01C9C /* PriceHistoryView.xib */,
 				98D7F1F316BA1BEF00116B44 /* SettingsViewController.xib */,
 				98D7F21816BB44D700116B44 /* DemoSectionView.xib */,
 				98D7F21516BB44D700116B44 /* DemoView.xib */,
@@ -459,7 +475,7 @@
 			name = "Custom Controls";
 			sourceTree = "<group>";
 		};
-		98C0D15116F4C83E007A2F31 /* StockEdit Sub ViewsController */ = {
+		98C0D15116F4C83E007A2F31 /* StockEdit Sub ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				98F11DC616EBA41100B56237 /* SPAStockDetailViewController.h */,
@@ -467,7 +483,7 @@
 				98F37EAF16F29A160076FA17 /* StockSearchListViewController.h */,
 				98F37EB016F29A160076FA17 /* StockSearchListViewController.m */,
 			);
-			name = "StockEdit Sub ViewsController";
+			name = "StockEdit Sub ViewControllers";
 			sourceTree = "<group>";
 		};
 		98CBD9D916D4641300EB0F21 /* Utils */ = {
@@ -610,6 +626,7 @@
 				981CFB9C170266C4009D0E08 /* pull-to-refresh-arrow.png in Resources */,
 				981CFB9D170266C4009D0E08 /* release-to-refresh.png in Resources */,
 				980F4B271705E4EC007A31B9 /* greenarrow.png in Resources */,
+				9828FE3E1733464500C01C9C /* PriceHistoryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +678,7 @@
 				980F4B2A1705E854007A31B9 /* ApplicationState.m in Sources */,
 				988B4141172C2617008FE7A2 /* SPAStockWebServiceDataParser.m in Sources */,
 				988B4144172C32D6008FE7A2 /* SPAColors.m in Sources */,
+				9828FE3C1733458000C01C9C /* SPAPriceHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
